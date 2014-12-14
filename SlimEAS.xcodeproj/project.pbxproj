@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577E6D1A3DBBF600AFFA14 /* main.cpp */; };
+		BA577ECC1A3DDF2700AFFA14 /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
+		5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA577E6A1A3DBBF600AFFA14 /* SlimEAS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SlimEAS; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA577E6D1A3DBBF600AFFA14 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = usr/lib/libcurl.4.dylib; sourceTree = SDKROOT; };
+		BA577EDB1A3DE12200AFFA14 /* curlcpp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = curlcpp; sourceTree = "<group>"; };
+		BA577EDC1A3DE15000AFFA14 /* libcurl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libcurl; path = External/include/libcurl; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +40,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA577ECC1A3DDF2700AFFA14 /* libcurl.4.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09185763F542F3456E78F18C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */,
+				BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */,
+				5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9CD3FFBC2885B534A0337E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */,
+				53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BA577E611A3DBBF600AFFA14 = {
 			isa = PBXGroup;
 			children = (
 				BA577E6C1A3DBBF600AFFA14 /* SlimEAS */,
 				BA577E6B1A3DBBF600AFFA14 /* Products */,
+				B9CD3FFBC2885B534A0337E9 /* Pods */,
+				09185763F542F3456E78F18C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +87,19 @@
 		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
+				BA577EAA1A3DD45C00AFFA14 /* curlcpp */,
 				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
 			);
 			path = SlimEAS;
+			sourceTree = "<group>";
+		};
+		BA577EAA1A3DD45C00AFFA14 /* curlcpp */ = {
+			isa = PBXGroup;
+			children = (
+				BA577EDC1A3DE15000AFFA14 /* libcurl */,
+				BA577EDB1A3DE12200AFFA14 /* curlcpp */,
+			);
+			name = curlcpp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -69,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA577E711A3DBBF600AFFA14 /* Build configuration list for PBXNativeTarget "SlimEAS" */;
 			buildPhases = (
+				5633F2B1A42C7D16F4BFFC17 /* Check Pods Manifest.lock */,
 				BA577E661A3DBBF600AFFA14 /* Sources */,
 				BA577E671A3DBBF600AFFA14 /* Frameworks */,
 				BA577E681A3DBBF600AFFA14 /* CopyFiles */,
+				59AD1C5E7B205FBF2DAC6980 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -112,6 +154,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5633F2B1A42C7D16F4BFFC17 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		59AD1C5E7B205FBF2DAC6980 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA577E661A3DBBF600AFFA14 /* Sources */ = {
@@ -201,14 +276,46 @@
 		};
 		BA577E721A3DBBF600AFFA14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/expat\"",
+					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
+					"$(PODS_ROOT)/expat",
+					"$(PODS_ROOT)/wbxml/src",
+					"\"$(PROJECT_DIR)/External/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-SlimEAS-expat\"",
+					"-l\"Pods-SlimEAS-libwbxml\"",
+					"-lcurl.4",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		BA577E731A3DBBF600AFFA14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/expat\"",
+					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
+					"$(PODS_ROOT)/expat",
+					"$(PODS_ROOT)/wbxml/src",
+					"\"$(PROJECT_DIR)/External/include\"",
+				);
+				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-SlimEAS-expat\"",
+					"-l\"Pods-SlimEAS-libwbxml\"",
+					"-lcurl.4",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +339,7 @@
 				BA577E731A3DBBF600AFFA14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
