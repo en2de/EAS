@@ -1,0 +1,14 @@
+PODS:
+  - expat (2.1)
+  - libwbxml (0.11.2):
+    - expat
+
+DEPENDENCIES:
+  - expat (~> 2.1)
+  - libwbxml (~> 0.11.2)
+
+SPEC CHECKSUMS:
+  expat: fcbaeb4f976c7d84f5bb576714cca4547949931b
+  libwbxml: b92cc5dadec4bcda23e70280cf4b044a5b7696c0
+
+COCOAPODS: 0.35.0
