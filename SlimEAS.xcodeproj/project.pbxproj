@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577E6D1A3DBBF600AFFA14 /* main.cpp */; };
-		BA577ECC1A3DDF2700AFFA14 /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */; };
+		BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */; };
+		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		BA577E681A3DBBF600AFFA14 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 8;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 16;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
@@ -32,7 +33,9 @@
 		BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = usr/lib/libcurl.4.dylib; sourceTree = SDKROOT; };
 		BA577EDB1A3DE12200AFFA14 /* curlcpp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = curlcpp; sourceTree = "<group>"; };
-		BA577EDC1A3DE15000AFFA14 /* libcurl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libcurl; path = External/include/libcurl; sourceTree = SOURCE_ROOT; };
+		BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASWBXml.cpp; sourceTree = "<group>"; };
+		BA577EE01A3DE55800AFFA14 /* SASWBXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASWBXml.h; sourceTree = "<group>"; };
+		BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexpat.dylib; path = usr/lib/libexpat.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA577ECC1A3DDF2700AFFA14 /* libcurl.4.dylib in Frameworks */,
+				BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 		09185763F542F3456E78F18C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */,
 				BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */,
 				BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */,
 				5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */,
@@ -87,6 +91,7 @@
 		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
+				BA577EDE1A3DE53500AFFA14 /* src */,
 				BA577EAA1A3DD45C00AFFA14 /* curlcpp */,
 				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
 			);
@@ -96,10 +101,18 @@
 		BA577EAA1A3DD45C00AFFA14 /* curlcpp */ = {
 			isa = PBXGroup;
 			children = (
-				BA577EDC1A3DE15000AFFA14 /* libcurl */,
 				BA577EDB1A3DE12200AFFA14 /* curlcpp */,
 			);
 			name = curlcpp;
+			sourceTree = "<group>";
+		};
+		BA577EDE1A3DE53500AFFA14 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */,
+				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
