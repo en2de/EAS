@@ -13,10 +13,12 @@
 #include <cstdint>
 
 #include <expat/expat.h>
-#include <curlcpp/curl_easy.h>
 #include <libwbxml/wbxml.h>
 
-using std::string;
+#include "curl_easy.h"
+
+
+using namespace std;
 
 namespace SlimEAS {
   /**

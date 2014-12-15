@@ -13,7 +13,7 @@
 
 #include "SASWBXml.h"
 
-using SlimEAS::SASWBXml;
+using namespace SlimEAS;
 
 SASWBXml::SASWBXml() {
   _w2x = NULL;

@@ -12,6 +12,12 @@
 #include <string>
 
 #include "SASWBXml.h"
+#include "SASOptionsRequest.h"
+
+#include <unistd.h>
+
+#include <thread>
+#include <future>
 
 void cppTest() {
   std::string str;
@@ -45,8 +51,19 @@ void cppTest() {
 }
 
 int main(int argc, const char * argv[]) {
+//  cppTest();
   
-  cppTest();
+  //make a test Call;
+
+  SlimEAS::SASOptionsRequest req;
+  
+  std::future<void> res = std::async([&req]{
+    req.testCurl();
+  });
+  
+  std::cout << "start sleep";
+  sleep(10);
+  std::cout << "sleep over";
   
   return 0;
 }
