@@ -19,6 +19,7 @@
 		BA577F401A3EDD1000AFFA14 /* curl_multi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F381A3EDD1000AFFA14 /* curl_multi.cpp */; };
 		BA577F411A3EDD1000AFFA14 /* curl_share.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F391A3EDD1000AFFA14 /* curl_share.cpp */; };
 		BA577F421A3EDD1000AFFA14 /* curl_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F3A1A3EDD1000AFFA14 /* curl_writer.cpp */; };
+		BA577F541A400F4A00AFFA14 /* http_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F521A400F4A00AFFA14 /* http_parser.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		BA577F4E1A3EDD2F00AFFA14 /* curl_share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_share.h; sourceTree = "<group>"; };
 		BA577F4F1A3EDD2F00AFFA14 /* curl_utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_utility.h; sourceTree = "<group>"; };
 		BA577F501A3EDD2F00AFFA14 /* curl_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_writer.h; sourceTree = "<group>"; };
+		BA577F521A400F4A00AFFA14 /* http_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http_parser.c; sourceTree = "<group>"; };
+		BA577F531A400F4A00AFFA14 /* http_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_parser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
+				BA577F511A400F1A00AFFA14 /* httpParser */,
 				BA577EDE1A3DE53500AFFA14 /* src */,
 				BA577EAA1A3DD45C00AFFA14 /* curlcpp */,
 				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
@@ -184,6 +188,15 @@
 				BA577F501A3EDD2F00AFFA14 /* curl_writer.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		BA577F511A400F1A00AFFA14 /* httpParser */ = {
+			isa = PBXGroup;
+			children = (
+				BA577F521A400F4A00AFFA14 /* http_parser.c */,
+				BA577F531A400F4A00AFFA14 /* http_parser.h */,
+			);
+			name = httpParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +300,7 @@
 				BA577F421A3EDD1000AFFA14 /* curl_writer.cpp in Sources */,
 				BA577F3D1A3EDD1000AFFA14 /* curl_form.cpp in Sources */,
 				BA577F401A3EDD1000AFFA14 /* curl_multi.cpp in Sources */,
+				BA577F541A400F4A00AFFA14 /* http_parser.c in Sources */,
 				BA577F3F1A3EDD1000AFFA14 /* curl_info.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

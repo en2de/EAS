@@ -62,7 +62,7 @@ int main(int argc, const char * argv[]) {
   });
   
   std::cout << "start sleep";
-  sleep(10);
+  sleep(60);
   std::cout << "sleep over";
   
   return 0;
