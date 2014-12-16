@@ -10,24 +10,30 @@
 
 #include <stdio.h>
 #include <string>
+#include <curl/curl.h>
 
 #include "SASDefine.h"
-
-using namespace std;
-
 namespace SlimEAS {
+  
+  typedef struct SASOptionsResponse {
+    std::string supportedCommand;
+    std::string supportedVersions;
+    std::string highestSupportedVersion;
+  } SASOptionsResponse;
+  
   class SASOptionsRequest {
   private:
-    
-  SAS_PROPERTY(string, server);
-  SAS_PROPERTY(bool, useSSL);
-  SAS_PROPERTY(string, userName);
-  SAS_PROPERTY(string, password);
+    CURL *_curl;
     
   public:
+    SAS_PROPERTY(std::string, server);
+    SAS_PROPERTY(bool, useSSL);
+    SAS_PROPERTY(std::string, userName);
+    SAS_PROPERTY(std::string, password);
+    
     SASOptionsRequest();
     ~SASOptionsRequest();
-  
-    void testCurl();
+    
+    struct SASOptionsResponse getReponse();
   };
 }

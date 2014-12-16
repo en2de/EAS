@@ -11,16 +11,7 @@
 		BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */; };
 		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
 		BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */; };
-		BA577F3B1A3EDD1000AFFA14 /* curl_easy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F331A3EDD1000AFFA14 /* curl_easy.cpp */; };
-		BA577F3C1A3EDD1000AFFA14 /* curl_exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F341A3EDD1000AFFA14 /* curl_exception.cpp */; };
-		BA577F3D1A3EDD1000AFFA14 /* curl_form.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F351A3EDD1000AFFA14 /* curl_form.cpp */; };
-		BA577F3E1A3EDD1000AFFA14 /* curl_header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F361A3EDD1000AFFA14 /* curl_header.cpp */; };
-		BA577F3F1A3EDD1000AFFA14 /* curl_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F371A3EDD1000AFFA14 /* curl_info.cpp */; };
-		BA577F401A3EDD1000AFFA14 /* curl_multi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F381A3EDD1000AFFA14 /* curl_multi.cpp */; };
-		BA577F411A3EDD1000AFFA14 /* curl_share.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F391A3EDD1000AFFA14 /* curl_share.cpp */; };
-		BA577F421A3EDD1000AFFA14 /* curl_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F3A1A3EDD1000AFFA14 /* curl_writer.cpp */; };
-		BA577F541A400F4A00AFFA14 /* http_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F521A400F4A00AFFA14 /* http_parser.c */; };
-		BA577F581A40796800AFFA14 /* SASOptionsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F561A40796800AFFA14 /* SASOptionsResponse.cpp */; };
+		BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,31 +40,8 @@
 		BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOptionsRequest.cpp; sourceTree = "<group>"; };
 		BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOptionsRequest.h; sourceTree = "<group>"; };
 		BA577F001A3ED70000AFFA14 /* SASDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SASDefine.h; sourceTree = "<group>"; };
-		BA577F331A3EDD1000AFFA14 /* curl_easy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_easy.cpp; sourceTree = "<group>"; };
-		BA577F341A3EDD1000AFFA14 /* curl_exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_exception.cpp; sourceTree = "<group>"; };
-		BA577F351A3EDD1000AFFA14 /* curl_form.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_form.cpp; sourceTree = "<group>"; };
-		BA577F361A3EDD1000AFFA14 /* curl_header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_header.cpp; sourceTree = "<group>"; };
-		BA577F371A3EDD1000AFFA14 /* curl_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_info.cpp; sourceTree = "<group>"; };
-		BA577F381A3EDD1000AFFA14 /* curl_multi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_multi.cpp; sourceTree = "<group>"; };
-		BA577F391A3EDD1000AFFA14 /* curl_share.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_share.cpp; sourceTree = "<group>"; };
-		BA577F3A1A3EDD1000AFFA14 /* curl_writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = curl_writer.cpp; sourceTree = "<group>"; };
-		BA577F441A3EDD2F00AFFA14 /* curl_easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_easy.h; sourceTree = "<group>"; };
-		BA577F451A3EDD2F00AFFA14 /* curl_exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_exception.h; sourceTree = "<group>"; };
-		BA577F461A3EDD2F00AFFA14 /* curl_form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_form.h; sourceTree = "<group>"; };
-		BA577F471A3EDD2F00AFFA14 /* curl_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_header.h; sourceTree = "<group>"; };
-		BA577F481A3EDD2F00AFFA14 /* curl_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_info.h; sourceTree = "<group>"; };
-		BA577F491A3EDD2F00AFFA14 /* curl_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_interface.h; sourceTree = "<group>"; };
-		BA577F4A1A3EDD2F00AFFA14 /* curl_multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_multi.h; sourceTree = "<group>"; };
-		BA577F4B1A3EDD2F00AFFA14 /* curl_pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_pair.h; sourceTree = "<group>"; };
-		BA577F4C1A3EDD2F00AFFA14 /* curl_receiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_receiver.h; sourceTree = "<group>"; };
-		BA577F4D1A3EDD2F00AFFA14 /* curl_sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_sender.h; sourceTree = "<group>"; };
-		BA577F4E1A3EDD2F00AFFA14 /* curl_share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_share.h; sourceTree = "<group>"; };
-		BA577F4F1A3EDD2F00AFFA14 /* curl_utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_utility.h; sourceTree = "<group>"; };
-		BA577F501A3EDD2F00AFFA14 /* curl_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl_writer.h; sourceTree = "<group>"; };
-		BA577F521A400F4A00AFFA14 /* http_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http_parser.c; sourceTree = "<group>"; };
-		BA577F531A400F4A00AFFA14 /* http_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_parser.h; sourceTree = "<group>"; };
-		BA577F561A40796800AFFA14 /* SASOptionsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOptionsResponse.cpp; sourceTree = "<group>"; };
-		BA577F571A40796800AFFA14 /* SASOptionsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOptionsResponse.h; sourceTree = "<group>"; };
+		BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPResponse.cpp; sourceTree = "<group>"; };
+		BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,21 +97,10 @@
 		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
-				BA577F511A400F1A00AFFA14 /* httpParser */,
 				BA577EDE1A3DE53500AFFA14 /* src */,
-				BA577EAA1A3DD45C00AFFA14 /* curlcpp */,
 				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
 			);
 			path = SlimEAS;
-			sourceTree = "<group>";
-		};
-		BA577EAA1A3DD45C00AFFA14 /* curlcpp */ = {
-			isa = PBXGroup;
-			children = (
-				BA577F431A3EDD2F00AFFA14 /* include */,
-				BA577F311A3EDD1000AFFA14 /* src */,
-			);
-			name = curlcpp;
 			sourceTree = "<group>";
 		};
 		BA577EDE1A3DE53500AFFA14 /* src */ = {
@@ -151,57 +108,13 @@
 			children = (
 				BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */,
 				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
-				BA577F561A40796800AFFA14 /* SASOptionsResponse.cpp */,
-				BA577F571A40796800AFFA14 /* SASOptionsResponse.h */,
+				BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */,
+				BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */,
 				BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */,
 				BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */,
 				BA577F001A3ED70000AFFA14 /* SASDefine.h */,
 			);
 			name = src;
-			sourceTree = "<group>";
-		};
-		BA577F311A3EDD1000AFFA14 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				BA577F331A3EDD1000AFFA14 /* curl_easy.cpp */,
-				BA577F341A3EDD1000AFFA14 /* curl_exception.cpp */,
-				BA577F351A3EDD1000AFFA14 /* curl_form.cpp */,
-				BA577F361A3EDD1000AFFA14 /* curl_header.cpp */,
-				BA577F371A3EDD1000AFFA14 /* curl_info.cpp */,
-				BA577F381A3EDD1000AFFA14 /* curl_multi.cpp */,
-				BA577F391A3EDD1000AFFA14 /* curl_share.cpp */,
-				BA577F3A1A3EDD1000AFFA14 /* curl_writer.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		BA577F431A3EDD2F00AFFA14 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				BA577F441A3EDD2F00AFFA14 /* curl_easy.h */,
-				BA577F451A3EDD2F00AFFA14 /* curl_exception.h */,
-				BA577F461A3EDD2F00AFFA14 /* curl_form.h */,
-				BA577F471A3EDD2F00AFFA14 /* curl_header.h */,
-				BA577F481A3EDD2F00AFFA14 /* curl_info.h */,
-				BA577F491A3EDD2F00AFFA14 /* curl_interface.h */,
-				BA577F4A1A3EDD2F00AFFA14 /* curl_multi.h */,
-				BA577F4B1A3EDD2F00AFFA14 /* curl_pair.h */,
-				BA577F4C1A3EDD2F00AFFA14 /* curl_receiver.h */,
-				BA577F4D1A3EDD2F00AFFA14 /* curl_sender.h */,
-				BA577F4E1A3EDD2F00AFFA14 /* curl_share.h */,
-				BA577F4F1A3EDD2F00AFFA14 /* curl_utility.h */,
-				BA577F501A3EDD2F00AFFA14 /* curl_writer.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		BA577F511A400F1A00AFFA14 /* httpParser */ = {
-			isa = PBXGroup;
-			children = (
-				BA577F521A400F4A00AFFA14 /* http_parser.c */,
-				BA577F531A400F4A00AFFA14 /* http_parser.h */,
-			);
-			name = httpParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,19 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */,
 				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
-				BA577F3C1A3EDD1000AFFA14 /* curl_exception.cpp in Sources */,
-				BA577F3B1A3EDD1000AFFA14 /* curl_easy.cpp in Sources */,
-				BA577F581A40796800AFFA14 /* SASOptionsResponse.cpp in Sources */,
-				BA577F411A3EDD1000AFFA14 /* curl_share.cpp in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
 				BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */,
-				BA577F3E1A3EDD1000AFFA14 /* curl_header.cpp in Sources */,
-				BA577F421A3EDD1000AFFA14 /* curl_writer.cpp in Sources */,
-				BA577F3D1A3EDD1000AFFA14 /* curl_form.cpp in Sources */,
-				BA577F401A3EDD1000AFFA14 /* curl_multi.cpp in Sources */,
-				BA577F541A400F4A00AFFA14 /* http_parser.c in Sources */,
-				BA577F3F1A3EDD1000AFFA14 /* curl_info.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

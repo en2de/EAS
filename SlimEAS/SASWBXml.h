@@ -11,11 +11,8 @@
 #include <stdio.h>
 #include <string>
 #include <cstdint>
-
 #include <expat/expat.h>
 #include <libwbxml/wbxml.h>
-
-#include "curl_easy.h"
 
 
 using namespace std;

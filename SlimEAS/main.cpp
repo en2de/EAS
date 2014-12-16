@@ -56,14 +56,24 @@ int main(int argc, const char * argv[]) {
   //make a test Call;
 
   SlimEAS::SASOptionsRequest req;
+  req.server("ex.qq.com");
+  req.userName("chenxu@nationsky.com");
+  req.password("123456abcA");
   
-  std::future<void> res = std::async([&req]{
-    req.testCurl();
-  });
+  SlimEAS::SASOptionsResponse res = req.getReponse();
   
-  std::cout << "start sleep";
-  sleep(60);
-  std::cout << "sleep over";
+  std::cout << "Supported Versions: " << res.supportedVersions << "\n";
+  std::cout << "Supported Commands: " << res.supportedCommand  << "\n";
+  
+  
+ 
+//  std::future<SlimEAS::SASOptionsResponse> res = std::async([&req]{
+//    return req.getReponse();
+//  });
+//  
+//  std::cout << "start sleep";
+//  sleep(60);
+//  std::cout << "sleep over";
   
   return 0;
 }
