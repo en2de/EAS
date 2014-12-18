@@ -45,17 +45,6 @@ namespace {
   }
 }
 
-#pragma mark - for test
-
-int SASHTTPResponse::debugCallback(CURL *handle, curl_infotype type, char *data, size_t size, void *puser){
-  if (type == CURLINFO_HEADER_OUT) {
-    
-  }
-  
-  printf("[DEBUG] %s",data);
-  return 0;
-}
-
 #pragma mark - life cycle
 
 SASHTTPResponse::SASHTTPResponse(): _headerString(""), _body(""), _version(""), _statusCode(""), _status("") {

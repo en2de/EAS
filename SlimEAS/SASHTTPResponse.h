@@ -58,10 +58,7 @@ namespace SlimEAS {
     const std::string &getHeader(const std::string &name) const {
       return _HTTPheaders.at(name);
     }
-    
-    //debug
-    static int debugCallback(CURL *handle, curl_infotype type, char *data, size_t size, void *puser);
-    
+        
     virtual CurlCallback writeHandler();
     virtual CurlCallback headerHandler();
   };
