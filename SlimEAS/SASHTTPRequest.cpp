@@ -66,7 +66,7 @@ SASHTTPResponse * SASHTTPRequest::perform() {
   
   //set response handlers
   SASRequestSetOptions(CURLOPT_WRITEFUNCTION, res->writeHandler());
-  SASRequestSetOptions(CURLOPT_WRITEDATA, &(res->writeStream()));
+  SASRequestSetOptions(CURLOPT_WRITEDATA, res);
   SASRequestSetOptions(CURLOPT_HEADERFUNCTION, res->headerHandler());
   SASRequestSetOptions(CURLOPT_HEADERDATA, res);
   

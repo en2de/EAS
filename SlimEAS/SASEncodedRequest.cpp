@@ -22,6 +22,8 @@ string SlimEAS::toUpper(const std::string &name){
 }
 
 SASEncodedRequest::SASEncodedRequest() {
+  //Load command dictionary
+  //Values taken from [MS-ASHTTP] sec 2.2.1.1.1.1.2
   _commandDict["SYNC"] = 0;
   _commandDict["SENDMAIL"] = 1;
   _commandDict["SMARTFORWARD"] = 2;
@@ -43,7 +45,7 @@ SASEncodedRequest::SASEncodedRequest() {
   _commandDict["VALIDATECERT"] = 22;
   
   // Load parameter dictionary
-  // Values taken from [MS-ASHTTP] section 2.2.1.1.1.1.3
+  // Values taken from [MS-ASHTTP] sec 2.2.1.1.1.1.3
   _paramDict["ATTACHMENTNAME"] = 0;
   _paramDict["ITEMID"] = 3;
   _paramDict["LONGID"] = 4;
@@ -130,11 +132,3 @@ bool SASEncodedRequest::addCommandParam(const std::string &name, const std::stri
     return false;
   }
 }
-
-
-
-
-
-
-
-

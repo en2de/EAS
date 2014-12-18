@@ -38,6 +38,7 @@ namespace SlimEAS {
     ~SASCommandRequest();
     
     uint8_t * getWBXml(unsigned int *olen);
+    std::string *getXml(uint8_t* data, int data_len);
     
     void setCommandParam(std::string &param, std::string &value){
       _commandParams[param] = value;

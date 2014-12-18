@@ -18,12 +18,21 @@
 
 namespace SlimEAS {
   
+  /**
+   *  This struct represent an encoded parameter
+   *  ref : [MS-ASHTTP] sec 2.2.1.1.1.1.1
+   */
   typedef struct SASEncodedParam {
     uint8_t tag;
     uint8_t lenght;
     std::string value;
   } SASEncodedParam;
   
+  /**
+   *  This class represents a base64-encoded query value.
+   *  ref : [MS-ASHTTP] sec 2.2.1.1.1
+   *  url : http://msdn.microsoft.com/en-us/library/ee202650(v=exchg.80).aspx
+   */
   class SASEncodedRequest {
   private:
     uint8_t _commandCode = 0;

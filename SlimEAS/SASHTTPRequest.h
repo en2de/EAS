@@ -17,6 +17,7 @@
 
 
 namespace SlimEAS {
+  
   class SASHTTPRequest {
   protected:
     CURL *_curl;
