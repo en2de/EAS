@@ -13,7 +13,7 @@
 		BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */; };
 		BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */; };
 		BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */; };
-		BA577F611A41312C00AFFA14 /* SASBaseRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5F1A41312C00AFFA14 /* SASBaseRequest.cpp */; };
+		BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */; };
 		BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */; };
 		BA577F821A42078E00AFFA14 /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F801A42078E00AFFA14 /* decode.c */; };
 		BA577F831A42078E00AFFA14 /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F811A42078E00AFFA14 /* encode.c */; };
@@ -49,8 +49,8 @@
 		BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
 		BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandRequest.cpp; sourceTree = "<group>"; };
 		BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandRequest.h; sourceTree = "<group>"; };
-		BA577F5F1A41312C00AFFA14 /* SASBaseRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASBaseRequest.cpp; sourceTree = "<group>"; };
-		BA577F601A41312C00AFFA14 /* SASBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASBaseRequest.h; sourceTree = "<group>"; };
+		BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPRequest.cpp; sourceTree = "<group>"; };
+		BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPRequest.h; sourceTree = "<group>"; };
 		BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASEncodedRequest.cpp; sourceTree = "<group>"; };
 		BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASEncodedRequest.h; sourceTree = "<group>"; };
 		BA577F7F1A42078E00AFFA14 /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b64.h; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
 				BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */,
 				BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */,
-				BA577F5F1A41312C00AFFA14 /* SASBaseRequest.cpp */,
-				BA577F601A41312C00AFFA14 /* SASBaseRequest.h */,
+				BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */,
+				BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */,
 				BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */,
 				BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */,
 				BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */,
@@ -246,7 +246,7 @@
 				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
 				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
-				BA577F611A41312C00AFFA14 /* SASBaseRequest.cpp in Sources */,
+				BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */,
 				BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
