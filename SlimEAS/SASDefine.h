@@ -14,3 +14,20 @@ private: type _##name; \
 public: type name() const {return _##name;} \
 public: type name(const type value) \
 {return _##name, _##name = value;}
+
+
+#define SAS_PROPERTY_PROTECTED(type, name) \
+protected: type _##name; \
+public: type name() const {return _##name;} \
+public: type name(const type value) \
+{return _##name, _##name = value;}
+
+#define SAS_GETTER(type, name) \
+public: type name() const {return _##name;}
+
+#define SAS_SETTER(t,p) \
+public: void p(t val)
+
+namespace SlimEAS {
+  extern std::string toUpper(const std::string &name);
+}

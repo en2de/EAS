@@ -13,50 +13,67 @@
 #include <sstream>
 
 using namespace SlimEAS;
+using SlimEAS::SASBaseRequest;
 using namespace std;
 
 //get httpResponse headers
 
-SASOptionsRequest::SASOptionsRequest():
-_useSSL(true){}
-
-SASOptionsRequest::~SASOptionsRequest(){
+SASOptionsRequest::SASOptionsRequest(): SASBaseRequest() {
+  
 }
 
-struct SASOptionsResponse SASOptionsRequest::getReponse() {
-  _curl = curl_easy_init();
-  SASHTTPResponse res;
+SASOptionsRequest::SASOptionsRequest(const string& server,
+                                     const string& user,
+                                     const string& password,
+                                     bool useSSL): SASBaseRequest(server, user, password, useSSL) {
 
-    //open this for debuf.
-  curl_easy_setopt(_curl, CURLOPT_VERBOSE, 1L);
-  curl_easy_setopt(_curl, CURLOPT_DEBUGFUNCTION, SASHTTPResponse::debugCallback);
-  curl_easy_setopt(_curl, CURLOPT_DEBUGDATA, &res);
+}
 
+SASOptionsRequest::~SASOptionsRequest() {
+}
+
+SASHTTPResponse *SASOptionsRequest::getResponse() {
+  this->requestBegin();
+  
+  SASHTTPResponse *res = new SASHTTPResponse;
+  
+//  curl_easy_setopt(_curl, CURLOPT_PROXY, "127.0.0.1");
+//  curl_easy_setopt(_curl, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+//  curl_easy_setopt(_curl, CURLOPT_PROXYPORT, 8085);
+  
   curl_easy_setopt(_curl, CURLOPT_URL, _server.c_str());
   curl_easy_setopt(_curl, CURLOPT_USERNAME, _userName.c_str());
   curl_easy_setopt(_curl, CURLOPT_PASSWORD, _password.c_str());
-  curl_easy_setopt(_curl, CURLOPT_USE_SSL, (long)this->useSSL());
   
-  curl_easy_setopt(_curl, CURLOPT_USERAGENT, "Slim-EAS");
-  curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, res.writeHandler());
-  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, res.writeStream());
-  curl_easy_setopt(_curl, CURLOPT_HEADERFUNCTION, res.headerHandler());
-  curl_easy_setopt(_curl, CURLOPT_HEADERDATA, &res);
+  curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, res->writeHandler());
+  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, res->writeStream());
+  curl_easy_setopt(_curl, CURLOPT_HEADERFUNCTION, res->headerHandler());
+  curl_easy_setopt(_curl, CURLOPT_HEADERDATA, res);
   curl_easy_setopt(_curl, CURLOPT_CUSTOMREQUEST, "OPTIONS");
-  curl_easy_setopt(_curl, CURLOPT_FOLLOWLOCATION, 1L);
-  
   CURLcode e = curl_easy_perform(_curl);
+  if (e != CURLE_OK) {
+    delete res;
+    return nullptr;
+  }
+  
+  this->requestEnd();
+  return res;
+}
+
+struct SASOptionsResponse SASOptionsRequest::getReponse() {
+  SASHTTPResponse *res = this->getResponse();
   SASOptionsResponse response;
-  if (e == CURLE_OK) {
+  if (res != nullptr) {
 #ifdef DEBUG
     std::cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
-    std::cout << "Reponse Header: \n" << res.headerString();
+    std::cout << "Reponse Header: \n" << res->headerString();
     std::cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 #endif
-    response.supportedCommand = res.getHeader("MS-ASProtocolCommands");
-    response.supportedVersions = res.getHeader("MS-ASProtocolVersions");
+    response.supportedCommand = res->getHeader("MS-ASProtocolCommands");
+    response.supportedVersions = res->getHeader("MS-ASProtocolVersions");
+  
+    delete res;
   }
-  curl_easy_cleanup(_curl);
   
   return response;
 }

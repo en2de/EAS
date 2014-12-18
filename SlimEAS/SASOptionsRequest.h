@@ -13,6 +13,8 @@
 #include <curl/curl.h>
 
 #include "SASDefine.h"
+#include "SASBaseRequest.h"
+
 namespace SlimEAS {
   
   typedef struct SASOptionsResponse {
@@ -21,19 +23,18 @@ namespace SlimEAS {
     std::string highestSupportedVersion;
   } SASOptionsResponse;
   
-  class SASOptionsRequest {
-  private:
-    CURL *_curl;
-    
+  class SASOptionsRequest : public SASBaseRequest {
   public:
-    SAS_PROPERTY(std::string, server);
-    SAS_PROPERTY(bool, useSSL);
-    SAS_PROPERTY(std::string, userName);
-    SAS_PROPERTY(std::string, password);
-    
     SASOptionsRequest();
+    SASOptionsRequest(const std::string& server,
+                      const std::string& user,
+                      const std::string& password,
+                      bool useSSL = true);
+    
     ~SASOptionsRequest();
     
     struct SASOptionsResponse getReponse();
+    
+    virtual SASHTTPResponse *getResponse();
   };
 }

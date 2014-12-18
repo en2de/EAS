@@ -13,11 +13,11 @@
 using namespace std;
 using namespace SlimEAS;
 
-#define CRLF "\r\n"
-
 #pragma mark - curl callbacks
 
 namespace {
+  static const string CRLF = "\r\n";
+  
   size_t _writeHandler(char *data, size_t size, size_t nmemb, void *puser) {
     ostringstream *oss = (ostringstream *)puser;
     

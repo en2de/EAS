@@ -12,6 +12,11 @@
 		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
 		BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */; };
 		BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */; };
+		BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */; };
+		BA577F611A41312C00AFFA14 /* SASBaseRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5F1A41312C00AFFA14 /* SASBaseRequest.cpp */; };
+		BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */; };
+		BA577F821A42078E00AFFA14 /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F801A42078E00AFFA14 /* decode.c */; };
+		BA577F831A42078E00AFFA14 /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F811A42078E00AFFA14 /* encode.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +47,15 @@
 		BA577F001A3ED70000AFFA14 /* SASDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SASDefine.h; sourceTree = "<group>"; };
 		BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPResponse.cpp; sourceTree = "<group>"; };
 		BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
+		BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandRequest.cpp; sourceTree = "<group>"; };
+		BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandRequest.h; sourceTree = "<group>"; };
+		BA577F5F1A41312C00AFFA14 /* SASBaseRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASBaseRequest.cpp; sourceTree = "<group>"; };
+		BA577F601A41312C00AFFA14 /* SASBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASBaseRequest.h; sourceTree = "<group>"; };
+		BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASEncodedRequest.cpp; sourceTree = "<group>"; };
+		BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASEncodedRequest.h; sourceTree = "<group>"; };
+		BA577F7F1A42078E00AFFA14 /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b64.h; sourceTree = "<group>"; };
+		BA577F801A42078E00AFFA14 /* decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
+		BA577F811A42078E00AFFA14 /* encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +111,7 @@
 		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
+				BA577F671A41DC7000AFFA14 /* base64 */,
 				BA577EDE1A3DE53500AFFA14 /* src */,
 				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
 			);
@@ -110,11 +125,27 @@
 				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
 				BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */,
 				BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */,
+				BA577F5F1A41312C00AFFA14 /* SASBaseRequest.cpp */,
+				BA577F601A41312C00AFFA14 /* SASBaseRequest.h */,
 				BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */,
 				BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */,
+				BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */,
+				BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */,
+				BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */,
+				BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */,
 				BA577F001A3ED70000AFFA14 /* SASDefine.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		BA577F671A41DC7000AFFA14 /* base64 */ = {
+			isa = PBXGroup;
+			children = (
+				BA577F7F1A42078E00AFFA14 /* b64.h */,
+				BA577F801A42078E00AFFA14 /* decode.c */,
+				BA577F811A42078E00AFFA14 /* encode.c */,
+			);
+			name = base64;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +240,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */,
+				BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */,
 				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
+				BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */,
+				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
+				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
+				BA577F611A41312C00AFFA14 /* SASBaseRequest.cpp in Sources */,
 				BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
