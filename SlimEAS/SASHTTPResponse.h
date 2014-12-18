@@ -22,7 +22,7 @@ namespace SlimEAS {
   typedef std::map<std::string, std::string> SASHTTPResponseHeader;
   
   class SASHTTPResponse {
-  private:
+  protected:
     std::ostringstream _ostream;
     SASHTTPResponseHeader _HTTPheaders;
     

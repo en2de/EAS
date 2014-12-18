@@ -16,8 +16,6 @@ using namespace SlimEAS;
 using SlimEAS::SASHTTPRequest;
 using namespace std;
 
-//get httpResponse headers
-
 SASOptionsRequest::SASOptionsRequest(): SASHTTPRequest() {
   
 }

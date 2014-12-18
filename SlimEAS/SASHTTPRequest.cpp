@@ -49,6 +49,8 @@ SASHTTPRequest::~SASHTTPRequest() {
   }
 }
 
+#pragma mark - member func
+
 SASHTTPResponse * SASHTTPRequest::perform() {
   SASHTTPResponse *res = new SASHTTPResponse;
   
@@ -59,8 +61,8 @@ SASHTTPResponse * SASHTTPRequest::perform() {
   
 #endif
   SASRequestSetOptions(CURLOPT_USERAGENT, "Slim-EAS");
-  SASRequestSetOptions(CURLOPT_USE_SSL, 1L);
-  SASRequestSetOptions(CURLOPT_FOLLOWLOCATION, (long)_useSSL);
+  SASRequestSetOptions(CURLOPT_USE_SSL, (long)_useSSL);
+  SASRequestSetOptions(CURLOPT_FOLLOWLOCATION, 1L);
   
   //set response handlers
   SASRequestSetOptions(CURLOPT_WRITEFUNCTION, res->writeHandler());
@@ -78,16 +80,5 @@ SASHTTPResponse * SASHTTPRequest::perform() {
   return res;
 }
 
-#pragma mark - member functions
-
-void SASHTTPRequest::requestBegin() {
-  _curl = curl_easy_init();
-}
-
-void SASHTTPRequest::requestEnd() {
-  if (_curl) {
-    curl_easy_cleanup(_curl);
-  }
-}
 
 

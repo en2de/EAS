@@ -20,9 +20,6 @@ namespace SlimEAS {
   class SASHTTPRequest {
   protected:
     CURL *_curl;
-    
-    virtual void requestBegin();
-    virtual void requestEnd();
         
   public:
     SASHTTPRequest();
