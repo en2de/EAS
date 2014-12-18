@@ -22,8 +22,14 @@ public: type name() const {return _##name;} \
 public: type name(const type value) \
 {return _##name, _##name = value;}
 
-#define SAS_GETTER(type, name) \
+#define SAS_GETTER_SYNTHESIZE(type, name) \
 public: type name() const {return _##name;}
+
+#define SAS_SETTER_SYNTHESIZE(type, name) \
+public: void name() { _##name = name;}
+
+#define SAS_GETTER(type, name) \
+public: type name()
 
 #define SAS_SETTER(t,p) \
 public: void p(t val)

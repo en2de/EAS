@@ -23,7 +23,7 @@ namespace {
 
 SASBaseRequest::SASBaseRequest():
 _server(""),
-_userName(""),
+_user(""),
 _password(""),
 _useSSL(true){
 }
@@ -33,7 +33,7 @@ SASBaseRequest::SASBaseRequest(const std::string& server,
                                const std::string& password,
                                bool useSSL):
 _server(server),
-_userName(user),
+_user(user),
 _password(password),
 _useSSL(useSSL){
   

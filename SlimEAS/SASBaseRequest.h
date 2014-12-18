@@ -30,7 +30,7 @@ namespace SlimEAS {
     virtual ~SASBaseRequest();
     
     SAS_PROPERTY_PROTECTED(std::string, server);
-    SAS_PROPERTY_PROTECTED(std::string, userName);
+    SAS_PROPERTY_PROTECTED(std::string, user);
     SAS_PROPERTY_PROTECTED(std::string, password);
     SAS_PROPERTY_PROTECTED(bool, useSSL);
     

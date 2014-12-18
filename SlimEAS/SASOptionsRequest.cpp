@@ -42,11 +42,11 @@ SASHTTPResponse *SASOptionsRequest::getResponse() {
 //  curl_easy_setopt(_curl, CURLOPT_PROXYPORT, 8085);
   
   curl_easy_setopt(_curl, CURLOPT_URL, _server.c_str());
-  curl_easy_setopt(_curl, CURLOPT_USERNAME, _userName.c_str());
+  curl_easy_setopt(_curl, CURLOPT_USERNAME, _user.c_str());
   curl_easy_setopt(_curl, CURLOPT_PASSWORD, _password.c_str());
   
   curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, res->writeHandler());
-  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, res->writeStream());
+  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &(res->writeStream()));
   curl_easy_setopt(_curl, CURLOPT_HEADERFUNCTION, res->headerHandler());
   curl_easy_setopt(_curl, CURLOPT_HEADERDATA, res);
   curl_easy_setopt(_curl, CURLOPT_CUSTOMREQUEST, "OPTIONS");

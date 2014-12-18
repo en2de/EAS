@@ -57,7 +57,7 @@ uint8_t * SASCommandRequest::getWBXml(unsigned int *olen) {
  *  @return request line in base64
  */
 string SASCommandRequest::getRequestLine() {
-  if (_command.empty() || _userName.empty() || _deviceID.empty() || _deviceType.empty())
+  if (_command.empty() || _user.empty() || _deviceID.empty() || _deviceType.empty())
     throw new std::invalid_argument("need fill all request fields");
   
   string reqLine = "";
@@ -75,7 +75,7 @@ string SASCommandRequest::getRequestLine() {
     encodedReq.policyKey(_policyKey);
     
     // Add the User parameter to the request line
-    encodedReq.addCommandParam("User", _userName);
+    encodedReq.addCommandParam("User", _user);
     
     // Add any command-specific parameters
     if (_commandParams.size() > 0) {
@@ -87,7 +87,7 @@ string SASCommandRequest::getRequestLine() {
     reqLine = encodedReq.getBase64EncodingString();
   }else{
     reqLine += "Cmd=" + _command + "&";
-    reqLine += "User=" + _userName + "&";
+    reqLine += "User=" + _user + "&";
     reqLine += "DeviceId=" + _deviceID + "&";
     reqLine += "DeviceType=" + _deviceType;
   
@@ -113,7 +113,7 @@ SASHTTPResponse *SASCommandRequest::getResponse() {
 //  curl_easy_setopt(_curl, CURLOPT_PROXYPORT, 8085);
   
   curl_easy_setopt(_curl, CURLOPT_URL, uri.c_str());
-  curl_easy_setopt(_curl, CURLOPT_USERNAME, _userName.c_str());
+  curl_easy_setopt(_curl, CURLOPT_USERNAME, _user.c_str());
   curl_easy_setopt(_curl, CURLOPT_PASSWORD, _password.c_str());
   
 //  curl_easy_setopt(_curl, CURLOPT_TLSAUTH_USERNAME, _userName.c_str());
@@ -123,7 +123,7 @@ SASHTTPResponse *SASCommandRequest::getResponse() {
 //  curl_easy_setopt(_curl, CURLOPT_TIMEOUT, 30);
   
   curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, res->writeHandler());
-  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, res->writeStream());
+  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &(res->writeStream()));
   curl_easy_setopt(_curl, CURLOPT_HEADERFUNCTION, res->headerHandler());
   curl_easy_setopt(_curl, CURLOPT_HEADERDATA, res);
   curl_easy_setopt(_curl, CURLOPT_POST, 1L);
