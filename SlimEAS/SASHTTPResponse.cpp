@@ -59,13 +59,10 @@ int SASHTTPResponse::debugCallback(CURL *handle, curl_infotype type, char *data,
 #pragma mark - life cycle
 
 SASHTTPResponse::SASHTTPResponse(): _headerString(""), _body(""), _version(""), _statusCode(""), _status("") {
-  _ostream = new ostringstream;
-  _headers = new map<string, string>();
+  
 }
 
 SASHTTPResponse::~SASHTTPResponse() {
-  delete _ostream;
-  delete _headers;
 }
 
 #pragma mark - member functions
@@ -103,8 +100,10 @@ void SASHTTPResponse::addHeader(const std::string &s){
   } else {
     string name = line.substr(0, dIdx);
     string val = line.substr(dIdx + 2, line.length() - 1);        //delimiter ": " 2 chars
+    
+    _HTTPheaders[name] += val;
 
-    this->setHeader(name, string(this->getHeader(name)).append(val));
+//    this->setHeader(name, string(this->getHeader(name)).append(val));
   }
 }
 

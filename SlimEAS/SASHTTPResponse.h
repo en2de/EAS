@@ -23,8 +23,10 @@ namespace SlimEAS {
   
   class SASHTTPResponse {
   private:
-    std::ostringstream *_ostream;
-    SASHTTPResponseHeader *_headers;
+    std::ostringstream _ostream;
+    SASHTTPResponseHeader _HTTPheaders;
+    
+    std::string _headerString;
     
   public:
     SASHTTPResponse();
@@ -33,32 +35,34 @@ namespace SlimEAS {
     SAS_PROPERTY(std::string, version);
     SAS_PROPERTY(std::string, statusCode);
     SAS_PROPERTY(std::string, status);
-    
-    SAS_PROPERTY(std::string, headerString);
     SAS_PROPERTY(std::string, body);
     
-    const std::ostringstream * writeStream() const {
+    SAS_GETTER(const std::string &, headerString) {
+      return _headerString;
+    };
+    
+    SAS_GETTER(const std::ostringstream &, writeStream) {
       return _ostream;
     }
     
-    SASHTTPResponseHeader * const headers() const {
-      return _headers;
+    SAS_GETTER(const SASHTTPResponseHeader &, HTTPHeader) {
+      return _HTTPheaders;
     }
     
     void addHeader(const std::string& line);
     
-    const std::string& setHeader(const std::string &name, const std::string &val) const {
-      return (*_headers)[name] = val;
+    void setHeader(const std::string &name, const std::string &val) {
+      _HTTPheaders[name] = val;
     }
 
     const std::string &getHeader(const std::string &name) const {
-      return (*_headers)[name];
+      return _HTTPheaders.at(name);
     }
     
     //debug
     static int debugCallback(CURL *handle, curl_infotype type, char *data, size_t size, void *puser);
     
-    CurlCallback writeHandler();
-    CurlCallback headerHandler();
+    virtual CurlCallback writeHandler();
+    virtual CurlCallback headerHandler();
   };
 }
