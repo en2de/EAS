@@ -13,19 +13,19 @@
 #include <sstream>
 
 using namespace SlimEAS;
-using SlimEAS::SASBaseRequest;
+using SlimEAS::SASHTTPRequest;
 using namespace std;
 
 //get httpResponse headers
 
-SASOptionsRequest::SASOptionsRequest(): SASBaseRequest() {
+SASOptionsRequest::SASOptionsRequest(): SASHTTPRequest() {
   
 }
 
 SASOptionsRequest::SASOptionsRequest(const string& server,
                                      const string& user,
                                      const string& password,
-                                     bool useSSL): SASBaseRequest(server, user, password, useSSL) {
+                                     bool useSSL): SASHTTPRequest(server, user, password, useSSL) {
 
 }
 
@@ -33,31 +33,17 @@ SASOptionsRequest::~SASOptionsRequest() {
 }
 
 SASHTTPResponse *SASOptionsRequest::getResponse() {
-  this->requestBegin();
+  SASRequestSetOptions(CURLOPT_URL, _server.c_str());
+  SASRequestSetOptions(CURLOPT_USERNAME, _user.c_str());
+  SASRequestSetOptions(CURLOPT_PASSWORD, _password.c_str());
   
-  SASHTTPResponse *res = new SASHTTPResponse;
+  SASRequestSetOptions(CURLOPT_CUSTOMREQUEST, "OPTIONS");
   
-//  curl_easy_setopt(_curl, CURLOPT_PROXY, "127.0.0.1");
-//  curl_easy_setopt(_curl, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-//  curl_easy_setopt(_curl, CURLOPT_PROXYPORT, 8085);
-  
-  curl_easy_setopt(_curl, CURLOPT_URL, _server.c_str());
-  curl_easy_setopt(_curl, CURLOPT_USERNAME, _user.c_str());
-  curl_easy_setopt(_curl, CURLOPT_PASSWORD, _password.c_str());
-  
-  curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, res->writeHandler());
-  curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &(res->writeStream()));
-  curl_easy_setopt(_curl, CURLOPT_HEADERFUNCTION, res->headerHandler());
-  curl_easy_setopt(_curl, CURLOPT_HEADERDATA, res);
-  curl_easy_setopt(_curl, CURLOPT_CUSTOMREQUEST, "OPTIONS");
-  CURLcode e = curl_easy_perform(_curl);
-  if (e != CURLE_OK) {
-    delete res;
-    return nullptr;
+  try {
+    return this->perform();
+  } catch (exception &e) {
+    throw e;
   }
-  
-  this->requestEnd();
-  return res;
 }
 
 struct SASOptionsResponse SASOptionsRequest::getReponse() {

@@ -65,7 +65,7 @@ int main(int argc, const char * argv[]) {
   else
     cout<<"unknow endianess!";
   
-  cppTest();
+//  cppTest();
   
   //option request test
   SlimEAS::SASOptionsRequest optReq("https://ex.qq.com", "", "");

@@ -15,10 +15,10 @@
 #include <stdlib.h>
 
 using namespace SlimEAS;
-using SlimEAS::SASBaseRequest;
+using SlimEAS::SASHTTPRequest;
 using namespace std;
 
-SASCommandRequest::SASCommandRequest(): SASBaseRequest() {
+SASCommandRequest::SASCommandRequest(): SASHTTPRequest() {
   this->_protocolVersion = "";
   this->_command = "";
   this->_deviceID = "";
@@ -28,7 +28,7 @@ SASCommandRequest::SASCommandRequest(): SASBaseRequest() {
 SASCommandRequest::SASCommandRequest(const string& server,
                                      const string& user,
                                      const string& password,
-                                     bool useSSL): SASBaseRequest(server, user, password, useSSL) {
+                                     bool useSSL): SASHTTPRequest(server, user, password, useSSL) {
   this->_protocolVersion = "";
   this->_command = "";
   this->_deviceID = "";

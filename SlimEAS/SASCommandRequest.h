@@ -13,12 +13,12 @@
 #include <map>
 
 #include "SASDefine.h"
-#include "SASBaseRequest.h"
+#include "SASHTTPRequest.h"
 
 
 namespace SlimEAS {
   
-  class SASCommandRequest : public SASBaseRequest {
+  class SASCommandRequest : public SASHTTPRequest {
     SAS_PROPERTY(std::string, protocolVersion);
     SAS_PROPERTY(std::string, command);
     SAS_PROPERTY(std::string, deviceID);

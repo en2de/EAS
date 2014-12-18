@@ -13,7 +13,7 @@
 #include <curl/curl.h>
 
 #include "SASDefine.h"
-#include "SASBaseRequest.h"
+#include "SASHTTPRequest.h"
 
 namespace SlimEAS {
   
@@ -23,7 +23,7 @@ namespace SlimEAS {
     std::string highestSupportedVersion;
   } SASOptionsResponse;
   
-  class SASOptionsRequest : public SASBaseRequest {
+  class SASOptionsRequest : public SASHTTPRequest {
   public:
     SASOptionsRequest();
     SASOptionsRequest(const std::string& server,

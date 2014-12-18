@@ -46,7 +46,7 @@ namespace SlimEAS {
     
     SAS_PROPERTY(uint8_t, protocolVer);
     
-    SAS_GETTER(uint16_t, locale);
+    SAS_GETTER_SYNTHESIZE(uint16_t, locale);
     bool setLocale(const std::string &strLocale) {
       try {
         _locale = _localeDict.at(toUpper(strLocale));
@@ -56,7 +56,7 @@ namespace SlimEAS {
       }
     }
     
-    SAS_GETTER(uint8_t, commandCode);
+    SAS_GETTER_SYNTHESIZE(uint8_t, commandCode);
     bool setCommandCode(const std::string &strCmd) {
       try {
         _commandCode = _commandDict.at(toUpper(strCmd));
@@ -65,31 +65,31 @@ namespace SlimEAS {
         return false;
       }
     }
-    SAS_GETTER(int32_t, deviceIdLength);
+    SAS_GETTER_SYNTHESIZE(int32_t, deviceIdLength);
   
-    SAS_GETTER(const std::string&, deviceId);
+    SAS_GETTER_SYNTHESIZE(const std::string&, deviceId);
     SAS_SETTER(const std::string&, deviceId){
       _deviceId = val;
       _deviceIdLength = _deviceId.length();
     }
     
-    SAS_GETTER(int32_t, policyKeyLength);
+    SAS_GETTER_SYNTHESIZE(int32_t, policyKeyLength);
 
-    SAS_GETTER(uint32_t, policyKey);
+    SAS_GETTER_SYNTHESIZE(uint32_t, policyKey);
     SAS_SETTER(uint32_t, policyKey){
       _policyKey = val;
       _policyKeyLength = sizeof(int32_t);
     }
     
-    SAS_GETTER(int32_t, deviceTypeLength);
+    SAS_GETTER_SYNTHESIZE(int32_t, deviceTypeLength);
     
-    SAS_GETTER(const std::string, deviceType);
+    SAS_GETTER_SYNTHESIZE(const std::string, deviceType);
     SAS_SETTER(const std::string&, deviceType){
       _deviceType = val;
       _deviceTypeLength = _deviceType.length();
     }
     
-    SAS_GETTER(const std::vector<SASEncodedParam>&, commandParams);
+    SAS_GETTER_SYNTHESIZE(const std::vector<SASEncodedParam>&, commandParams);
     
   public:
     SASEncodedRequest();
