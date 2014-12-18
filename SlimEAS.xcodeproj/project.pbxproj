@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */; };
 		BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577E6D1A3DBBF600AFFA14 /* main.cpp */; };
 		BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */; };
 		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
@@ -35,6 +36,9 @@
 		53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
 		5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
+		BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandResponse.cpp; sourceTree = "<group>"; };
+		BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandResponse.h; sourceTree = "<group>"; };
+		BA0DA84E1A4323EA005EA85D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BA577E6A1A3DBBF600AFFA14 /* SlimEAS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SlimEAS; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA577E6D1A3DBBF600AFFA14 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
@@ -73,6 +77,7 @@
 		09185763F542F3456E78F18C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA0DA84E1A4323EA005EA85D /* libxml2.dylib */,
 				BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */,
 				BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */,
 				BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */,
@@ -129,6 +134,8 @@
 				BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */,
 				BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */,
 				BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */,
+				BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */,
+				BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */,
 				BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */,
 				BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */,
 				BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */,
@@ -243,6 +250,7 @@
 				BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */,
 				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
 				BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */,
+				BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */,
 				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
 				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
@@ -339,6 +347,7 @@
 					"$(PODS_ROOT)/expat",
 					"$(PODS_ROOT)/wbxml/src",
 					"\"$(PROJECT_DIR)/External/include\"",
+					/usr/include/libxml2,
 				);
 				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
 				OTHER_LDFLAGS = (
@@ -346,8 +355,10 @@
 					"-l\"Pods-SlimEAS-expat\"",
 					"-l\"Pods-SlimEAS-libwbxml\"",
 					"-lcurl.4",
+					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -362,6 +373,7 @@
 					"$(PODS_ROOT)/expat",
 					"$(PODS_ROOT)/wbxml/src",
 					"\"$(PROJECT_DIR)/External/include\"",
+					/usr/include/libxml2,
 				);
 				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
 				OTHER_LDFLAGS = (
@@ -369,8 +381,10 @@
 					"-l\"Pods-SlimEAS-expat\"",
 					"-l\"Pods-SlimEAS-libwbxml\"",
 					"-lcurl.4",
+					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

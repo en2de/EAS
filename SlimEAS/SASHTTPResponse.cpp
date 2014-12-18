@@ -7,8 +7,9 @@
 //
 
 #include "SASHTTPResponse.h"
-
 #include <vector>
+#include <libxml/xmlreader.h>
+#include "SASWBXml.h"
 
 using namespace std;
 using namespace SlimEAS;
@@ -19,15 +20,21 @@ namespace {
   static const string CRLF = "\r\n";
   
   size_t _writeHandler(char *data, size_t size, size_t nmemb, void *puser) {
-    ostringstream *oss = (ostringstream *)puser;
+    SASHTTPResponse *rsp = (SASHTTPResponse *)puser;
     
-    size_t result(0);
-    if (oss) {
-      oss->write(data, size * nmemb);
-      result = size * nmemb;
+    size_t data_len = size * nmemb;
+    
+    if (rsp->_buf_len == 0) {
+      if (data_len != 0) {
+        throw invalid_argument("buffer initialize failed!");
+      }
+      return data_len;
     }
     
-    return result;
+    memcpy(rsp->_buf + rsp->_buf_offset, data, size * nmemb);
+    rsp->_buf_offset += data_len;
+    
+    return data_len;
   }
   
   size_t _headerHandler(char *data, size_t size, size_t nmemb, void *puser) {    
@@ -52,9 +59,24 @@ SASHTTPResponse::SASHTTPResponse(): _headerString(""), _body(""), _version(""), 
 }
 
 SASHTTPResponse::~SASHTTPResponse() {
+  if (_buf) {
+    free(_buf);
+  }
 }
 
 #pragma mark - member functions
+
+string *SASHTTPResponse::xmlData() {
+  string *xml;
+  SASWBXml w2x;
+  xml = w2x.toXML(_buf, (int)_buf_len);
+  
+  if (xml->empty()) {
+    throw std::invalid_argument("no xml has been encoded!");
+  }
+  
+  return xml;
+}
 
 void SASHTTPResponse::addHeader(const std::string &s){
   //empty line
@@ -91,8 +113,16 @@ void SASHTTPResponse::addHeader(const std::string &s){
     string val = line.substr(dIdx + 2, line.length() - 1);        //delimiter ": " 2 chars
     
     _HTTPheaders[name] += val;
-
-//    this->setHeader(name, string(this->getHeader(name)).append(val));
+    
+    //initialize body buffer
+    if (name.compare("Content-Length") == 0) {
+      _buf_len = std::stoi(val);
+      if (_buf_len) {
+        _buf = (uint8_t *)malloc(_buf_len);
+        _buf_offset = 0;
+        memset(_buf, 0, _buf_len);
+      }
+    }
   }
 }
 

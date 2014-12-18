@@ -23,14 +23,19 @@ namespace SlimEAS {
   
   class SASHTTPResponse {
   protected:
-    std::ostringstream _ostream;
     SASHTTPResponseHeader _HTTPheaders;
     
     std::string _headerString;
     
+    std::string *xmlData();        //get data decode to xml.
   public:
     SASHTTPResponse();
-    ~SASHTTPResponse();
+    virtual ~SASHTTPResponse();
+    
+    uint8_t *_buf;
+    size_t _buf_offset;
+    size_t _buf_len;
+    
     
     SAS_PROPERTY(std::string, version);
     SAS_PROPERTY(std::string, statusCode);
@@ -40,10 +45,6 @@ namespace SlimEAS {
     SAS_GETTER(const std::string &, headerString) {
       return _headerString;
     };
-    
-    SAS_GETTER(const std::ostringstream &, writeStream) {
-      return _ostream;
-    }
     
     SAS_GETTER(const SASHTTPResponseHeader &, HTTPHeader) {
       return _HTTPheaders;
