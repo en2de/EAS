@@ -9,6 +9,11 @@
 
 #pragma once
 
+#define SAS_PROPERTY_SYNTHESIZE(type, name) \
+type name() const {return _##name;} \
+void name(const type value) \
+{return _##name, _##name = value;}
+
 #define SAS_PROPERTY(type, name) \
 private: type _##name; \
 public: type name() const {return _##name;} \

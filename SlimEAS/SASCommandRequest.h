@@ -15,21 +15,20 @@
 #include "SASDefine.h"
 #include "SASHTTPRequest.h"
 
-
 namespace SlimEAS {
   
   class SASCommandRequest : public SASHTTPRequest {
-    SAS_PROPERTY(std::string, protocolVersion);
-    SAS_PROPERTY(std::string, command);
-    SAS_PROPERTY(std::string, deviceID);
-    SAS_PROPERTY(std::string, deviceType);
-    SAS_PROPERTY(bool, useEncodeRequestLine);
-    SAS_PROPERTY(uint32_t, policyKey);
-    
   private:
     std::map<std::string, std::string> _commandParams;
     
   public:
+    SAS_PROPERTY_PROTECTED(std::string, protocolVersion);
+    SAS_PROPERTY_PROTECTED(std::string, command);
+    SAS_PROPERTY_PROTECTED(std::string, deviceID);
+    SAS_PROPERTY_PROTECTED(std::string, deviceType);
+    SAS_PROPERTY_PROTECTED(bool, useEncodeRequestLine);
+    SAS_PROPERTY_PROTECTED(uint32_t, policyKey);
+    
     SASCommandRequest();
     SASCommandRequest(const std::string& server,
                       const std::string& user,
@@ -38,7 +37,6 @@ namespace SlimEAS {
     ~SASCommandRequest();
     
     uint8_t * getWBXml(unsigned int *olen);
-    std::string *getXml(uint8_t* data, int data_len);
     
     void setCommandParam(std::string &param, std::string &value){
       _commandParams[param] = value;

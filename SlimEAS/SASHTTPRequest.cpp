@@ -51,29 +51,32 @@ SASHTTPRequest::~SASHTTPRequest() {
 
 #pragma mark - member func
 
+SASHTTPResponse *SASHTTPRequest::initialResponse() {
+  return new SASHTTPResponse();
+}
+
 SASHTTPResponse * SASHTTPRequest::perform() {
-  SASHTTPResponse *res = new SASHTTPResponse;
-  
 #ifdef DEBUG
   //for debug
   SASRequestSetOptions(CURLOPT_VERBOSE, 1L);
   SASRequestSetOptions(CURLOPT_DEBUGFUNCTION, debug_handler);
-  
+
 #endif
+  
   SASRequestSetOptions(CURLOPT_USERAGENT, "Slim-EAS");
   SASRequestSetOptions(CURLOPT_USE_SSL, (long)_useSSL);
   SASRequestSetOptions(CURLOPT_FOLLOWLOCATION, 1L);
   
+  SASHTTPResponse *res = this->initialResponse();
   //set response handlers
   SASRequestSetOptions(CURLOPT_WRITEFUNCTION, res->writeHandler());
   SASRequestSetOptions(CURLOPT_WRITEDATA, res);
   SASRequestSetOptions(CURLOPT_HEADERFUNCTION, res->headerHandler());
   SASRequestSetOptions(CURLOPT_HEADERDATA, res);
-  
+    
   CURLcode e = curl_easy_perform(_curl);
   if (e != CURLE_OK) {
     delete res;
-    
     throw std::invalid_argument("request failed");
   }
   

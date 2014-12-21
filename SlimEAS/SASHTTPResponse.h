@@ -36,7 +36,6 @@ namespace SlimEAS {
     size_t _buf_offset;
     size_t _buf_len;
     
-    
     SAS_PROPERTY(std::string, version);
     SAS_PROPERTY(std::string, statusCode);
     SAS_PROPERTY(std::string, status);

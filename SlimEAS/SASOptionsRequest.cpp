@@ -16,6 +16,8 @@ using namespace SlimEAS;
 using SlimEAS::SASHTTPRequest;
 using namespace std;
 
+#pragma mark - life cycle
+
 SASOptionsRequest::SASOptionsRequest(): SASHTTPRequest() {
   
 }
@@ -30,11 +32,13 @@ SASOptionsRequest::SASOptionsRequest(const string& server,
 SASOptionsRequest::~SASOptionsRequest() {
 }
 
+#pragma mark - override func
+
 SASHTTPResponse *SASOptionsRequest::getResponse() {
   SASRequestSetOptions(CURLOPT_URL, _server.c_str());
   SASRequestSetOptions(CURLOPT_USERNAME, _user.c_str());
   SASRequestSetOptions(CURLOPT_PASSWORD, _password.c_str());
-  
+
   SASRequestSetOptions(CURLOPT_CUSTOMREQUEST, "OPTIONS");
   
   try {

@@ -15,13 +15,17 @@
 
 #define SASRequestSetOptions(opt,args...)  curl_easy_setopt(_curl, opt, ##args);
 
-
 namespace SlimEAS {
   
   class SASHTTPRequest {
   protected:
     CURL *_curl;
-        
+    
+    //override this func to provide custom response extended from SASHTTPResponse
+    virtual SASHTTPResponse *initialResponse();
+    
+    //perform request.
+    SASHTTPResponse *perform();
   public:
     SASHTTPRequest();
     SASHTTPRequest(const std::string& server,
@@ -37,8 +41,9 @@ namespace SlimEAS {
     
     SAS_PROPERTY(std::string, requestBody);
     
+    //You must implement this func.
+    //setup custom request option.
+    //then call this->perform()
     virtual SASHTTPResponse *getResponse() = 0;
-    
-    SASHTTPResponse *perform();
   };
 }

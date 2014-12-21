@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */; };
+		BA0DA8531A433E2B005EA85D /* SASProvisionRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */; };
+		BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */; };
+		BA0DA8591A434A8D005EA85D /* SASDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8571A434A8D005EA85D /* SASDevice.cpp */; };
 		BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577E6D1A3DBBF600AFFA14 /* main.cpp */; };
 		BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */; };
 		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
@@ -39,6 +42,12 @@
 		BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandResponse.cpp; sourceTree = "<group>"; };
 		BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandResponse.h; sourceTree = "<group>"; };
 		BA0DA84E1A4323EA005EA85D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionRequest.cpp; sourceTree = "<group>"; };
+		BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionRequest.h; sourceTree = "<group>"; };
+		BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionResponse.cpp; sourceTree = "<group>"; };
+		BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionResponse.h; sourceTree = "<group>"; };
+		BA0DA8571A434A8D005EA85D /* SASDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASDevice.cpp; sourceTree = "<group>"; };
+		BA0DA8581A434A8D005EA85D /* SASDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASDevice.h; sourceTree = "<group>"; };
 		BA577E6A1A3DBBF600AFFA14 /* SlimEAS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SlimEAS; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA577E6D1A3DBBF600AFFA14 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
@@ -95,6 +104,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BA0DA8501A433D5F005EA85D /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */,
+				BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */,
+				BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */,
+				BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
 		BA577E611A3DBBF600AFFA14 = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +146,11 @@
 		BA577EDE1A3DE53500AFFA14 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				BA0DA8501A433D5F005EA85D /* Commands */,
 				BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */,
 				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
+				BA0DA8571A434A8D005EA85D /* SASDevice.cpp */,
+				BA0DA8581A434A8D005EA85D /* SASDevice.h */,
 				BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */,
 				BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */,
 				BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */,
@@ -246,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */,
 				BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */,
 				BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */,
 				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
@@ -254,6 +278,8 @@
 				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
 				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
+				BA0DA8591A434A8D005EA85D /* SASDevice.cpp in Sources */,
+				BA0DA8531A433E2B005EA85D /* SASProvisionRequest.cpp in Sources */,
 				BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */,
 				BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */,
 			);

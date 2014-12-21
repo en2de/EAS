@@ -51,20 +51,6 @@ uint8_t * SASCommandRequest::getWBXml(unsigned int *olen) {
   return wbxml;
 }
 
-string *SASCommandRequest::getXml(uint8_t *data, int data_len) {
-  string *xml;
-  
-  SASWBXml w2x;
-  xml = w2x.toXML(data, data_len);
-  
-  if (xml->empty()) {
-    throw std::invalid_argument("no xml has been encoded!");
-  }
-  
-  return xml;
-}
-
-
 /**
  *  build a request line from the class properties
  *
