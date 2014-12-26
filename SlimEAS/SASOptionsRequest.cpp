@@ -54,11 +54,11 @@ struct SASOptionsResponse SASOptionsRequest::getReponse() {
   if (res != nullptr) {
 #ifdef DEBUG
     std::cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
-    std::cout << "Reponse Header: \n" << res->headerString();
+    std::cout << "Response Header: \n" << res->headerString();
     std::cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 #endif
-    response.supportedCommand = res->getHeader("MS-ASProtocolCommands");
-    response.supportedVersions = res->getHeader("MS-ASProtocolVersions");
+    response.supportedCommand = res->header()["MS-ASProtocolCommands"];
+    response.supportedVersions = res->header()["MS-ASProtocolVersions"];
   
     delete res;
   }

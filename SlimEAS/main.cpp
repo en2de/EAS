@@ -88,13 +88,12 @@ void cppTest() {
   std::cout << "load to wbxml, output length:" << outlen << "\n";
   
   std::cout << "Start xml - wbxml\n";
-  std::string *result = wb.toXML(output, outlen);
+  std::string result = wb.toXML(output, outlen);
   std::cout << "load to xml , result: \n";
-  std::cout << *result << "\n";
-  std::cout << "result file lenght:" << result->size() << "\n";
+  std::cout << result << "\n";
+  std::cout << "result file lenght:" << result.size() << "\n";
   
   free(output);
-  delete result;
 }
 
 int main(int argc, const char * argv[]) {
@@ -127,44 +126,44 @@ int main(int argc, const char * argv[]) {
 //  cppTest();
   
   //option request test
-//  SlimEAS::SASOptionsRequest optReq("https://ex.qq.com", "", "");
-//  SlimEAS::SASOptionsResponse resS = optReq.getReponse();
-//  
-//  std::cout << "Supported Versions: " << resS.supportedVersions << "\n";
-//  std::cout << "Supported Commands: " << resS.supportedCommand  << "\n";
-//  
-//  //command request test
-//  SlimEAS::SASCommandRequest req("https://ex.qq.com", "chenxu@nationsky.com", "123456abcA");
-//  req.command("Provision");
-//  req.deviceID("6F24CAD599A5BF1A690246B8C68FAE8D");
-//  req.deviceType("SmartPhone");
-//  req.protocolVersion("14.0");
-//  req.useEncodeRequestLine(false);
-//  
-//  std::string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-//  xml.append("<!DOCTYPE ActiveSync PUBLIC \"-//MICROSOFT//DTD ActiveSync//EN\" \"http://www.microsoft.com/\">\n");
-//  xml.append("<Provision xmlns=\"Provision:\" xmlns:settings=\"Settings:\">\n");
-//  xml.append("    <settings:DeviceInformation>\n");
-//  xml.append("        <settings:Set>\n");
-//  xml.append("            <settings:Model>Test 1.0</settings:Model>\n");
-//  xml.append("            <settings:IMEI>012345678901234</settings:IMEI>\n");
-//  xml.append("            <settings:FriendlyName>My Test App</settings:FriendlyName>\n");
-//  xml.append("            <settings:OS>iOS 8.1</settings:OS>\n");
-//  xml.append("            <settings:OSLanguage>English</settings:OSLanguage>\n");
-//  xml.append("            <settings:PhoneNumber>555-123-4567</settings:PhoneNumber>\n");
-//  xml.append("            <settings:MobileOperator>Nationsky</settings:MobileOperator>\n");
-//  xml.append("            <settings:UserAgent>Slim-EAS</settings:UserAgent>\n");
-//  xml.append("        </settings:Set>\n");
-//  xml.append("    </settings:DeviceInformation>\n");
-//  xml.append("     <Policies>\n");
-//  xml.append("          <Policy>\n");
-//  xml.append("               <PolicyType>MS-EAS-Provisioning-WBXML</PolicyType> \n");
-//  xml.append("          </Policy>\n");
-//  xml.append("     </Policies>\n");
-//  xml.append("</Provision>");
-//  req.requestBody(xml);
-//
-//  SlimEAS::SASHTTPResponse *res = req.getResponse();
+  SlimEAS::SASOptionsRequest optReq("https://ex.qq.com", "", "");
+  SlimEAS::SASOptionsResponse resS = optReq.getReponse();
+  
+  std::cout << "Supported Versions: " << resS.supportedVersions << "\n";
+  std::cout << "Supported Commands: " << resS.supportedCommand  << "\n";
+  
+  //command request test
+  SlimEAS::SASCommandRequest req("https://ex.qq.com", "chenxu@nationsky.com", "123456abcA");
+  req.command("Provision");
+  req.deviceID("6F24CAD599A5BF1A690246B8C68FAE8D");
+  req.deviceType("SmartPhone");
+  req.protocolVersion("14.0");
+  req.useEncodeRequestLine(false);
+  
+  std::string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+  xml.append("<!DOCTYPE ActiveSync PUBLIC \"-//MICROSOFT//DTD ActiveSync//EN\" \"http://www.microsoft.com/\">\n");
+  xml.append("<Provision xmlns=\"Provision:\" xmlns:settings=\"Settings:\">\n");
+  xml.append("    <settings:DeviceInformation>\n");
+  xml.append("        <settings:Set>\n");
+  xml.append("            <settings:Model>Test 1.0</settings:Model>\n");
+  xml.append("            <settings:IMEI>012345678901234</settings:IMEI>\n");
+  xml.append("            <settings:FriendlyName>My Test App</settings:FriendlyName>\n");
+  xml.append("            <settings:OS>iOS 8.1</settings:OS>\n");
+  xml.append("            <settings:OSLanguage>English</settings:OSLanguage>\n");
+  xml.append("            <settings:PhoneNumber>555-123-4567</settings:PhoneNumber>\n");
+  xml.append("            <settings:MobileOperator>Nationsky</settings:MobileOperator>\n");
+  xml.append("            <settings:UserAgent>Slim-EAS</settings:UserAgent>\n");
+  xml.append("        </settings:Set>\n");
+  xml.append("    </settings:DeviceInformation>\n");
+  xml.append("     <Policies>\n");
+  xml.append("          <Policy>\n");
+  xml.append("               <PolicyType>MS-EAS-Provisioning-WBXML</PolicyType> \n");
+  xml.append("          </Policy>\n");
+  xml.append("     </Policies>\n");
+  xml.append("</Provision>");
+  req.requestBody(xml);
+
+  SlimEAS::SASHTTPResponse *res = req.getResponse();
  
 //  std::future<SlimEAS::SASOptionsResponse> res = std::async([&req]{
 //    return req.getReponse();

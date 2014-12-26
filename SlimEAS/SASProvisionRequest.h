@@ -44,7 +44,7 @@ namespace SlimEAS {
     int32_t _status = 0;
     
   public:
-    SAS_PROPERTY_SYNTHESIZE(bool, isAcknowledgement);
+//    SAS_PROPERTY_SYNTHESIZE(bool, isAcknowledgement);
     
     
   };

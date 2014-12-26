@@ -10,14 +10,32 @@
 
 #include <stdio.h>
 #include <curl/curl.h>
+#include <map>
+#include <string>
 
-#include "SASHTTPResponse.h"
+#include "SASDefine.h"
 
 #define SASRequestSetOptions(opt,args...)  curl_easy_setopt(_curl, opt, ##args);
 
 namespace SlimEAS {
   
+  class SASHTTPResponse;
+  
+  typedef std::map<std::string, std::string> SASHTTPResponseHeader;
+
   class SASHTTPRequest {
+  public:
+    typedef struct SASHTTPResponseContext {
+      uint8_t *buf;
+      size_t buf_len;
+      size_t use;
+      std::map<std::string, std::string> headers;
+    } SASHTTPResponseContext;
+    
+  private:
+    //handle response data
+    struct SASHTTPResponseContext _resContext;
+    
   protected:
     CURL *_curl;
     
@@ -27,6 +45,7 @@ namespace SlimEAS {
     //perform request.
     SASHTTPResponse *perform();
   public:
+    
     SASHTTPRequest();
     SASHTTPRequest(const std::string& server,
                    const std::string& user,

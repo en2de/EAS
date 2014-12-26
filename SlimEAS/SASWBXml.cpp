@@ -23,7 +23,7 @@ SASWBXml::SASWBXml() {
 SASWBXml::~SASWBXml() {
 }
 
-string *SASWBXml::toXML(unsigned char *wbxml, unsigned int wbxml_len){
+string SASWBXml::toXML(unsigned char *wbxml, unsigned int wbxml_len){
   wbxml_conv_wbxml2xml_create(&_w2x);
   wbxml_conv_wbxml2xml_set_language(_w2x, WBXML_LANG_ACTIVESYNC);
   wbxml_conv_wbxml2xml_set_indent(_w2x, 0x02);
@@ -32,8 +32,8 @@ string *SASWBXml::toXML(unsigned char *wbxml, unsigned int wbxml_len){
   unsigned int xml_len;
   wbxml_conv_wbxml2xml_run(_w2x, wbxml, wbxml_len, &xml, &xml_len);
   
-  string *str = new string;
-  str->append((const char *)xml, xml_len);
+  string str;
+  str.append((const char *)xml, xml_len);
   
   wbxml_conv_wbxml2xml_destroy(_w2x);
   _w2x = NULL;

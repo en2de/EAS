@@ -15,6 +15,6 @@
 namespace SlimEAS {
   
   class SASCommandResponse: public SASHTTPResponse {
-    
+  public:
   };
 }
