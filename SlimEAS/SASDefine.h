@@ -40,4 +40,6 @@ public: void p(t val)
 
 namespace SlimEAS {
   extern std::string toUpper(const std::string &name);
+  
+//  extern const char *SASXMLEncoding;
 }

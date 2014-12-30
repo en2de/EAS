@@ -21,6 +21,7 @@
 		BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */; };
 		BA577F821A42078E00AFFA14 /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F801A42078E00AFFA14 /* decode.c */; };
 		BA577F831A42078E00AFFA14 /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F811A42078E00AFFA14 /* encode.c */; };
+		BABA8CA11A52A2F100217190 /* SASPolicy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,8 @@
 		BA577F7F1A42078E00AFFA14 /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b64.h; sourceTree = "<group>"; };
 		BA577F801A42078E00AFFA14 /* decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
 		BA577F811A42078E00AFFA14 /* encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode.c; sourceTree = "<group>"; };
+		BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPolicy.cpp; sourceTree = "<group>"; };
+		BABA8CA01A52A2F100217190 /* SASPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPolicy.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */,
 				BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */,
 				BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */,
+				BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */,
+				BABA8CA01A52A2F100217190 /* SASPolicy.h */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */,
+				BABA8CA11A52A2F100217190 /* SASPolicy.cpp in Sources */,
 				BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */,
 				BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */,
 				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,

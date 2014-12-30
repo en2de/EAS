@@ -15,6 +15,11 @@
 namespace SlimEAS {
   
   class SASCommandResponse: public SASHTTPResponse {
+  protected:
+    std::string _xmlResponse;
+    
   public:
+    SASCommandResponse(SASHTTPRequest::SASHTTPResponseContext &ctx);
+    virtual ~SASCommandResponse();
   };
 }

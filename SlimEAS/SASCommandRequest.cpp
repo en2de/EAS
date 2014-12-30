@@ -18,37 +18,32 @@ using namespace SlimEAS;
 using SlimEAS::SASHTTPRequest;
 using namespace std;
 
+const char * SASXMLEncoding = "utf-8";
+
+#pragma mark - life cycle
+
 SASCommandRequest::SASCommandRequest(): SASHTTPRequest() {
   this->_protocolVersion = "";
   this->_command = "";
-  this->_deviceID = "";
+  this->_deviceId = "";
   this->_deviceType = "";
+  this->_server = "";
+  this->_user = "";
+  this->_password = "";
+  this->_useSSL = true;
 }
 
-SASCommandRequest::SASCommandRequest(const string& server,
-                                     const string& user,
-                                     const string& password,
-                                     bool useSSL): SASHTTPRequest(server, user, password, useSSL) {
-  this->_protocolVersion = "";
-  this->_command = "";
-  this->_deviceID = "";
-  this->_deviceType = "";
+SASCommandRequest::~SASCommandRequest() {
+
 }
 
-uint8_t * SASCommandRequest::getWBXml(unsigned int *olen) {
-  uint8_t *wbxml = NULL;
-  
-  string xml = this->requestBody();
-  SASWBXml x2w;
-  unsigned int len = 0;
-  wbxml = x2w.toWBXml(xml, &len);
-  *olen = len;
-  
-  if (wbxml == NULL) {
-    throw std::invalid_argument("no wbxml has been encoded!");
-  }
-  
-  return wbxml;
+#pragma mark - member func
+
+void SASCommandRequest::generateXMLPayload() {
+  // For the base class, this is a no-op.
+  // Classes that extend this class to implement
+  // commands override this function to generate
+  // the XML payload based on the command's request schema
 }
 
 /**
@@ -57,8 +52,8 @@ uint8_t * SASCommandRequest::getWBXml(unsigned int *olen) {
  *  @return request line in base64
  */
 string SASCommandRequest::getRequestLine() {
-  if (_command.empty() || _user.empty() || _deviceID.empty() || _deviceType.empty())
-    throw new std::invalid_argument("need fill all request fields");
+  if (_command.empty() || _user.empty() || _deviceId.empty() || _deviceType.empty())
+    throw std::invalid_argument("need fill all request fields");
   
   string reqLine = "";
   
@@ -70,7 +65,7 @@ string SASCommandRequest::getRequestLine() {
     encodedReq.protocolVer(std::stof(_protocolVersion)  * 10);
     encodedReq.setCommandCode(_command);
     encodedReq.setLocale("en-us");
-    encodedReq.deviceId(_deviceID);
+    encodedReq.deviceId(_deviceId);
     encodedReq.deviceType(_deviceType);
     encodedReq.policyKey(_policyKey);
     
@@ -88,7 +83,7 @@ string SASCommandRequest::getRequestLine() {
   }else{
     reqLine += "Cmd=" + _command + "&";
     reqLine += "User=" + _user + "&";
-    reqLine += "DeviceId=" + _deviceID + "&";
+    reqLine += "DeviceId=" + _deviceId + "&";
     reqLine += "DeviceType=" + _deviceType;
   
     if (_commandParams.size() > 0) {
@@ -121,20 +116,27 @@ SASHTTPResponse *SASCommandRequest::getResponse() {
   }
   SASRequestSetOptions(CURLOPT_HTTPHEADER, header);
   
-  //append data
-  unsigned int len = 0;
-  uint8_t *wbxml = this->getWBXml(&len);
-  SASRequestSetOptions(CURLOPT_POSTFIELDSIZE, (long)len);
-  SASRequestSetOptions(CURLOPT_POSTFIELDS, wbxml);
+  this->generateXMLPayload();
+  
+  if (!_xmlPayload.empty()) {
+    //parse wbxml payload
+    uint8_t *wbxml = NULL;
+    unsigned int payload_len = 0;
+    SASWBXml x2w;
+    wbxml = x2w.toWBXml(_xmlPayload, &payload_len);
+    if (wbxml == NULL) {
+      throw std::invalid_argument("wbxml payload encode failed!");
+    }
+    
+    //set payload
+    SASRequestSetOptions(CURLOPT_POSTFIELDSIZE, (long)payload_len);
+    SASRequestSetOptions(CURLOPT_POSTFIELDS, wbxml);
+  }
   
   try {
     return this->perform();
   } catch (exception &e) {
     throw e;
   }
-}
-
-SASCommandRequest::~SASCommandRequest() {
-  
 }
 

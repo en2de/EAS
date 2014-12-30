@@ -9,6 +9,7 @@
 #include "SASDevice.h"
 
 #include <libxml/xmlwriter.h>
+#include <libxml/xmlsave.h>
 
 using namespace SlimEAS;
 using namespace std;
@@ -26,8 +27,11 @@ string SASDevice::payload() {
     throw std::invalid_argument("Error creating the xml buffer");
   }
   
+  xmlDocPtr doc;
+  
   xmlTextWriterPtr writer;
-  writer = xmlNewTextWriterMemory(buf, 0);
+  writer = xmlNewTextWriterDoc(&doc, 0);
+//  writer = xmlNewTextWriterMemory(buf, 0);
   xmlTextWriterSetIndent(writer, 1);
   if (writer == NULL) {
     throw std::invalid_argument("Error creating the xml writer");
@@ -72,7 +76,16 @@ string SASDevice::payload() {
   xmlTextWriterEndElement(writer);
   xmlTextWriterEndDocument(writer);
   
+  xmlSaveCtxtPtr saveCtx = xmlSaveToBuffer(buf, "utf-8", XML_SAVE_NO_DECL | XML_SAVE_FORMAT);
+  xmlSaveDoc(saveCtx, doc);
+  xmlSaveFlush(saveCtx);
+  xmlSaveClose(saveCtx);
+  
   string xml((char *)buf->content);
+  
+  xmlFreeTextWriter(writer);
+  xmlFreeDoc(doc);
+  xmlBufferFree(buf);
   
 //  std::cout << xml;
   

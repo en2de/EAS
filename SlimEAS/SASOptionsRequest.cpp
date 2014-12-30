@@ -22,13 +22,6 @@ SASOptionsRequest::SASOptionsRequest(): SASHTTPRequest() {
   
 }
 
-SASOptionsRequest::SASOptionsRequest(const string& server,
-                                     const string& user,
-                                     const string& password,
-                                     bool useSSL): SASHTTPRequest(server, user, password, useSSL) {
-
-}
-
 SASOptionsRequest::~SASOptionsRequest() {
 }
 

@@ -52,7 +52,7 @@ unsigned char *SASWBXml::toWBXml(string &xmlString, unsigned int *wbxml_len) {
 
   WBXMLError e = wbxml_conv_xml2wbxml_run(_x2w, (unsigned char *)xml, (unsigned int)xmlString.size(), &wbxml, &wb_len);
   if (e != WBXML_OK) {
-    throw new invalid_argument("xml to wbxml failed!");
+    throw invalid_argument("xml to wbxml failed!");
   }
   
   *wbxml_len = wb_len;

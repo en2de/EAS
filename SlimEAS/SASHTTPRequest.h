@@ -25,18 +25,22 @@ namespace SlimEAS {
 
   class SASHTTPRequest {
   public:
-    typedef struct SASHTTPResponseContext {
+    typedef struct {
       uint8_t *buf;
       size_t buf_len;
       size_t use;
       std::map<std::string, std::string> headers;
     } SASHTTPResponseContext;
     
-  private:
-    //handle response data
-    struct SASHTTPResponseContext _resContext;
-    
   protected:
+    std::string _server;
+    std::string _user;
+    std::string _password;
+    bool _useSSL;
+    
+    //handle response data
+    SASHTTPResponseContext _resContext;
+    
     CURL *_curl;
     
     //override this func to provide custom response extended from SASHTTPResponse
@@ -47,18 +51,29 @@ namespace SlimEAS {
   public:
     
     SASHTTPRequest();
-    SASHTTPRequest(const std::string& server,
-                   const std::string& user,
-                   const std::string& password,
-                   bool useSSL = true);
     virtual ~SASHTTPRequest();
     
-    SAS_PROPERTY_PROTECTED(std::string, server);
-    SAS_PROPERTY_PROTECTED(std::string, user);
-    SAS_PROPERTY_PROTECTED(std::string, password);
-    SAS_PROPERTY_PROTECTED(bool, useSSL);
+    std::string &server() {return _server;}
+    void setServer(const std::string &server) {
+      _server = server;
+    }
     
-    SAS_PROPERTY(std::string, requestBody);
+    std::string &user() {return _user;}
+    void setUser(const std::string &user) {
+      _user = user;
+    }
+    
+    std::string &password() {return _password;}
+    void setPassword(const std::string &psw) {
+      _password = psw;
+    }
+    
+    bool useSSL() {return _useSSL;}
+    void setUseSSL(bool useSSL) {
+      _useSSL = useSSL;
+    }
+    
+//    SAS_PROPERTY(std::string, requestBody);
     
     //You must implement this func.
     //setup custom request option.

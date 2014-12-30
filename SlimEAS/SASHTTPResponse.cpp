@@ -17,17 +17,6 @@ using namespace SlimEAS;
 
 //simple implement just copy the response data.
 SASHTTPResponse::SASHTTPResponse(SlimEAS::SASHTTPRequest::SASHTTPResponseContext &ctx) : _headers(ctx.headers) {
-  
-  if (ctx.buf_len <= 0) {
-    return;
-  }
-  //decode wbxml to xml
-  SASWBXml w2x;
-  _xmlResponse = w2x.toXML(ctx.buf, (unsigned int)ctx.buf_len);
-
-  if (_xmlResponse.empty()) {
-    throw std::invalid_argument("no xml encoded failed!");
-  }
 }
 
 SASHTTPResponse::~SASHTTPResponse() {

@@ -15,6 +15,8 @@
 
 #include "SASCommandRequest.h"
 
+#include "SASDevice.h"
+
 namespace SlimEAS {
   /**
    *  This class represents a Provision command request
@@ -42,10 +44,25 @@ namespace SlimEAS {
     bool _isAcknowledgement = false;
     bool _isRemoteWipe = false;
     int32_t _status = 0;
+    SASDevice _provisionDevice;
+    
+  protected:
+    virtual void generateXMLPayload();
+    virtual SASHTTPResponse *initialResponse();
     
   public:
-//    SAS_PROPERTY_SYNTHESIZE(bool, isAcknowledgement);
+    SASProvisionRequest();
+    ~SASProvisionRequest();
+        
+    bool isAcknowledgement() const {return _isAcknowledgement;}
     
+    bool isRemoteWipe() const {return _isRemoteWipe;}
     
+    int32_t status() const {return _status;}
+    
+    SASDevice &provisionDevice() {return _provisionDevice;}
+    void setProvisionDevice(SASDevice device) {
+      _provisionDevice = device;
+    }
   };
 }

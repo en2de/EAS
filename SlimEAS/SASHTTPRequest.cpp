@@ -102,24 +102,18 @@ _user(""),
 _password(""),
 _useSSL(true){
   _curl = curl_easy_init();
-}
-
-SASHTTPRequest::SASHTTPRequest(const std::string& server,
-                               const std::string& user,
-                               const std::string& password,
-                               bool useSSL):
-_server(server),
-_user(user),
-_password(password),
-_useSSL(useSSL){
-  //use easy
-  _curl = curl_easy_init();
+  
+  _resContext.buf = NULL;
 }
 
 SASHTTPRequest::~SASHTTPRequest() {
   if (_curl) {
     curl_easy_cleanup(_curl);
     _curl = NULL;
+  }
+  
+  if (_resContext.buf) {
+    free(_resContext.buf);
   }
 }
 

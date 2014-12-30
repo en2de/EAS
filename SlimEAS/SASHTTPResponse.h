@@ -21,9 +21,6 @@ namespace SlimEAS {
   private:
     SlimEAS::SASHTTPResponseHeader _headers;
     
-  protected:
-    std::string _xmlResponse;
-    
   public:
     SASHTTPResponse(SlimEAS::SASHTTPRequest::SASHTTPResponseContext &ctx);
     virtual ~SASHTTPResponse();
