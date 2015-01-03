@@ -10,6 +10,8 @@
 
 #include <string>
 
+#include "SASDefine.h"
+
 namespace SlimEAS {
   class SASPolicy {
   public:
@@ -52,6 +54,8 @@ namespace SlimEAS {
       Policy_key_mismatch = 5
     } SASPolicyStatus;
   
+  private:
+    
   public:
 #pragma mark - properties
     int32_t status = 0;
@@ -96,8 +100,12 @@ namespace SlimEAS {
     int32_t requireSignedSMIMEAlgorithm = 0;
     bool requireSignedSMIMEMessages = false;
     bool requireStorageCardEncryption = false;
+    
+    
 #pragma mark - constructor
-    SASPolicy(const std::string &policyXml);
+    SASPolicy();
     ~SASPolicy();
+    
+    bool loadXml(const std::string &xml);
   };
 }

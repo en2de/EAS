@@ -41,6 +41,7 @@ namespace SlimEAS {
 #pragma mark - constructor
     
     SASCommandRequest();
+    SASCommandRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL = true);
     virtual ~SASCommandRequest();
     
 #pragma mark - properties

@@ -40,6 +40,29 @@ public: void p(t val)
 
 namespace SlimEAS {
   extern std::string toUpper(const std::string &name);
+    
+  //use for xml reader
+  //definition http://www.gnu.org/software/dotgnu/pnetlib-doc/System/Xml/XmlNodeType.html
+  typedef enum {
+    XNT_None = 0,
+    
+    XNT_Attribute = 2,
+    XNT_CDATA = 4,
+    XNT_Comment = 8,
+    XNT_Document = 9,
+    XNT_DocumentFragment = 11,
+    XNT_DocumentType = 10,
+    XNT_Element = 1,
+    XNT_EndElement = 15,
+    XNT_Entity = 6,
+    XNT_EntityReference = 5,
+    XNT_EndEntity = 16,
+    XNT_Notation = 12,
+    XNT_ProcessingInstruction = 7,
+    XNT_SignificantWhitespace = 14,
+    XNT_Text = 3,
+    XNT_Whitespace = 13,
+    XNT_Declaration = 17,
+  } XmlNodeType;
   
-//  extern const char *SASXMLEncoding;
 }

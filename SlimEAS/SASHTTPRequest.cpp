@@ -96,15 +96,29 @@ namespace {
 
 #pragma mark - life cycle
 
-SASHTTPRequest::SASHTTPRequest():
-_server(""),
-_user(""),
-_password(""),
-_useSSL(true){
+SASHTTPRequest::SASHTTPRequest()
+: _server(),
+  _user(),
+  _password(),
+  _useSSL(true)
+{
   _curl = curl_easy_init();
   
   _resContext.buf = NULL;
 }
+
+SASHTTPRequest::SASHTTPRequest(const std::string &server,
+                               const std::string &user,
+                               const std::string &password,
+                               bool useSSL)
+: _server(server),
+  _user(user),
+  _password(password),
+  _useSSL(useSSL)
+{
+  
+}
+
 
 SASHTTPRequest::~SASHTTPRequest() {
   if (_curl) {

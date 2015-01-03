@@ -102,7 +102,6 @@ namespace SlimEAS {
     
   public:
     SASEncodedRequest();
-    ~SASEncodedRequest();
     
     std::string getBase64EncodingString();
     bool addCommandParam(const std::string &name, const std::string val);

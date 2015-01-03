@@ -51,7 +51,8 @@ namespace SlimEAS {
   public:
     
     SASHTTPRequest();
-    virtual ~SASHTTPRequest();
+    SASHTTPRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL = true);
+    virtual ~SASHTTPRequest() = 0;
     
     std::string &server() {return _server;}
     void setServer(const std::string &server) {

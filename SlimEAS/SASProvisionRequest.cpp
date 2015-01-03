@@ -17,7 +17,9 @@ using namespace SlimEAS;
 
 #pragma mark - life cycle
 
-SASProvisionRequest::SASProvisionRequest() : SASCommandRequest() {
+SASProvisionRequest::SASProvisionRequest()
+: SASCommandRequest()
+{
   _command = "Provision";
 }
 
@@ -45,7 +47,7 @@ void SASProvisionRequest::generateXMLPayload() {
   }
   
   xmlTextWriterStartDocument(writer, "1.0", "utf-8", NULL);
-  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-/MICROSOFT/DTD ActiveSync/EN", BAD_CAST "http://www.microsoft.com/", NULL);
+  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-//MICROSOFT//DTD ActiveSync//EN", BAD_CAST "http://www.microsoft.com/", NULL);
   xmlTextWriterStartElement(writer, BAD_CAST "Provision");
   xmlTextWriterWriteAttribute(writer, BAD_CAST "xmlns", BAD_CAST "Provision:");
   xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "settings", NULL, BAD_CAST "Settings:");

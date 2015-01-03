@@ -16,7 +16,9 @@ using namespace SlimEAS;
 #pragma mark - life cycle
 
 //simple implement just copy the response data.
-SASHTTPResponse::SASHTTPResponse(SlimEAS::SASHTTPRequest::SASHTTPResponseContext &ctx) : _headers(ctx.headers) {
+SASHTTPResponse::SASHTTPResponse(SlimEAS::SASHTTPRequest::SASHTTPResponseContext &ctx)
+: _headers(ctx.headers)
+{
 }
 
 SASHTTPResponse::~SASHTTPResponse() {

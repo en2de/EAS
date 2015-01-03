@@ -1,447 +1,1143 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */; };
-		BA0DA8531A433E2B005EA85D /* SASProvisionRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */; };
-		BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */; };
-		BA0DA8591A434A8D005EA85D /* SASDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8571A434A8D005EA85D /* SASDevice.cpp */; };
-		BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577E6D1A3DBBF600AFFA14 /* main.cpp */; };
-		BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */; };
-		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
-		BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */; };
-		BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */; };
-		BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */; };
-		BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */; };
-		BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */; };
-		BA577F821A42078E00AFFA14 /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F801A42078E00AFFA14 /* decode.c */; };
-		BA577F831A42078E00AFFA14 /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F811A42078E00AFFA14 /* encode.c */; };
-		BABA8CA11A52A2F100217190 /* SASPolicy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BA577E681A3DBBF600AFFA14 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = usr/share/man/man1;
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
-		5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
-		BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandResponse.cpp; sourceTree = "<group>"; };
-		BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandResponse.h; sourceTree = "<group>"; };
-		BA0DA84E1A4323EA005EA85D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionRequest.cpp; sourceTree = "<group>"; };
-		BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionRequest.h; sourceTree = "<group>"; };
-		BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionResponse.cpp; sourceTree = "<group>"; };
-		BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionResponse.h; sourceTree = "<group>"; };
-		BA0DA8571A434A8D005EA85D /* SASDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASDevice.cpp; sourceTree = "<group>"; };
-		BA0DA8581A434A8D005EA85D /* SASDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASDevice.h; sourceTree = "<group>"; };
-		BA577E6A1A3DBBF600AFFA14 /* SlimEAS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SlimEAS; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA577E6D1A3DBBF600AFFA14 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
-		BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = usr/lib/libcurl.4.dylib; sourceTree = SDKROOT; };
-		BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASWBXml.cpp; sourceTree = "<group>"; };
-		BA577EE01A3DE55800AFFA14 /* SASWBXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASWBXml.h; sourceTree = "<group>"; };
-		BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexpat.dylib; path = usr/lib/libexpat.dylib; sourceTree = SDKROOT; };
-		BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOptionsRequest.cpp; sourceTree = "<group>"; };
-		BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOptionsRequest.h; sourceTree = "<group>"; };
-		BA577F001A3ED70000AFFA14 /* SASDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SASDefine.h; sourceTree = "<group>"; };
-		BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPResponse.cpp; sourceTree = "<group>"; };
-		BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
-		BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandRequest.cpp; sourceTree = "<group>"; };
-		BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandRequest.h; sourceTree = "<group>"; };
-		BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPRequest.cpp; sourceTree = "<group>"; };
-		BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPRequest.h; sourceTree = "<group>"; };
-		BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASEncodedRequest.cpp; sourceTree = "<group>"; };
-		BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASEncodedRequest.h; sourceTree = "<group>"; };
-		BA577F7F1A42078E00AFFA14 /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b64.h; sourceTree = "<group>"; };
-		BA577F801A42078E00AFFA14 /* decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
-		BA577F811A42078E00AFFA14 /* encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode.c; sourceTree = "<group>"; };
-		BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPolicy.cpp; sourceTree = "<group>"; };
-		BABA8CA01A52A2F100217190 /* SASPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPolicy.h; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		BA577E671A3DBBF600AFFA14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		09185763F542F3456E78F18C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BA0DA84E1A4323EA005EA85D /* libxml2.dylib */,
-				BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */,
-				BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */,
-				BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */,
-				5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B9CD3FFBC2885B534A0337E9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */,
-				53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		BA0DA8501A433D5F005EA85D /* Commands */ = {
-			isa = PBXGroup;
-			children = (
-				BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */,
-				BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */,
-				BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */,
-				BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */,
-				BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */,
-				BABA8CA01A52A2F100217190 /* SASPolicy.h */,
-			);
-			name = Commands;
-			sourceTree = "<group>";
-		};
-		BA577E611A3DBBF600AFFA14 = {
-			isa = PBXGroup;
-			children = (
-				BA577E6C1A3DBBF600AFFA14 /* SlimEAS */,
-				BA577E6B1A3DBBF600AFFA14 /* Products */,
-				B9CD3FFBC2885B534A0337E9 /* Pods */,
-				09185763F542F3456E78F18C /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		BA577E6B1A3DBBF600AFFA14 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BA577E6A1A3DBBF600AFFA14 /* SlimEAS */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
-			isa = PBXGroup;
-			children = (
-				BA577F671A41DC7000AFFA14 /* base64 */,
-				BA577EDE1A3DE53500AFFA14 /* src */,
-				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
-			);
-			path = SlimEAS;
-			sourceTree = "<group>";
-		};
-		BA577EDE1A3DE53500AFFA14 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				BA0DA8501A433D5F005EA85D /* Commands */,
-				BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */,
-				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
-				BA0DA8571A434A8D005EA85D /* SASDevice.cpp */,
-				BA0DA8581A434A8D005EA85D /* SASDevice.h */,
-				BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */,
-				BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */,
-				BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */,
-				BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */,
-				BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */,
-				BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */,
-				BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */,
-				BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */,
-				BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */,
-				BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */,
-				BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */,
-				BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */,
-				BA577F001A3ED70000AFFA14 /* SASDefine.h */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		BA577F671A41DC7000AFFA14 /* base64 */ = {
-			isa = PBXGroup;
-			children = (
-				BA577F7F1A42078E00AFFA14 /* b64.h */,
-				BA577F801A42078E00AFFA14 /* decode.c */,
-				BA577F811A42078E00AFFA14 /* encode.c */,
-			);
-			name = base64;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		BA577E691A3DBBF600AFFA14 /* SlimEAS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BA577E711A3DBBF600AFFA14 /* Build configuration list for PBXNativeTarget "SlimEAS" */;
-			buildPhases = (
-				5633F2B1A42C7D16F4BFFC17 /* Check Pods Manifest.lock */,
-				BA577E661A3DBBF600AFFA14 /* Sources */,
-				BA577E671A3DBBF600AFFA14 /* Frameworks */,
-				BA577E681A3DBBF600AFFA14 /* CopyFiles */,
-				59AD1C5E7B205FBF2DAC6980 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SlimEAS;
-			productName = SlimEAS;
-			productReference = BA577E6A1A3DBBF600AFFA14 /* SlimEAS */;
-			productType = "com.apple.product-type.tool";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		BA577E621A3DBBF600AFFA14 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = Slim;
-				TargetAttributes = {
-					BA577E691A3DBBF600AFFA14 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-				};
-			};
-			buildConfigurationList = BA577E651A3DBBF600AFFA14 /* Build configuration list for PBXProject "SlimEAS" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = BA577E611A3DBBF600AFFA14;
-			productRefGroup = BA577E6B1A3DBBF600AFFA14 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				BA577E691A3DBBF600AFFA14 /* SlimEAS */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5633F2B1A42C7D16F4BFFC17 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		59AD1C5E7B205FBF2DAC6980 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		BA577E661A3DBBF600AFFA14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */,
-				BABA8CA11A52A2F100217190 /* SASPolicy.cpp in Sources */,
-				BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */,
-				BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */,
-				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
-				BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */,
-				BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */,
-				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
-				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
-				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
-				BA0DA8591A434A8D005EA85D /* SASDevice.cpp in Sources */,
-				BA0DA8531A433E2B005EA85D /* SASProvisionRequest.cpp in Sources */,
-				BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */,
-				BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin XCBuildConfiguration section */
-		BA577E6F1A3DBBF600AFFA14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		BA577E701A3DBBF600AFFA14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		BA577E721A3DBBF600AFFA14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/expat\"",
-					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
-					"$(PODS_ROOT)/expat",
-					"$(PODS_ROOT)/wbxml/src",
-					"\"$(PROJECT_DIR)/External/include\"",
-					/usr/include/libxml2,
-				);
-				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-SlimEAS-expat\"",
-					"-l\"Pods-SlimEAS-libwbxml\"",
-					"-lcurl.4",
-					"-lxml2",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Debug;
-		};
-		BA577E731A3DBBF600AFFA14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/expat\"",
-					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
-					"$(PODS_ROOT)/expat",
-					"$(PODS_ROOT)/wbxml/src",
-					"\"$(PROJECT_DIR)/External/include\"",
-					/usr/include/libxml2,
-				);
-				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-SlimEAS-expat\"",
-					"-l\"Pods-SlimEAS-libwbxml\"",
-					"-lcurl.4",
-					"-lxml2",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		BA577E651A3DBBF600AFFA14 /* Build configuration list for PBXProject "SlimEAS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BA577E6F1A3DBBF600AFFA14 /* Debug */,
-				BA577E701A3DBBF600AFFA14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BA577E711A3DBBF600AFFA14 /* Build configuration list for PBXNativeTarget "SlimEAS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BA577E721A3DBBF600AFFA14 /* Debug */,
-				BA577E731A3DBBF600AFFA14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = BA577E621A3DBBF600AFFA14 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>09185763F542F3456E78F18C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA0DA84E1A4323EA005EA85D</string>
+				<string>BA577EFB1A3EA9EC00AFFA14</string>
+				<string>BA577ECB1A3DDF2700AFFA14</string>
+				<string>BA577EC91A3DD99B00AFFA14</string>
+				<string>5D354E9349270CD1CC4F7266</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>53A340F5F0F2D48160ABDFA5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-SlimEAS.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5633F2B1A42C7D16F4BFFC17</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>59AD1C5E7B205FBF2DAC6980</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>5D354E9349270CD1CC4F7266</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-SlimEAS.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>90E344EA0B7514C84511E335</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-SlimEAS.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B9CD3FFBC2885B534A0337E9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>90E344EA0B7514C84511E335</string>
+				<string>53A340F5F0F2D48160ABDFA5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA84B1A42F263005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASCommandResponse.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA84C1A42F263005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASCommandResponse.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA84D1A42F263005EA85D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA0DA84B1A42F263005EA85D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA0DA84E1A4323EA005EA85D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>compiled.mach-o.dylib</string>
+			<key>name</key>
+			<string>libxml2.dylib</string>
+			<key>path</key>
+			<string>usr/lib/libxml2.dylib</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BA0DA8501A433D5F005EA85D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA0DA8511A433E2B005EA85D</string>
+				<string>BA0DA8521A433E2B005EA85D</string>
+				<string>BA0DA8541A433E69005EA85D</string>
+				<string>BA0DA8551A433E69005EA85D</string>
+				<string>BABA8C9F1A52A2F100217190</string>
+				<string>BABA8CA01A52A2F100217190</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Commands</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8511A433E2B005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASProvisionRequest.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8521A433E2B005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASProvisionRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8531A433E2B005EA85D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA0DA8511A433E2B005EA85D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA0DA8541A433E69005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASProvisionResponse.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8551A433E69005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASProvisionResponse.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8561A433E69005EA85D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA0DA8541A433E69005EA85D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA0DA8571A434A8D005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASDevice.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8581A434A8D005EA85D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASDevice.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA0DA8591A434A8D005EA85D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA0DA8571A434A8D005EA85D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577E611A3DBBF600AFFA14</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA577E6C1A3DBBF600AFFA14</string>
+				<string>BA577E6B1A3DBBF600AFFA14</string>
+				<string>B9CD3FFBC2885B534A0337E9</string>
+				<string>09185763F542F3456E78F18C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577E621A3DBBF600AFFA14</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0610</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Slim</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>BA577E691A3DBBF600AFFA14</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1.1</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>BA577E651A3DBBF600AFFA14</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>BA577E611A3DBBF600AFFA14</string>
+			<key>productRefGroup</key>
+			<string>BA577E6B1A3DBBF600AFFA14</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>BA577E691A3DBBF600AFFA14</string>
+			</array>
+		</dict>
+		<key>BA577E651A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BA577E6F1A3DBBF600AFFA14</string>
+				<string>BA577E701A3DBBF600AFFA14</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BA577E661A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BA0DA8561A433E69005EA85D</string>
+				<string>BABA8CA11A52A2F100217190</string>
+				<string>BA577F5B1A407ADD00AFFA14</string>
+				<string>BA577F5E1A412EB500AFFA14</string>
+				<string>BA577EE11A3DE55800AFFA14</string>
+				<string>BA577F6A1A41DDA700AFFA14</string>
+				<string>BA0DA84D1A42F263005EA85D</string>
+				<string>BA577F831A42078E00AFFA14</string>
+				<string>BA577E6E1A3DBBF600AFFA14</string>
+				<string>BA577F821A42078E00AFFA14</string>
+				<string>BA0DA8591A434A8D005EA85D</string>
+				<string>BA0DA8531A433E2B005EA85D</string>
+				<string>BA577F611A41312C00AFFA14</string>
+				<string>BA577EFF1A3ED3EF00AFFA14</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA577E671A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BA577EFC1A3EA9EC00AFFA14</string>
+				<string>FF24AEA6AEB6577428129CCB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA577E681A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>8</string>
+			<key>dstPath</key>
+			<string>usr/share/man/man1</string>
+			<key>dstSubfolderSpec</key>
+			<string>16</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>1</string>
+		</dict>
+		<key>BA577E691A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>BA577E711A3DBBF600AFFA14</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5633F2B1A42C7D16F4BFFC17</string>
+				<string>BA577E661A3DBBF600AFFA14</string>
+				<string>BA577E671A3DBBF600AFFA14</string>
+				<string>BA577E681A3DBBF600AFFA14</string>
+				<string>59AD1C5E7B205FBF2DAC6980</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SlimEAS</string>
+			<key>productName</key>
+			<string>SlimEAS</string>
+			<key>productReference</key>
+			<string>BA577E6A1A3DBBF600AFFA14</string>
+			<key>productType</key>
+			<string>com.apple.product-type.tool</string>
+		</dict>
+		<key>BA577E6A1A3DBBF600AFFA14</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>compiled.mach-o.executable</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SlimEAS</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>BA577E6B1A3DBBF600AFFA14</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA577E6A1A3DBBF600AFFA14</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577E6C1A3DBBF600AFFA14</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA577F671A41DC7000AFFA14</string>
+				<string>BA577EDE1A3DE53500AFFA14</string>
+				<string>BA577E6D1A3DBBF600AFFA14</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SlimEAS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577E6D1A3DBBF600AFFA14</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>main.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577E6E1A3DBBF600AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577E6D1A3DBBF600AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577E6F1A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.10</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BA577E701A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.10</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BA577E711A3DBBF600AFFA14</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BA577E721A3DBBF600AFFA14</string>
+				<string>BA577E731A3DBBF600AFFA14</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BA577E721A3DBBF600AFFA14</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>90E344EA0B7514C84511E335</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>HEADER_SEARCH_PATHS</key>
+				<array>
+					<string>"${PODS_ROOT}/Headers/Public"</string>
+					<string>"${PODS_ROOT}/Headers/Public/expat"</string>
+					<string>"${PODS_ROOT}/Headers/Public/libwbxml"</string>
+					<string>$(PODS_ROOT)/expat</string>
+					<string>$(PODS_ROOT)/wbxml/src</string>
+					<string>"$(PROJECT_DIR)/External/include"</string>
+					<string>/usr/include/libxml2</string>
+				</array>
+				<key>LIBRARY_SEARCH_PATHS</key>
+				<string>"$(PROJECT_DIR)/External/lib"</string>
+				<key>OTHER_LDFLAGS</key>
+				<array>
+					<string>-ObjC</string>
+					<string>-l"Pods-SlimEAS-expat"</string>
+					<string>-l"Pods-SlimEAS-libwbxml"</string>
+					<string>-lcurl.4</string>
+					<string>-lxml2</string>
+				</array>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>USER_HEADER_SEARCH_PATHS</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BA577E731A3DBBF600AFFA14</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>53A340F5F0F2D48160ABDFA5</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>HEADER_SEARCH_PATHS</key>
+				<array>
+					<string>"${PODS_ROOT}/Headers/Public"</string>
+					<string>"${PODS_ROOT}/Headers/Public/expat"</string>
+					<string>"${PODS_ROOT}/Headers/Public/libwbxml"</string>
+					<string>$(PODS_ROOT)/expat</string>
+					<string>$(PODS_ROOT)/wbxml/src</string>
+					<string>"$(PROJECT_DIR)/External/include"</string>
+					<string>/usr/include/libxml2</string>
+				</array>
+				<key>LIBRARY_SEARCH_PATHS</key>
+				<string>"$(PROJECT_DIR)/External/lib"</string>
+				<key>OTHER_LDFLAGS</key>
+				<array>
+					<string>-ObjC</string>
+					<string>-l"Pods-SlimEAS-expat"</string>
+					<string>-l"Pods-SlimEAS-libwbxml"</string>
+					<string>-lcurl.4</string>
+					<string>-lxml2</string>
+				</array>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>USER_HEADER_SEARCH_PATHS</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BA577EC91A3DD99B00AFFA14</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>compiled.mach-o.dylib</string>
+			<key>name</key>
+			<string>libcurl.dylib</string>
+			<key>path</key>
+			<string>usr/lib/libcurl.dylib</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BA577ECB1A3DDF2700AFFA14</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>compiled.mach-o.dylib</string>
+			<key>name</key>
+			<string>libcurl.4.dylib</string>
+			<key>path</key>
+			<string>usr/lib/libcurl.4.dylib</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BA577EDE1A3DE53500AFFA14</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA0DA8501A433D5F005EA85D</string>
+				<string>BA577EDF1A3DE55800AFFA14</string>
+				<string>BA577EE01A3DE55800AFFA14</string>
+				<string>BA0DA8571A434A8D005EA85D</string>
+				<string>BA0DA8581A434A8D005EA85D</string>
+				<string>BA577F591A407ADD00AFFA14</string>
+				<string>BA577F5A1A407ADD00AFFA14</string>
+				<string>BA577F5F1A41312C00AFFA14</string>
+				<string>BA577F601A41312C00AFFA14</string>
+				<string>BA577EFD1A3ED3EF00AFFA14</string>
+				<string>BA577EFE1A3ED3EF00AFFA14</string>
+				<string>BA0DA84B1A42F263005EA85D</string>
+				<string>BA0DA84C1A42F263005EA85D</string>
+				<string>BA577F5C1A412EB500AFFA14</string>
+				<string>BA577F5D1A412EB500AFFA14</string>
+				<string>BA577F681A41DDA700AFFA14</string>
+				<string>BA577F691A41DDA700AFFA14</string>
+				<string>BA577F001A3ED70000AFFA14</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>src</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577EDF1A3DE55800AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASWBXml.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577EE01A3DE55800AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASWBXml.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577EE11A3DE55800AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577EDF1A3DE55800AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577EFB1A3EA9EC00AFFA14</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>compiled.mach-o.dylib</string>
+			<key>name</key>
+			<string>libexpat.dylib</string>
+			<key>path</key>
+			<string>usr/lib/libexpat.dylib</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BA577EFC1A3EA9EC00AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577EFB1A3EA9EC00AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577EFD1A3ED3EF00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASOptionsRequest.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577EFE1A3ED3EF00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASOptionsRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577EFF1A3ED3EF00AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577EFD1A3ED3EF00AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577F001A3ED70000AFFA14</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASDefine.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F591A407ADD00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASHTTPResponse.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F5A1A407ADD00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASHTTPResponse.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F5B1A407ADD00AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577F591A407ADD00AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577F5C1A412EB500AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASCommandRequest.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F5D1A412EB500AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASCommandRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F5E1A412EB500AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577F5C1A412EB500AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577F5F1A41312C00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASHTTPRequest.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F601A41312C00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASHTTPRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F611A41312C00AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577F5F1A41312C00AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577F671A41DC7000AFFA14</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA577F7F1A42078E00AFFA14</string>
+				<string>BA577F801A42078E00AFFA14</string>
+				<string>BA577F811A42078E00AFFA14</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>base64</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F681A41DDA700AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASEncodedRequest.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F691A41DDA700AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASEncodedRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F6A1A41DDA700AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577F681A41DDA700AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577F7F1A42078E00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>b64.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F801A42078E00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.c</string>
+			<key>path</key>
+			<string>decode.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F811A42078E00AFFA14</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.c</string>
+			<key>path</key>
+			<string>encode.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BA577F821A42078E00AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577F801A42078E00AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BA577F831A42078E00AFFA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA577F811A42078E00AFFA14</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BABA8C9F1A52A2F100217190</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.cpp.cpp</string>
+			<key>path</key>
+			<string>SASPolicy.cpp</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BABA8CA01A52A2F100217190</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SASPolicy.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BABA8CA11A52A2F100217190</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BABA8C9F1A52A2F100217190</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FF24AEA6AEB6577428129CCB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5D354E9349270CD1CC4F7266</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>BA577E621A3DBBF600AFFA14</string>
+</dict>
+</plist>

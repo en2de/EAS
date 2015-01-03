@@ -15,9 +15,11 @@
 
 using namespace SlimEAS;
 
-SASWBXml::SASWBXml() {
-  _w2x = NULL;
-  _x2w = NULL;
+SASWBXml::SASWBXml()
+: _w2x(NULL),
+  _x2w(NULL)
+{
+    
 }
 
 SASWBXml::~SASWBXml() {

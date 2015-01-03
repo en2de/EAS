@@ -21,7 +21,12 @@ string SlimEAS::toUpper(const std::string &name){
   return str;
 }
 
-SASEncodedRequest::SASEncodedRequest() {
+SASEncodedRequest::SASEncodedRequest()
+: _commandParams(),
+  _commandDict(),
+  _paramDict(),
+  _localeDict()
+{
   //Load command dictionary
   //Values taken from [MS-ASHTTP] sec 2.2.1.1.1.1.2
   _commandDict["SYNC"] = 0;
@@ -56,10 +61,6 @@ SASEncodedRequest::SASEncodedRequest() {
   // Load locale dictionary
   // TODO: Add other locales
   _localeDict["EN-US"] = 0x0409;
-}
-
-SASEncodedRequest::~SASEncodedRequest() {
-  
 }
 
 string SASEncodedRequest::getBase64EncodingString() {
@@ -109,6 +110,9 @@ string SASEncodedRequest::getBase64EncodingString() {
   char *b64 = NULL;
   b64 = b64_encode(buf, buf_len);
   string result(b64);
+  
+  free(buf);
+  free(b64);
   
   return result;
 }

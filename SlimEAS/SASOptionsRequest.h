@@ -26,15 +26,10 @@ namespace SlimEAS {
   class SASOptionsRequest : public SASHTTPRequest {
   public:
     SASOptionsRequest();
-    SASOptionsRequest(const std::string& server,
-                      const std::string& user,
-                      const std::string& password,
-                      bool useSSL = true);
-    
     ~SASOptionsRequest();
     
     struct SASOptionsResponse getReponse();
     
-    virtual SASHTTPResponse *getResponse();
+    SASHTTPResponse *getResponse();
   };
 }

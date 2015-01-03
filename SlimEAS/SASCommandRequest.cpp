@@ -22,16 +22,32 @@ const char * SASXMLEncoding = "utf-8";
 
 #pragma mark - life cycle
 
-SASCommandRequest::SASCommandRequest(): SASHTTPRequest() {
-  this->_protocolVersion = "";
-  this->_command = "";
-  this->_deviceId = "";
-  this->_deviceType = "";
-  this->_server = "";
-  this->_user = "";
-  this->_password = "";
-  this->_useSSL = true;
+SASCommandRequest::SASCommandRequest()
+: SASHTTPRequest(),
+  _commandParams(),
+  _xmlPayload(),
+  _protocolVersion(),
+  _command(),
+  _deviceId(),
+  _deviceType(),
+  _useEncodeRequestLine(false),
+  _policyKey(0)
+{
 }
+
+SASCommandRequest::SASCommandRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL)
+: SASHTTPRequest(server, user, password, useSSL),
+  _commandParams(),
+  _xmlPayload(),
+  _protocolVersion(),
+  _command(),
+  _deviceId(),
+  _deviceType(),
+  _useEncodeRequestLine(false),
+  _policyKey(0)
+{
+}
+
 
 SASCommandRequest::~SASCommandRequest() {
 
