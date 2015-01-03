@@ -45,7 +45,6 @@ bool SASPolicy::loadXml(const std::string &xml){
         const xmlChar *value = xmlTextReaderConstValue(reader);
         if (strcmp((const char *)curr_elm, "AllowBluetooth") == 0) {
           ToBool(allowBlueTooth);
-          sscanf((const char *)value, "%c", &allowBlueTooth);
         } else if(strcmp((const char *)curr_elm, "AllowBrowser") == 0 ) {
           ToBool(allowBrowser);
         } else if(strcmp((const char *)curr_elm, "AllowCamera") == 0 ){
