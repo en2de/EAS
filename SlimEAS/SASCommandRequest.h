@@ -72,7 +72,7 @@ namespace SlimEAS {
     }
     
     uint32_t policyKey() {return _policyKey;}
-    void setUseEncodeRequestLine(uint32_t value) {
+    void setPolicyKey(uint32_t value) {
       _policyKey = value;
     }
     
