@@ -234,6 +234,7 @@ namespace SlimEAS {
     const bool &useConversationMode() {return _useConversationMode;}
     const bool &areChangesIgnored() {return _areChangesIgnored;}
     const bool &areDeletesPermanent() {return _areDeletesPermanent;}
+    const bool &hasOptions() { return _hasOptions; }
     const int32_t &windowSize() {return _windowSize;}
     const int64_t &lastSyncTime() {return _lastSyncTime;}
     const std::string &saveLocation() {return _saveLocation;}

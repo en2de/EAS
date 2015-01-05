@@ -8,7 +8,11 @@
 
 #include "SASSyncRequest.h"
 
+#include <iostream>
+#include <libxml/xmlreader.h>
+
 using namespace SlimEAS;
+using namespace std;
 
 static const int FOLDER_LIST_COUNT = 15;
 
@@ -51,29 +55,28 @@ void SASSyncRequest::generateXMLPayload()
   
   for (auto folder: _folderList) {
     xmlTextWriterStartElement(writer, BAD_CAST "Collection");
-    xmlTextWriterWriteElement(writer, BAD_CAST "SyncKey", folder->syncKey());
-    xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", folder->id());
+    xmlTextWriterWriteElement(writer, BAD_CAST "SyncKey", BAD_CAST folder->syncKey().c_str());
+    xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", BAD_CAST folder->id().c_str());
     
     if (folder->areDeletesPermanent()) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "DeletesAsMoves", "0");
+      xmlTextWriterWriteElement(writer, BAD_CAST "DeletesAsMoves", BAD_CAST "0");
     }
     
     if (folder->areChangesIgnored()) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "GetChanges", "0");
+      xmlTextWriterWriteElement(writer, BAD_CAST "GetChanges", BAD_CAST "0");
     }
     
     if (folder->windowSize() > 0) {
-      std::string &ws = std::to_string(folder->windowSize());
-      xmlTextWriterWriteElement(writer, BAD_CAST "WindowSize", ws.c_str());
+      xmlTextWriterWriteElement(writer, BAD_CAST "WindowSize", BAD_CAST to_string(folder->windowSize()).c_str());
     }
     
     if (folder->useConversationMode()) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "ConversationMode", "1");
+      xmlTextWriterWriteElement(writer, BAD_CAST "ConversationMode", BAD_CAST "1");
     }
     
     if (folder->hasOptions()) {
       std::string options = folder->generateOptionsXml();
-      xmlTextWriterWriteRaw(writer, options.c_str());
+      xmlTextWriterWriteRaw(writer, BAD_CAST options.c_str());
     }
   
     xmlTextWriterEndElement(writer);
@@ -102,7 +105,7 @@ void SASSyncRequest::generateXMLPayload()
   
   _xmlPayload = string((char*)buf->content);
   
-  std::cout << _xmlPayload;
+  cout << _xmlPayload;
   
   xmlFreeTextWriter(writer);
   xmlBufferFree(buf);
