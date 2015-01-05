@@ -160,11 +160,14 @@ namespace SlimEAS {
     // The type of the folder
     FolderType _type = Unknown;
     
+    // The Folder object that represents this folder's parent
+    SlimEAS::SASFolder *_parentFolder;
+    
     // The location on disk where this folder is saved
     std::string _saveLocation = "";
     
     // A list of subfolders
-    std::vector<SASFolder> _subFolders;
+    mutable std::vector<SASFolder> _subFolders;
     
     // The current sync key for this folder
     std::string _syncKey = "0";
@@ -190,36 +193,54 @@ namespace SlimEAS {
     FolderSyncOptions _options;
     bool  _hasOptions = false;
     
-    // The Folder object that represents this folder's parent
-    const SlimEAS::SASFolder *_parentFolder;
-    
   private:
     void checkDir(const std::string &directory);
+    const BodyPreferences generatePerefenceFromXml(const std::string &xml);
+    std::string generateXmlForFolder();
     
   public:
     #pragma mark - constructor
-    SASFolder(const std::string &folderName, const std::string &folderId, FolderType folderType, const SASFolder &parent);
+    SASFolder(const std::string &folderName, const std::string &folderId, FolderType folderType, SASFolder &parent);
     SASFolder(const std::string &folderPath);
     ~SASFolder();
     
   public:
-    void loadFolderInfo();
-    void saveFolderInfo();
+    void loadFolderInfo();  // DONE
+    void saveFolderInfo();  // DONE
     
-    const SASFolder &findFolderById(const std::string &folderId);
+    void addSubFolderFromXml(const std::string &folderXml); // DONE
+    void removeSubFolder(const  SASFolder &removeFolder);   // DONE
+    void remove();                                          // DONE
+    void removeAllSubFolders();                             // DONE
     
-    std::string generateOptionsXml();
-    std::string generateXmlForFolder();
+    const SASFolder *findFolderById(const std::string &folderId) const; // DONE
     
+    std::string generateOptionsXml(); // DONE
+    
+    void addSubFolder(const SASFolder &folder) {
+      _subFolders.push_back(folder);
+    }
+  // getter/setter
+  public:
     void setFolderSyncOptions(const FolderSyncOptions &options) {
       _hasOptions = true;
       _options = options;
     }
     
-    SASFolder addSubFolder(const std::string &folderName, const std::string &folderId, FolderType folderType);
+    const SASFolder *rootFolder() const;
+    const std::string &id() {return _id;}
+    const std::string syncKey() {return _syncKey;}
+    const FolderType  &type() {return _type;}
+    const bool &useConversationMode() {return _useConversationMode;}
+    const bool &areChangesIgnored() {return _areChangesIgnored;}
+    const bool &areDeletesPermanent() {return _areDeletesPermanent;}
+    const int32_t &windowSize() {return _windowSize;}
+    const int64_t &lastSyncTime() {return _lastSyncTime;}
+    const std::string &saveLocation() {return _saveLocation;}
+    const SASFolder &parentFolder() { return *_parentFolder;}
     
-    void addSubFolder(const SASFolder &folder) {
-      _subFolders.push_back(folder);
+    const std::vector<SASFolder> &subFolders() {
+      return _subFolders;
     }
   };
 

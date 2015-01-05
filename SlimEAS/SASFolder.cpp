@@ -41,7 +41,7 @@ const static string _folderInfoFileName = "FolderInfo.xml";
 #define StartElement(eleName) xmlTextWriterStartElement(writer, BAD_CAST eleName)
 #define EndElement() xmlTextWriterEndElement(writer)
 
-SASFolder::SASFolder(const string &folderName, const string &folderId, FolderType folderType, const SASFolder &parent)
+SASFolder::SASFolder(const string &folderName, const string &folderId, FolderType folderType, SASFolder &parent)
 : _name(folderName),
   _id(folderId),
   _type(folderType),
@@ -56,20 +56,118 @@ SASFolder::SASFolder(const string &folderPath)
   _id("0")
 {
   _parentFolder = nullptr;
+  checkDir(_saveLocation);
+  loadFolderInfo();
 }
 
-SASFolder SASFolder::addSubFolder(const std::string &folderName, const std::string &folderId, FolderType folderType) {
-
-  return SASFolder(folderName, folderId, folderType, *this);
+const BodyPreferences SASFolder::generatePerefenceFromXml(const std::string &xml) {
+  xmlTextReaderPtr reader;
+  uint8_t *buf = (uint8_t *)xml.c_str();
+  int buf_len = (int)strlen((const char *)buf);
+  BodyPreferences preference;
+  
+  reader = xmlReaderForMemory((const char *)buf, buf_len, nullptr, "utf-8", 0);
+  if (reader != NULL) {
+    const xmlChar *curr_elm = nullptr;
+    const xmlChar *curr_elm_prefix = nullptr;
+    const xmlChar *curr_ele_full = nullptr;
+    while (xmlTextReaderRead(reader)) {
+      int n_type = xmlTextReaderNodeType(reader);
+      if (n_type == XNT_Element) {
+        curr_ele_full = xmlTextReaderConstName(reader);
+        curr_elm = xmlTextReaderConstLocalName(reader);
+        curr_elm_prefix = xmlTextReaderConstPrefix(reader);
+        continue;
+      } else if (n_type == XNT_Text && curr_elm != NULL) {
+        
+#define ToI32(v) sscanf((const char *)value, "%d", &v)
+#define ToSTR(v) (string((const char*)v))
+        
+        const xmlChar *value = xmlTextReaderConstValue(reader);
+        if (strcmp((const char *)curr_elm, "TruncationSize") == 0) {
+          ToI32(preference.TruncationSize);
+        }else if (strcmp((const char *)curr_elm, "AllOrNone") == 0) {
+          preference.AllOrNone = true;
+        } else if(strcmp((const char *)curr_elm, "PreviewSize") == 0 ){
+          ToI32(preference.Preview);
+        } else {
+          // other property
+        }
+      } else if (n_type == XNT_EndElement) {
+        curr_elm = nullptr;
+      } else {
+        continue;
+      }
+    }
+    xmlFreeTextReader(reader);
+  }
+  return preference;
 }
 
-const SASFolder &SASFolder::findFolderById(const string &folderId) {
-  return *this;
+const SASFolder *SASFolder::findFolderById(const string &folderId) const {
+  
+  if (strcmp(folderId.c_str(), "0") == 0) {
+    return rootFolder();
+  }
+  
+  if (strcmp(folderId.c_str(), _id.c_str()) == 0) {
+    return this;
+  }
+  
+  if (_subFolders.size() == 0) {
+    // how to return null
+    return nullptr;
+  }
+  
+  const SASFolder *returnFolder = nullptr;
+  
+  for (auto &it : _subFolders) {
+    if (strcmp(folderId.c_str(), it._id.c_str()) == 0) {
+      returnFolder = &it;
+    } else {
+      returnFolder = it.findFolderById(folderId);
+      
+      if (returnFolder != nullptr) {
+        break;
+      }
+    }
+  }
+  
+  return returnFolder;
 }
 
 void SASFolder::checkDir(const std::string &directory) {
   assert(!directory.empty());
-  // TODO: create directory here
+  // TODO: create directory here, use shell to test
+  string cmd  = "mkdir -p " + directory;
+  system(cmd.c_str());
+}
+
+void SASFolder::remove() {
+  if (_parentFolder != nullptr) {
+    string cmd = "rm -rf " + _saveLocation;
+    // TODO: delete directory here, use shell to test
+    printf("Excute shell command : %s \n", cmd.c_str());
+    _parentFolder->removeSubFolder(*this);
+  }
+}
+
+void SASFolder::removeSubFolder(const SASFolder &removeFolder) {
+  
+  for(auto it = _subFolders.begin(); it != _subFolders.end(); it++)
+  {
+    if(it->_id == removeFolder._id)
+    {
+      it = _subFolders.erase(it);
+    }
+  }
+
+}
+
+void SASFolder::removeAllSubFolders() {
+  for(auto &it : _subFolders) {
+    it.remove();
+  }
 }
 
 void SASFolder::saveFolderInfo() {
@@ -346,6 +444,127 @@ string SASFolder::generateXmlForFolder() {
   return xml;
 }
 
+// folder xml to folder instance
+void SASFolder::addSubFolderFromXml(const string &folderXml) {
+
+  xmlTextReaderPtr reader;
+  uint8_t *buf = (uint8_t *)folderXml.c_str();
+  int buf_len = (int)strlen((const char *)buf);
+  
+  reader = xmlReaderForMemory((const char *)buf, buf_len, nullptr, "utf-8", 0);
+  if (reader != NULL) {
+    const xmlChar *curr_elm = nullptr;
+    const xmlChar *curr_elm_prefix = nullptr;
+    const xmlChar *curr_ele_full = nullptr;
+    SASFolder folder("");
+    string xml = "";
+    vector<string> subFolderXmls;
+    
+    while (xmlTextReaderRead(reader)) {
+      int n_type = xmlTextReaderNodeType(reader);
+      if (n_type == XNT_Element) {
+        curr_ele_full = xmlTextReaderConstName(reader);
+        curr_elm = xmlTextReaderConstLocalName(reader);
+        curr_elm_prefix = xmlTextReaderConstPrefix(reader);
+        printf("current element %s \n", curr_ele_full);
+        
+        if (strcmp((const char *)curr_elm, "BodyPreferences") == 0) {
+          printf("OuterXml: %s \n", xmlTextReaderReadOuterXml(reader));
+          xml = string((const char*)xmlTextReaderReadOuterXml(reader));
+          folder._options.bodyPreferences.push_back(generatePerefenceFromXml(xml));
+        } else if (strcmp((const char *)curr_elm, "BodyPartPreferences") == 0) {
+          printf("OuterXml: %s \n", xmlTextReaderReadOuterXml(reader));
+          xml = string((const char*)xmlTextReaderReadOuterXml(reader));
+          folder._options.setBodyPreferences(generatePerefenceFromXml(xml));
+        } else if (strcmp((const char *)curr_elm, "Folder") == 0) {
+          int depth = xmlTextReaderDepth(reader);
+          if (depth > 0) {
+            xml = string((const char*)xmlTextReaderReadOuterXml(reader));
+            if (!xml.empty()) {
+              subFolderXmls.push_back(xml);
+            }
+          }
+        }
+        continue;
+      } else if (n_type == XNT_Text && curr_elm != NULL) {
+    
+#define ToI32(v) sscanf((const char *)value, "%d", &v)
+#define ToSTR(v) (string((const char*)v))
+        
+        const xmlChar *value = xmlTextReaderConstValue(reader);
+        if (strcmp((const char *)curr_elm, "Name") == 0) {
+          folder._name = ToSTR(value);
+        }else if (strcmp((const char *)curr_elm, "Id") == 0) {
+          folder._id = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "Type") == 0 ) {
+           ToI32(folder._type);
+        } else if(strcmp((const char *)curr_elm, "SyncKey") == 0 ){
+          folder._syncKey = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "LastSyncTime") == 0) {
+          struct tm tm;
+          time_t now;
+          strptime((const char*)value, "%Y-%m-%dT%T", &tm);
+          
+          now = mktime(&tm);
+          folder._lastSyncTime = now;
+          
+        } else if(strcmp((const char *)curr_elm, "PermanentDelete") == 0) {
+          folder._areDeletesPermanent =  true;
+        } else if(strcmp((const char *)curr_elm, "IgnoreServerChanges") == 0) {
+          folder._areChangesIgnored = true;
+        } else if(strcmp((const char *)curr_elm, "ConversationMode") == 0) {
+          folder._useConversationMode = true;
+        } else if(strcmp((const char *)curr_elm, "WindowSize") == 0) {
+          ToI32(folder._windowSize);
+        } else if(strcmp((const char *)curr_elm, "FilterType") == 0) {
+          ToI32(folder._options.filterType);
+        } else if(strcmp((const char *)curr_elm, "ConflictHandling") == 0) {
+          ToI32(folder._options.conflictHandling);
+        } else if(strcmp((const char *)curr_elm, "MimeTruncation") == 0) {
+          ToI32(folder._options.mimeTruncation);
+        } else if(strcmp((const char *)curr_elm, "ClassToSync") == 0) {
+          folder._options.className = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "MaxItems") == 0) {
+          ToI32(folder._options.maxItems);
+        } else if(strcmp((const char *)curr_elm, "RightsManagementSupported") == 0) {
+          folder._options.isRightsManagementSupported = true;
+        } else if(strcmp((const char *)curr_elm, "MimeSupport") == 0) {
+          ToI32(folder._options.mimeSupportLevel);
+        } else if(strcmp((const char *)curr_elm, "MaxItems") == 0) {
+          ToI32(folder._options.maxItems);
+        } else {
+          // other property
+        }
+      } else if (n_type == XNT_EndElement) {
+        curr_elm = nullptr;
+      } else {
+        continue;
+      }
+    }
+    
+    if (!folder._id.empty()) {
+      // different constructor, copy properties
+      SASFolder newFolder(folder._name, folder._id, folder._type, *this);
+      newFolder._options = folder._options;
+      newFolder._hasOptions = true;
+      newFolder._syncKey = folder._syncKey;
+      newFolder._lastSyncTime = folder._lastSyncTime;
+      newFolder._areDeletesPermanent = folder._areDeletesPermanent;
+      newFolder._areChangesIgnored = folder._areChangesIgnored;
+      newFolder._useConversationMode = folder._useConversationMode;
+      newFolder._windowSize  = folder._windowSize;
+      _subFolders.push_back(newFolder);
+      
+      for(auto &it : subFolderXmls) {
+        newFolder.addSubFolderFromXml(it);
+      }
+    }
+    
+    xmlFreeTextReader(reader);
+  }
+  
+}
+
 string SASFolder::generateOptionsXml() {
 
    xmlBufferPtr buf;
@@ -450,6 +669,14 @@ string SASFolder::generateOptionsXml() {
   printf("Options payload:\n %s \n", xml.c_str());
   
   return xml;
+}
+
+const SASFolder *SASFolder::rootFolder() const {
+  if (_parentFolder != nullptr) {
+    return _parentFolder->rootFolder();
+  } else {
+    return this;
+  }
 }
 
 SASFolder::~SASFolder() {
