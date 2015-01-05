@@ -55,10 +55,16 @@ namespace SlimEAS {
     ~SASProvisionRequest();
         
     bool isAcknowledgement() const {return _isAcknowledgement;}
+    void setAcknowledgement(bool isAcknowledgement) {
+      _isAcknowledgement = isAcknowledgement;
+    }
     
     bool isRemoteWipe() const {return _isRemoteWipe;}
     
     int32_t status() const {return _status;}
+    void setStatus(int32_t status) {
+      _status = status;
+    }
     
     SASDevice &provisionDevice() {return _provisionDevice;}
     void setProvisionDevice(SASDevice device) {

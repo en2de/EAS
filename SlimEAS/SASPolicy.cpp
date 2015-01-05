@@ -43,7 +43,9 @@ bool SASPolicy::loadXml(const std::string &xml){
 #define ToU32(v) sscanf((const char *)value, "%u", &v)
         
         const xmlChar *value = xmlTextReaderConstValue(reader);
-        if (strcmp((const char *)curr_elm, "AllowBluetooth") == 0) {
+        if (strcmp((const char *)curr_elm, "PolicyKey") == 0) {
+          ToU32(policyKey);
+        }else if (strcmp((const char *)curr_elm, "AllowBluetooth") == 0) {
           ToBool(allowBlueTooth);
         } else if(strcmp((const char *)curr_elm, "AllowBrowser") == 0 ) {
           ToBool(allowBrowser);

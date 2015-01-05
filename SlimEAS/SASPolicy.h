@@ -100,6 +100,7 @@ namespace SlimEAS {
     int32_t requireSignedSMIMEAlgorithm = 0;
     bool requireSignedSMIMEMessages = false;
     bool requireStorageCardEncryption = false;
+    bool remoteWipeRequested = false;
     
     
 #pragma mark - constructor

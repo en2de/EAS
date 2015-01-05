@@ -50,7 +50,9 @@ void SASProvisionRequest::generateXMLPayload() {
   xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-//MICROSOFT//DTD ActiveSync//EN", BAD_CAST "http://www.microsoft.com/", NULL);
   xmlTextWriterStartElement(writer, BAD_CAST "Provision");
   xmlTextWriterWriteAttribute(writer, BAD_CAST "xmlns", BAD_CAST "Provision:");
-  xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "settings", NULL, BAD_CAST "Settings:");
+  if (!_isAcknowledgement) {
+    xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "settings", NULL, BAD_CAST "Settings:");
+  }
   
   //remote wipe
   if (_isRemoteWipe) {
