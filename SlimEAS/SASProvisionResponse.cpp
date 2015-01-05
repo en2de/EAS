@@ -34,7 +34,7 @@ SASProvisionResponse::SASProvisionResponse(SASHTTPRequest::SASHTTPResponseContex
         continue;
       } else if (n_type == XNT_Text && curr_elm != NULL) {
         const xmlChar *value = xmlTextReaderConstValue(reader);
-        if (strcmp((const char *)curr_elm, "Status")) {
+        if (strcmp((const char *)curr_elm, "Status") == 0) {
           sscanf((const char *)value, "%d", &_status);
         }
       } else if (n_type == XNT_EndElement) {

@@ -128,6 +128,10 @@ bool SASPolicy::loadXml(const std::string &xml){
           ToBool(requireSignedSMIMEMessages);
         } else if (strcmp((const char *)curr_elm, "RequireStorageCardEncryption") == 0) {
           ToBool(requireStorageCardEncryption);
+        }  else if (strcmp((const char *)curr_elm, "RemoteWipe") == 0) {
+          ToBool(remoteWipeRequested);
+        }   else if (strcmp((const char *)curr_elm, "Status") == 0) {
+          ToI32(status);
         } else if (strcmp((const char *)curr_elm, "UnapprovedInROMApplicationList") == 0) {
           //TODO: no show
           //unapprovedInROMApplicationList = ParseAppList(policySettingNode);

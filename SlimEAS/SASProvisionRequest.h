@@ -60,6 +60,9 @@ namespace SlimEAS {
     }
     
     bool isRemoteWipe() const {return _isRemoteWipe;}
+    void setRemoteWipe(bool isRemoteWipe) {
+      _isRemoteWipe = true;
+    }
     
     int32_t status() const {return _status;}
     void setStatus(int32_t status) {

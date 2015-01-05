@@ -17,10 +17,15 @@
 #include "SASProvisionRequest.h"
 #include "SASProvisionResponse.h"
 
+#include "SASMail.h"
+#include "SASFolder.h"
+
 #include <unistd.h>
 
 #include <thread>
 #include <future>
+
+#include <time.h>
 
 #include <libxml/xmlwriter.h>
 
@@ -28,7 +33,121 @@
 
 #define MY_ENCODING "ISO-8859-1"
 
+using namespace SlimEAS;
+
 static const char *prefix = "settings";
+
+void mailTest() {
+
+  SlimEAS::SASMail mail;
+  mail.setTo("13491729@qq.com");
+  mail.setFrom("chenxu@nationsky.com");
+  mail.setSubject("New mail message");
+  
+  time_t now;
+  mail.setDateReceived(now);
+  
+  mail.setDisplayTo("qintyo");
+  mail.setThreadTopic("New mail message");
+  mail.setImportance(1);
+  mail.setRead(0);
+  
+  SlimEAS::SASBody body;
+  body.setType(2);
+  body.setEstimatedDataSize(116575);
+  body.setTruncated(true);
+  body.setMimeData("Hello I am the content.");
+  
+  mail.setBody(body);
+  
+  string xml = "<Properties xmlns:email=\"Email\" xmlns:email2=\"Email2\" xmlns:airsyncbase=\"AirSyncBase\"> \
+  <email:To>\"deviceuser\" &lt;anat@contoso.com&gt;</email:To> \
+  <email:Cc>\"deviceuser3\" &lt;chris@contoso.com.com&gt;</email:Cc> \
+  <email:From>\"deviceuser2\" &lt;dag@contoso.com&gt;</email:From> \
+  <email:Subject>Subject</email:Subject> \
+  <email:DateReceived>2007-05-08T17:29:07.890Z </email:DateReceived> \
+  <email:DisplayTo>DeviceUserDisplayName</email:DisplayTo> \
+  <email:ThreadTopic>Subject</email:ThreadTopic> \
+  <email:Importance>1</email:Importance> \
+  <email:Read>0</email:Read> \
+  <airsyncbase:Attachments> \
+  <airsyncbase:Attachment> \
+  <airsyncbase:DisplayName>ActiveSyncClient_ AcceptingMeetingRequest.JPG</airsyncbase:DisplayName> \
+  <airsyncbase:FileReference>7%3a1%3a0</airsyncbase:FileReference> \
+  <airsyncbase:Method>1</airsyncbase:Method> \
+  <airsyncbase:EstimatedDataSize>18790 </airsyncbase:EstimatedDataSize> \
+  </airsyncbase:Attachment> \
+  </airsyncbase:Attachments> \
+  <airsyncbase:Body> \
+  <airsyncbase:Type>1</airsyncbase:Type> \
+  <airsyncbase:EstimatedDataSize>20</airsyncbase:EstimatedDataSize> \
+  <airsyncbase:Data>Body as plain text</airsyncbase:Data> \
+  </airsyncbase:Body> \
+  <email:MessageClass>IPM.Note</email:MessageClass> \
+  <email:InternetCPID>28591</email:InternetCPID> \
+  <email:Flag /> \
+  <email:ContentClass>urn:content-classes:message</email:ContentClass> \
+  <airsyncbase:NativeBodyType>1</airsyncbase:NativeBodyType> \
+  <email2:ConversationId>1</email2:ConversationId> \
+  <email2:ConversationIndex>12</email2:ConversationIndex> \
+  </Properties>";
+  
+  cout << xml << endl;
+
+  SASMail mail2;
+  mail2.decode(xml);
+  
+  struct tm tm;
+  strptime("2007-05-08T17:29:07.890Z", "%Y-%b-%dT%T", &tm);
+  
+  now = mktime(&tm);
+  
+  cout << "************* mail payload test start ************" << endl;
+  // cout << mail.encode() << endl;
+  cout << mail2.encode() << endl;
+  cout << "************* mail payload test end ************" << endl;
+  
+  std::time_t now1= std::time(0);
+  std::tm* now_tm= std::gmtime(&now1);
+  char buf[42];
+  std::strftime(buf, 42, "%Y-%m-%dT%TZ", now_tm);
+  cout << buf;
+  
+}
+
+void folderTest() {
+  
+  // (const std::string &folderName, const std::string &folderId, FolderType folderType, const SASFolder &parent);
+  SASFolder parent("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/");
+  SASFolder subFolder("folderPath");
+  SASFolder folder("./", "folderId", UserGeneric, parent);
+  FolderSyncOptions options;
+  options.filterType = OneDayBack;
+  options.className = "className";
+  options.maxItems = 1;
+  options.mimeSupportLevel = SendMimeForAll;
+  folder.setFolderSyncOptions(options);
+  folder.addSubFolder(subFolder);
+  folder.generateOptionsXml();
+  
+  string folderXmls =
+  "<Folder>\n \
+  <Name>./testdata1/</Name>\n \
+  <Id>folderId1</Id>\n \
+  <Type>1</Type>\n \
+  <SyncKey>0</SyncKey>\n \
+  <LastSyncTime>0</LastSyncTime>\n \
+  <FilterType>1</FilterType>\n \
+  <ClassToSync>className1</ClassToSync>\n \
+  <MaxItems>1</MaxItems>\n \
+  <MimeSupport>2</MimeSupport>\n \
+  <Folders/>\n \
+  </Folder>\n";
+  
+  parent.addSubFolderFromXml(folderXmls);
+  
+  folder.saveFolderInfo();
+}
 
 void xmlTest() {
   
@@ -128,6 +247,115 @@ void cppTest() {
   free(output);
 }
 
+void provisionTest() {
+
+  uint32_t policyKey = 0;
+  SASOptionsRequest request;
+  request.setServer("https://ex.qq.com");
+  request.setUseSSL(true);
+  request.getReponse();
+  
+#define InitialRequest(v) do { \
+v.setServer("https://ex.qq.com"); \
+  v.setUser("chenxu@nationsky.com"); \
+  v.setPassword("123456abcA"); \
+  v.setUseSSL(true); \
+  v.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D"); \
+  v.setDeviceType("SmartPhone"); \
+  v.setProtocolVersion("14.0"); \
+  v.setUseEncodeRequestLine(false); \
+} while(0)
+
+  //provisioning test
+  SlimEAS::SASDevice provDevice;
+  provDevice.setModel("testModel");
+  provDevice.setIMEI("testIMEI");
+  provDevice.setFriendlyName("testDevice");
+  provDevice.setOS("iphone os 8.0");
+  provDevice.setOS_Lang("english");
+  provDevice.setPhoneNumber("18603008614");
+  provDevice.setMobileOperator("noOperator");
+  provDevice.setUserAgent("SlimEAS");
+  
+  /* Step 1: client requests security policy from the server */
+  SlimEAS::SASProvisionRequest provRequest;
+  InitialRequest(provRequest);
+  provRequest.setProvisionDevice(provDevice);
+  provRequest.setPolicyKey(0);
+  
+  /* Step 2: Server responds to client request with security policy and temorary policyKey */
+  SlimEAS::SASProvisionResponse *provRes = dynamic_cast<SlimEAS::SASProvisionResponse *>(provRequest.getResponse());
+  printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+  printf("Step 1 headers: \n\n%s\n", provRes->headerString().c_str());
+  printf("----------------------------------------------------\n");
+  printf("Step 1 payload: \n\n%s\n", provRequest.XMLPayload().c_str());
+  printf("----------------------------------------------------\n");
+  printf("Step 1 response: \n\n%s\n", provRes->xmlResponse().c_str());
+  printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+  
+  /* Step 3: Client acknowledges receipt and application of security policy */
+  SlimEAS::SASPolicy policy = provRes->policy();
+  
+  printf("\nResponse Status: %d\n", provRes->status());
+  if (provRes->status() == SlimEAS::SASProvisionResponse::Provision_Success) {
+    if (provRes->isPolicyLoad()) {
+      if (provRes->policy().status == SlimEAS::SASProvisionResponse::Provision_Success) {
+        if (provRes->policy().remoteWipeRequested) {
+          // The server requested a remote wipe.
+          // The client must acknowledge it.
+          printf("\n+++ The server has requested a remote wipe. +++\n");
+          SASProvisionRequest remoteWipeAcknowledgment;
+          InitialRequest(remoteWipeAcknowledgment);
+          remoteWipeAcknowledgment.setRemoteWipe(true);
+          remoteWipeAcknowledgment.setStatus(SlimEAS::SASProvisionResponse::Provision_Success);
+          
+          printf("\nSending remote wipe acknowledgment...\n");
+          // send the acknowledgment
+          SlimEAS::SASProvisionResponse *remoteWipeAckResponse =
+          dynamic_cast<SlimEAS::SASProvisionResponse *>(remoteWipeAcknowledgment.getResponse());
+          
+          printf("\nRemote Wipe Acknowledgment Request: \n%s\n", remoteWipeAcknowledgment.XMLPayload().c_str());
+          printf("\nRemote wipe acknowledgment response status: \n%d\n", remoteWipeAckResponse->status());
+        } else {
+          // The server has provided a policy
+          // and a temprary policy key.
+          // The client must acknowledge this policy
+          // in order to get a permanet policy
+          printf("\nPolicy retrieved from the server.\n");
+          printf("\nTemporary policy key: %d\n", policy.policyKey);
+          
+          SlimEAS::SASProvisionRequest policyAcknowledgment;
+          InitialRequest(policyAcknowledgment);
+          policyAcknowledgment.setPolicyKey(policy.policyKey);
+          policyAcknowledgment.setAcknowledgement(true);
+          policyAcknowledgment.setStatus(SlimEAS::SASProvisionResponse::Provision_Success);
+          
+          printf("\nSending policy acknowledgment...\n");
+          
+          /* Step 4: Server responds with final policyKey */
+          SlimEAS::SASProvisionResponse *policyAckResponse = dynamic_cast<SlimEAS::SASProvisionResponse *>(policyAcknowledgment.getResponse());
+          
+          printf("\nPolicy Acknowledgment Request:\n%s\n", policyAcknowledgment.XMLPayload().c_str());
+          printf("\nResponse Status: %d\n", policyAckResponse->status());
+          
+          if (policyAckResponse->status() == SlimEAS::SASProvisionResponse::Provision_Success &&
+              policyAckResponse->isPolicyLoad()) {
+            printf("\nPolicy acknowledgment successful.\n");
+            printf("\nPermanent Policy Key: %d\n", policyAckResponse->policy().policyKey);
+            policyKey = policyAckResponse->policy().policyKey;
+          } else {
+            printf("\Error returned from policy acknowledgment request: %d.\n", policyAckResponse->status());
+          }
+        }
+      }
+    } else {
+      printf("\nPolicy Error returned from initial provision request: %d.\n", policy.status);
+    }
+  } else {
+    printf("\Error returned from initial provision request: %d.\n", provRes->status());
+  }
+}
+
 int main(int argc, const char * argv[]) {
 //  uint32_t i=0x12345678;
 //  cout<<hex<<i<<endl;
@@ -197,29 +425,6 @@ int main(int argc, const char * argv[]) {
 //
 //  SlimEAS::SASHTTPResponse *res = req.getResponse();
   
-  //provisioning test
-  SlimEAS::SASDevice provDevice;
-  provDevice.setModel("testModel");
-  provDevice.setIMEI("testIMEI");
-  provDevice.setFriendlyName("testDevice");
-  provDevice.setOS("iphone os 8.0");
-  provDevice.setOS_Lang("english");
-  provDevice.setPhoneNumber("18603008614");
-  provDevice.setMobileOperator("noOperator");
-  provDevice.setUserAgent("SlimEAS");
-  
-  SlimEAS::SASProvisionRequest provRequest;
-  provRequest.setServer("https://ex.qq.com");
-  provRequest.setUser("chenxu@nationsky.com");
-  provRequest.setPassword("123456abcA");
-  provRequest.setUseSSL(true);
-  provRequest.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
-  provRequest.setDeviceType("SmartPhone");
-  provRequest.setProtocolVersion("14.0");
-  provRequest.setUseEncodeRequestLine(false);
-  provRequest.setProvisionDevice(provDevice);
-  
-  SlimEAS::SASProvisionResponse *provRes = dynamic_cast<SlimEAS::SASProvisionResponse *>(provRequest.getResponse());
  
 //  std::future<SlimEAS::SASOptionsResponse> res = std::async([&req]{
 //    return req.getReponse();
@@ -228,6 +433,8 @@ int main(int argc, const char * argv[]) {
 //  std::cout << "start sleep";
 //  sleep(60);
 //  std::cout << "sleep over";
+  
+  provisionTest();
   
   return 0;
 }

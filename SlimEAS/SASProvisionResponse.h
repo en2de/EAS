@@ -36,6 +36,7 @@ namespace SlimEAS {
   
     bool isPolicyLoad() {return _isPolicyLoaded;}
 //    SASPolicy &policy() {return _policy;}
+    const std::string &xmlResponse() {return _xmlResponse;}
     int32_t status() {return _status;}
     const SASPolicy &policy() {return _policy;}
   };
