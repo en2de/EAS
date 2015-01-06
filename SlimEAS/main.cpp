@@ -16,6 +16,8 @@
 #include "SASCommandRequest.h"
 #include "SASProvisionRequest.h"
 #include "SASProvisionResponse.h"
+#include "SASFolderSyncRequest.h"
+#include "SASSyncRequest.h"
 
 #include "SASMail.h"
 #include "SASFolder.h"
@@ -247,7 +249,120 @@ void cppTest() {
   free(output);
 }
 
+void devicePayloadTest() {
+  SlimEAS::SASDevice device;
+  device.setModel("testModel");
+  device.setIMEI("testIMEI");
+  device.setFriendlyName("testDevice");
+  device.setOS("iphone os 8.0");
+  device.setOS_Lang("english");
+  device.setPhoneNumber("18603008614");
+  device.setMobileOperator("noOperator");
+  device.setUserAgent("SlimEAS");
+  
+  string deviceXml = device.payload();
+  
+  std::cout << deviceXml;
+}
+
+void endianTest() {
+  uint32_t i=0x12345678;
+  cout<<hex<<i<<endl;
+  uint8_t *p = (uint8_t *)&i;
+  if((*p==0x78)&(*(p+1)==0x56))
+    cout<<"little-endian"<<endl;
+  else if((*p==0x12)&(*(p+1)==0x34))
+    cout<<"big-endian"<<endl;
+  else
+    cout<<"unknow endianess!";
+}
+
+void optionRequestTest() {
+  SlimEAS::SASOptionsRequest optReq;
+  optReq.setServer("https://ex.qq.com");
+  optReq.setUseSSL(true);
+  optReq.setUser("chenxu@nationsky.com");
+  optReq.setPassword("123456abcA");
+  
+  SlimEAS::SASOptionsResponse resS = optReq.getReponse();
+  
+  std::cout << "Supported Versions: " << resS.supportedVersions << "\n";
+  std::cout << "Supported Commands: " << resS.supportedCommand  << "\n";
+  
+  /*
+   std::future<SlimEAS::SASOptionsResponse> res = std::async([&req]{
+   return req.getReponse();
+   });
+   
+   std::cout << "start sleep";
+   sleep(60);
+   std::cout << "sleep over";
+   */
+}
+
+void commandRequestTest() {
+  SlimEAS::SASCommandRequest req("https://ex.qq.com", "chenxu@nationsky.com", "123456abcA");
+  req.setCommand("Provision");
+  req.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
+  req.setDeviceType("SmartPhone");
+  req.setProtocolVersion("14.0");
+  req.setUseEncodeRequestLine(false);
+  
+  std::string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+  xml.append("<!DOCTYPE ActiveSync PUBLIC \"-//MICROSOFT//DTD ActiveSync//EN\" \"http://www.microsoft.com/\">\n");
+  xml.append("<Provision xmlns=\"Provision:\"=\"Settings:\">\n");
+  xml.append("    <settings:DeviceInformation>\n");
+  xml.append("        <settings:Set>\n");
+  xml.append("            <settings:Model>Test 1.0</settings:Model>\n");
+  xml.append("            <settings:IMEI>012345678901234</settings:IMEI>\n");
+  xml.append("            <settings:FriendlyName>My Test App</settings:FriendlyName>\n");
+  xml.append("            <settings:OS>iOS 8.1</settings:OS>\n");
+  xml.append("            <settings:OSLanguage>English</settings:OSLanguage>\n");
+  xml.append("            <settings:PhoneNumber>555-123-4567</settings:PhoneNumber>\n");
+  xml.append("            <settings:MobileOperator>Nationsky</settings:MobileOperator>\n");
+  xml.append("            <settings:UserAgent>Slim-EAS</settings:UserAgent>\n");
+  xml.append("        </settings:Set>\n");
+  xml.append("    </settings:DeviceInformation>\n");
+  xml.append("     <Policies>\n");
+  xml.append("          <Policy>\n");
+  xml.append("               <PolicyType>MS-EAS-Provisioning-WBXML</PolicyType> \n");
+  xml.append("          </Policy>\n");
+  xml.append("     </Policies>\n");
+  xml.append("</Provision>");
+  req.setXMLPayload(xml);
+  
+  SlimEAS::SASHTTPResponse *res = req.getResponse();
+}
+
 void provisionTest() {
+  
+  /*
+   //provisioning test
+   SlimEAS::SASDevice provDevice;
+   provDevice.setModel("testModel");
+   provDevice.setIMEI("testIMEI");
+   provDevice.setFriendlyName("testDevice");
+   provDevice.setOS("iphone os 8.0");
+   provDevice.setOS_Lang("english");
+   provDevice.setPhoneNumber("18603008614");
+   provDevice.setMobileOperator("noOperator");
+   provDevice.setUserAgent("SlimEAS");
+   
+   SlimEAS::SASProvisionRequest provRequest;
+   provRequest.setServer("https://ex.qq.com");
+   provRequest.setUser("chenxu@nationsky.com");
+   provRequest.setPassword("123456abcA");
+   provRequest.setUseSSL(true);
+   provRequest.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
+   provRequest.setDeviceType("SmartPhone");
+   provRequest.setProtocolVersion("14.0");
+   provRequest.setPolicyKey(0);
+   provRequest.setUseEncodeRequestLine(false);
+   provRequest.setProvisionDevice(provDevice);
+   
+   SlimEAS::SASProvisionResponse *provRes = dynamic_cast<SlimEAS::SASProvisionResponse *>(provRequest.getResponse());
+   std::out << "Response status: " << provRes->Status << std::endl;
+   */
 
   uint32_t policyKey = 0;
   SASOptionsRequest request;
@@ -356,85 +471,43 @@ v.setServer("https://ex.qq.com"); \
   }
 }
 
-int main(int argc, const char * argv[]) {
-//  uint32_t i=0x12345678;
-//  cout<<hex<<i<<endl;
-//  uint8_t *p = (uint8_t *)&i;        
-//  if((*p==0x78)&(*(p+1)==0x56))
-//    cout<<"little-endian"<<endl;
-//  else if((*p==0x12)&(*(p+1)==0x34))
-//    cout<<"big-endian"<<endl;
-//  else
-//    cout<<"unknow endianess!";
+void FolderSyncTest() {
+  SlimEAS::SASFolderSyncRequest *request = new SlimEAS::SASFolderSyncRequest();
+  request->setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
+  request->setDeviceType("SmartPhone");
+  request->setProtocolVersion("14.0");
+  request->setServer("https://ex.qq.com");
+  request->setUseSSL(true);
+  request->setUser("chenxu@nationsky.com");
+  request->setPassword("123456abcA");
+
+  SlimEAS::SASHTTPResponse *response = request->getResponse();
   
+  delete request;
+  request = nullptr;
+  
+  // SlimEAS::SASSyncRequest *syncRequest = new SlimEAS::SASSyncRequest();
+}
+
+
+int main(int argc, const char * argv[]) {
+
+
   xmlTest();
   
-//  SlimEAS::SASDevice device;
-//  device.setModel("testModel");
-//  device.setIMEI("testIMEI");
-//  device.setFriendlyName("testDevice");
-//  device.setOS("iphone os 8.0");
-//  device.setOS_Lang("english");
-//  device.setPhoneNumber("18603008614");
-//  device.setMobileOperator("noOperator");
-//  device.setUserAgent("SlimEAS");
-//  
-//  string deviceXml = device.payload();
-//  
-//  std::cout << deviceXml;
-//  
-////  cppTest();
-//  
-//  //option request test
-//  SlimEAS::SASOptionsRequest optReq("https://ex.qq.com", "", "");
-//  SlimEAS::SASOptionsResponse resS = optReq.getReponse();
-//  
-//  std::cout << "Supported Versions: " << resS.supportedVersions << "\n";
-//  std::cout << "Supported Commands: " << resS.supportedCommand  << "\n";
+  cppTest();
   
-  //command request test
-//  SlimEAS::SASCommandRequest req("https://ex.qq.com", "chenxu@nationsky.com", "123456abcA");
-//  req.command("Provision");
-//  req.deviceID("6F24CAD599A5BF1A690246B8C68FAE8D");
-//  req.deviceType("SmartPhone");
-//  req.protocolVersion("14.0");
-//  req.useEncodeRequestLine(false);
-//  
-//  std::string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-//  xml.append("<!DOCTYPE ActiveSync PUBLIC \"-//MICROSOFT//DTD ActiveSync//EN\" \"http://www.microsoft.com/\">\n");
-//  xml.append("<Provision xmlns=\"Provision:\" xmlns:settings=\"Settings:\">\n");
-//  xml.append("    <settings:DeviceInformation>\n");
-//  xml.append("        <settings:Set>\n");
-//  xml.append("            <settings:Model>Test 1.0</settings:Model>\n");
-//  xml.append("            <settings:IMEI>012345678901234</settings:IMEI>\n");
-//  xml.append("            <settings:FriendlyName>My Test App</settings:FriendlyName>\n");
-//  xml.append("            <settings:OS>iOS 8.1</settings:OS>\n");
-//  xml.append("            <settings:OSLanguage>English</settings:OSLanguage>\n");
-//  xml.append("            <settings:PhoneNumber>555-123-4567</settings:PhoneNumber>\n");
-//  xml.append("            <settings:MobileOperator>Nationsky</settings:MobileOperator>\n");
-//  xml.append("            <settings:UserAgent>Slim-EAS</settings:UserAgent>\n");
-//  xml.append("        </settings:Set>\n");
-//  xml.append("    </settings:DeviceInformation>\n");
-//  xml.append("     <Policies>\n");
-//  xml.append("          <Policy>\n");
-//  xml.append("               <PolicyType>MS-EAS-Provisioning-WBXML</PolicyType> \n");
-//  xml.append("          </Policy>\n");
-//  xml.append("     </Policies>\n");
-//  xml.append("</Provision>");
-//  req.setXMLPayload(xml);
-//
-//  SlimEAS::SASHTTPResponse *res = req.getResponse();
+  devicePayloadTest();
   
- 
-//  std::future<SlimEAS::SASOptionsResponse> res = std::async([&req]{
-//    return req.getReponse();
-//  });
-//  
-//  std::cout << "start sleep";
-//  sleep(60);
-//  std::cout << "sleep over";
+  endianTest();
+  
+  optionRequestTest();
+  
+  commandRequestTest();
   
   provisionTest();
   
+  FolderSyncTest();
+
   return 0;
 }
