@@ -18,6 +18,8 @@
 #include "SASProvisionResponse.h"
 #include "SASFolderSyncRequest.h"
 #include "SASSyncRequest.h"
+#include "SASItemOperationsRequest.h"
+#include "SASItemOperationsResponse.h"
 
 #include "SASMail.h"
 #include "SASFolder.h"
@@ -38,6 +40,17 @@
 using namespace SlimEAS;
 
 static const char *prefix = "settings";
+
+#define InitialRequest(v) do { \
+v.setServer("https://ex.qq.com"); \
+v.setUser("chenxu@nationsky.com"); \
+v.setPassword("123456abcA"); \
+v.setUseSSL(true); \
+v.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D"); \
+v.setDeviceType("SmartPhone"); \
+v.setProtocolVersion("14.0"); \
+v.setUseEncodeRequestLine(false); \
+} while(0)
 
 void mailTest() {
 
@@ -335,51 +348,8 @@ void commandRequestTest() {
 }
 
 void provisionTest() {
-  
-  /*
-   //provisioning test
-   SlimEAS::SASDevice provDevice;
-   provDevice.setModel("testModel");
-   provDevice.setIMEI("testIMEI");
-   provDevice.setFriendlyName("testDevice");
-   provDevice.setOS("iphone os 8.0");
-   provDevice.setOS_Lang("english");
-   provDevice.setPhoneNumber("18603008614");
-   provDevice.setMobileOperator("noOperator");
-   provDevice.setUserAgent("SlimEAS");
-   
-   SlimEAS::SASProvisionRequest provRequest;
-   provRequest.setServer("https://ex.qq.com");
-   provRequest.setUser("chenxu@nationsky.com");
-   provRequest.setPassword("123456abcA");
-   provRequest.setUseSSL(true);
-   provRequest.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
-   provRequest.setDeviceType("SmartPhone");
-   provRequest.setProtocolVersion("14.0");
-   provRequest.setPolicyKey(0);
-   provRequest.setUseEncodeRequestLine(false);
-   provRequest.setProvisionDevice(provDevice);
-   
-   SlimEAS::SASProvisionResponse *provRes = dynamic_cast<SlimEAS::SASProvisionResponse *>(provRequest.getResponse());
-   std::out << "Response status: " << provRes->Status << std::endl;
-   */
 
   uint32_t policyKey = 0;
-  SASOptionsRequest request;
-  request.setServer("https://ex.qq.com");
-  request.setUseSSL(true);
-  request.getReponse();
-  
-#define InitialRequest(v) do { \
-v.setServer("https://ex.qq.com"); \
-  v.setUser("chenxu@nationsky.com"); \
-  v.setPassword("123456abcA"); \
-  v.setUseSSL(true); \
-  v.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D"); \
-  v.setDeviceType("SmartPhone"); \
-  v.setProtocolVersion("14.0"); \
-  v.setUseEncodeRequestLine(false); \
-} while(0)
 
   //provisioning test
   SlimEAS::SASDevice provDevice;
@@ -489,10 +459,44 @@ void FolderSyncTest() {
   // SlimEAS::SASSyncRequest *syncRequest = new SlimEAS::SASSyncRequest();
 }
 
+void itemOperationsTest() {
+  SlimEAS::SASItemOperationsRequest request;
+  InitialRequest(request);
+  
+  FolderSyncOptions options;
+  
+  BodyPreferences pre;
+  pre.Type = PlainText;
+  pre.TruncationSize = 5120;
+  pre.AllOrNone = false;
+  
+  options.setBodyPreferences(pre);
+  
+  request.setPolicyKey(1307199584);
+  request.setOptions(options);
+  request.setStore("Inbox");
+  request.setCollectionId("7");
+  request.setServerId("1");
+  
+  request.getResponse();
+  
+  SASItemOperationsResponse *provRes = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
+  
+  SASMail mail = provRes->mail();
+  
+  SASBody body = mail.body();
+  
+  printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+  printf("\nItemOperation: \n\nheaders: \n%s \n", request.XMLPayload().c_str());
+  printf("payload: \n\n%s\n", request.XMLPayload().c_str());
+  printf("----------------------------------------------------\n");
+  printf("response: \n\n%s\n", provRes->xmlResponse().c_str());
+  printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+
+}
 
 int main(int argc, const char * argv[]) {
-
-
+ 
   xmlTest();
   
   cppTest();
@@ -508,6 +512,10 @@ int main(int argc, const char * argv[]) {
   provisionTest();
   
   FolderSyncTest();
+  
+  itemOperationsTest();
+
+  mailTest();
 
   return 0;
 }

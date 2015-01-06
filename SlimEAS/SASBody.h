@@ -33,7 +33,8 @@ namespace SlimEAS {
     
     const bool &isTruncated() {return _isTruncated;}
     void setTruncated(const bool &val) { _isTruncated = val;}
-
+    
+  public:
     virtual void decode(const std::string &xml);
     // instance to xml
     virtual const std::string encode();
