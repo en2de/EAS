@@ -231,6 +231,7 @@ namespace SlimEAS {
     }
     
     const SASFolder *rootFolder() const;
+    const std::string &name() {return _name;}
     const std::string &id() {return _id;}
     void setId(const std::string &val) {_id = val;}
     const std::string syncKey() {return _syncKey;}

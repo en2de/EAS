@@ -116,7 +116,9 @@ SASHTTPRequest::SASHTTPRequest(const std::string &server,
   _password(password),
   _useSSL(useSSL)
 {
+  _curl = curl_easy_init();
   
+  _resContext.buf = NULL;
 }
 
 

@@ -12,10 +12,10 @@
 #include <list>
 
 #include "SASCommandRequest.h"
-#include "SASFolder.h"
+
 
 namespace SlimEAS {
-  class Folder;
+  class SASFolder;
   
   typedef enum {
     Synchronizing  = 0,
@@ -25,6 +25,7 @@ namespace SlimEAS {
   class SASSyncRequest: public SASCommandRequest {
     
   public:
+    SASSyncRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL = true);
     SASSyncRequest();
     ~SASSyncRequest();
      

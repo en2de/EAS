@@ -17,6 +17,7 @@
 #include "SASProvisionRequest.h"
 #include "SASProvisionResponse.h"
 #include "SASFolderSyncRequest.h"
+#include "SASFolderSyncResponse.h"
 #include "SASSyncRequest.h"
 #include "SASSyncResponse.h"
 #include "SASItemOperationsRequest.h"
@@ -42,6 +43,11 @@ using namespace SlimEAS;
 
 static const char *prefix = "settings";
 
+static const char *server = "https://ex.qq.com";
+static const char *user = "chenxu@nationsky.com";
+static const char *password = "123456abcA";
+static const bool useSSL = true;
+
 #define InitialRequest(v) do { \
 v.setServer("https://ex.qq.com"); \
 v.setUser("136025803@qq.com"); \
@@ -52,6 +58,7 @@ v.setDeviceType("SmartPhone"); \
 v.setProtocolVersion("14.0"); \
 v.setUseEncodeRequestLine(false); \
 } while(0)
+
 
 void mailTest() {
 
@@ -443,22 +450,66 @@ void provisionTest() {
   }
 }
 
+void IterateRootFolder(SASFolder *rootFolder)
+{
+  if (rootFolder == nullptr) {
+    std::cout << "NULL root folder!" << std::endl;
+    return;
+  }
+  //std::cout << "++++Begin iterate++++" << std::endl;
+  
+  std::cout << "name:" << rootFolder->name() << ", id:" << rootFolder->id() << ", type:" << (int)(rootFolder->type()) << std::endl;
+  for (auto &it: rootFolder->subFolders()) {
+    std::cout << "--subfolder:" << std::endl;
+    std::cout << "name:" << const_cast<SASFolder &>(it).name() << ", id:" << const_cast<SASFolder &>(it).id() << ", type:" << (int)const_cast<SASFolder &>(it).type() << std::endl;
+    
+    if (const_cast<SASFolder &>(it).subFolders().size() > 0 ) {
+      
+    
+    IterateRootFolder(&const_cast<SASFolder &>(it));
+    }
+  }
+  //std::cout << "----End iterate----" << std::endl;
+}
+
 void FolderSyncTest() {
-  SlimEAS::SASFolderSyncRequest *request = new SlimEAS::SASFolderSyncRequest();
+  SlimEAS::SASFolderSyncRequest *request = new SlimEAS::SASFolderSyncRequest(server, user, password, useSSL);
   request->setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
   request->setDeviceType("SmartPhone");
   request->setProtocolVersion("14.0");
-  request->setServer("https://ex.qq.com");
-  request->setUseSSL(true);
-  request->setUser("chenxu@nationsky.com");
-  request->setPassword("123456abcA");
 
-  SlimEAS::SASHTTPResponse *response = request->getResponse();
-  
-  delete request;
-  request = nullptr;
-  
-  // SlimEAS::SASSyncRequest *syncRequest = new SlimEAS::SASSyncRequest();
+  SlimEAS::SASFolderSyncResponse *response = dynamic_cast<SlimEAS::SASFolderSyncResponse *>(request->getResponse());
+  if (response->status() == SlimEAS::SASFolderSyncResponse::FolderSync_Success) {
+    static const std::string mailboxCacheLocation = "/Users/gy/Workspace/Slim-EAS/tmp/";
+    SASFolder *rootFolder = new SASFolder(mailboxCacheLocation);
+    response->updateRootFolder(rootFolder);
+    IterateRootFolder(rootFolder);
+    
+    const SASFolder * inboxFolder = rootFolder->findFolderById("");
+    
+    
+    delete request;
+    request = nullptr;
+    delete response;
+    response = nullptr;
+    
+    SlimEAS::SASSyncRequest *syncRequest = new SlimEAS::SASSyncRequest(server, user, password, useSSL);
+    syncRequest->setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
+    syncRequest->setDeviceType("SmartPhone");
+    syncRequest->setProtocolVersion("14.0");
+    std::list<SASFolder *> & fl = syncRequest->folderList();
+    fl.push_back(const_cast<SASFolder *>(inboxFolder));
+    
+    SlimEAS::SASHTTPResponse *syncResponse = syncRequest->getResponse();
+    
+    
+    
+    delete syncRequest;
+    syncRequest = nullptr;
+    delete syncResponse;
+    syncResponse = nullptr;
+  }
+
 }
 
 void syncTest() {
@@ -513,30 +564,29 @@ void itemOperationsTest() {
   printf("----------------------------------------------------\n");
   printf("response: \n\n%s\n", provRes->xmlResponse().c_str());
   printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-
 }
 
 int main(int argc, const char * argv[]) {
- 
-  xmlTest();
+//  xmlTest();
   
-  cppTest();
+//  cppTest();
   
-  devicePayloadTest();
+//  devicePayloadTest();
   
-  endianTest();
+//  endianTest();
   
-  optionRequestTest();
+//  optionRequestTest();
   
-  commandRequestTest();
+//  commandRequestTest();
   
-  provisionTest();
+//  provisionTest();
   
-  FolderSyncTest();
+//  FolderSyncTest();
   
-  itemOperationsTest();
+//  itemOperationsTest();
 
-  mailTest();
+//  mailTest();
+  
 
   syncTest();
   

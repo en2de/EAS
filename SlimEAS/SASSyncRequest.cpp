@@ -7,6 +7,7 @@
 //
 
 #include "SASSyncRequest.h"
+#include "SASFolder.h"
 #include "SASSyncResponse.h"
 
 #include <iostream>
@@ -16,6 +17,12 @@ using namespace SlimEAS;
 using namespace std;
 
 static const int FOLDER_LIST_COUNT = 15;
+
+SASSyncRequest::SASSyncRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL)
+: SASCommandRequest(server, user, password, useSSL)
+{
+  _command = "Sync";
+}
 
 SASSyncRequest::SASSyncRequest()
 : _folderList(FOLDER_LIST_COUNT)

@@ -15,6 +15,12 @@
 
 using namespace SlimEAS;
 
+SASFolderSyncRequest::SASFolderSyncRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL)
+: SASCommandRequest(server, user, password, useSSL)
+{
+  _command = "FolderSync";
+}
+
 SASFolderSyncRequest::SASFolderSyncRequest()
 {
   _command = "FolderSync";
