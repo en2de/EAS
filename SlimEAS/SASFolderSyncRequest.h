@@ -16,6 +16,7 @@
 namespace SlimEAS {
   class SASFolderSyncRequest: public SASCommandRequest {
   public:
+    SASFolderSyncRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL = true);
     SASFolderSyncRequest();
     ~SASFolderSyncRequest();
     

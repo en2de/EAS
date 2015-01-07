@@ -124,6 +124,7 @@ const SASFolder *SASFolder::findFolderById(const string &folderId) const {
   for (auto &it : _subFolders) {
     if (strcmp(folderId.c_str(), it._id.c_str()) == 0) {
       returnFolder = &it;
+      break;
     } else {
       returnFolder = it.findFolderById(folderId);
       

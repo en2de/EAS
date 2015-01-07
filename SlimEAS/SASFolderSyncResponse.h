@@ -10,8 +10,12 @@
 #define __SlimEAS__SASFolderSyncResponse__
 
 #include <stdio.h>
+#include <list>
+#include <libxml/xmlreader.h>
 
 #include "SASCommandResponse.h"
+
+#include "SASFolder.h"
 
 namespace SlimEAS {
   
@@ -29,8 +33,19 @@ namespace SlimEAS {
     SASFolderSyncResponse(SASHTTPRequest::SASHTTPResponseContext &ctx);
     ~SASFolderSyncResponse();
     
+    void updateRootFolder(SASFolder *rootFolder);
+    int32_t status() {return _status;}
+    
+  private:
+    bool parseInnerNode();
+
+    
   private:
     int32_t _status = 0;
+    std::string _syncKey = "";
+    
+    SASFolder* _rootFolder = nullptr;
+    xmlTextReaderPtr _reader = NULL;
   };
 }
 
