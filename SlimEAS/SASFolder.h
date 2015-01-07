@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <string>
+#include <list>
 #include <vector>
 
 #include <libxml/xmlwriter.h>
@@ -152,7 +153,7 @@ namespace SlimEAS {
   private:
     #pragma mark - properties
     // The name of the folder
-    std::string _name = "";
+    std::string _name;
     
     // The id of the folder
     std::string _id = "";
@@ -167,7 +168,7 @@ namespace SlimEAS {
     std::string _saveLocation = "";
     
     // A list of subfolders
-    mutable std::vector<SASFolder> _subFolders;
+    std::list<SASFolder> _subFolders;
     
     // The current sync key for this folder
     std::string _syncKey = "0";
@@ -215,15 +216,14 @@ namespace SlimEAS {
     void removeSubFolder(const  SASFolder &removeFolder);   // DONE
     void remove();                                          // DONE
     void removeAllSubFolders();                             // DONE
+    void update(const std::string &folderName, const FolderType folderType, SASFolder &parent);
     
     const SASFolder *findFolderById(const std::string &folderId) const; // DONE
     
     std::string generateOptionsXml(); // DONE
     
-    void addSubFolder(const SASFolder &folder) {
-      _subFolders.push_back(folder);
-    }
-  // getter/setter
+    void addSubFolder(const SASFolder *folder);
+    // getter/setter
   public:
     void setFolderSyncOptions(const FolderSyncOptions &options) {
       _hasOptions = true;
@@ -232,7 +232,7 @@ namespace SlimEAS {
     
     const SASFolder *rootFolder() const;
     const std::string &name() {return _name;}
-    const std::string &id() {return _id;}
+    const std::string &id() const {return _id;}
     void setId(const std::string &val) {_id = val;}
     const std::string syncKey() {return _syncKey;}
     void  setSyncKey(const std::string &syncKey) { _syncKey = syncKey;}
@@ -246,7 +246,7 @@ namespace SlimEAS {
     const std::string &saveLocation() {return _saveLocation;}
     const SASFolder &parentFolder() { return *_parentFolder;}
     
-    const std::vector<SASFolder> &subFolders() {
+    const std::list<SASFolder> &subFolders() {
       return _subFolders;
     }
   };

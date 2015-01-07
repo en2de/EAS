@@ -150,7 +150,7 @@ void folderTest() {
   options.maxItems = 1;
   options.mimeSupportLevel = SendMimeForAll;
   folder.setFolderSyncOptions(options);
-  folder.addSubFolder(subFolder);
+  folder.addSubFolder(&subFolder);
   folder.generateOptionsXml();
   
   string folderXmls =

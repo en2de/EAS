@@ -201,7 +201,7 @@ void SASFolder::removeSubFolder(const SASFolder &removeFolder) {
   
   for(auto it = _subFolders.begin(); it != _subFolders.end(); it++)
   {
-    if(it->_id == removeFolder._id)
+    if(it->id() == removeFolder.id())
     {
       it = _subFolders.erase(it);
     }
@@ -210,10 +210,33 @@ void SASFolder::removeSubFolder(const SASFolder &removeFolder) {
 }
 
 void SASFolder::removeAllSubFolders() {
-  for(auto &it : _subFolders) {
+  for(auto it : _subFolders) {
     it.remove();
   }
 }
+
+void SASFolder::update(const std::string &folderName, const FolderType folderType, SASFolder &parent)
+{
+  _name = folderName;
+  _type = folderType;
+  
+  if (parent.id() != _parentFolder->id()) {
+    parent.addSubFolder(this);
+    _parentFolder->removeSubFolder(*this);
+    _parentFolder = &parent;
+  }
+  
+  // TODO: move to new location
+}
+
+void SASFolder::addSubFolder(const SASFolder *folder)
+
+{
+  if ( findFolderById(folder->id()) == nullptr) {
+    _subFolders.push_back(*folder);
+  }
+}
+
 
 void SASFolder::saveFolderInfo() {
 
@@ -244,7 +267,7 @@ void SASFolder::saveFolderInfo() {
   
   StartElement("Folders");
   
-  for (auto &it : _subFolders) {
+  for (auto it : _subFolders) {
     string xmlForFolder = it.generateXmlForFolder();
     xmlTextWriterWriteRaw(writer, BAD_CAST xmlForFolder.c_str());
   }
@@ -460,7 +483,7 @@ string SASFolder::generateXmlForFolder() {
   /* need to check this code snippet start */
   StartElement("Folders");
   
-  for (auto &it : _subFolders) {
+  for (auto it : _subFolders) {
     string subFoderXml = it.generateXmlForFolder();
     if (!subFoderXml.empty()) {
       xmlTextWriterWriteRaw(writer, BAD_CAST subFoderXml.c_str());
@@ -601,7 +624,7 @@ void SASFolder::addSubFolderFromXml(const string &folderXml) {
       newFolder._windowSize  = folder._windowSize;
       _subFolders.push_back(newFolder);
       
-      for(auto &it : subFolderXmls) {
+      for(auto it : subFolderXmls) {
         newFolder.addSubFolderFromXml(it);
       }
     }

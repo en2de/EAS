@@ -123,13 +123,16 @@ bool SASFolderSyncResponse::parseInnerNode()
           } else {
             parent = const_cast<SASFolder *>(_rootFolder->findFolderById(parentId));
           }
-          SASFolder folder(displayName, serverId, (FolderType)type, *parent);
+          SASFolder *folder = new SASFolder(displayName, serverId, (FolderType)type, *parent);
           parent->addSubFolder(folder);
           operation = SASFolderSyncOperationUndefined;
         } else if (strcmp(end, "Delete") == 0) {
-          // TODO:
+          SASFolder * folder = const_cast<SASFolder *>(_rootFolder->findFolderById(serverId));
+          folder->remove();
         } else if (strcmp(end, "Update") == 0) {
-          // TODO:
+          SASFolder * parent = const_cast<SASFolder *>(_rootFolder->findFolderById(parentId));
+          SASFolder * folder = const_cast<SASFolder *>(_rootFolder->findFolderById(serverId));
+          folder->update(displayName, (FolderType)type, *parent);
         }
 
         currentElement = NULL;
