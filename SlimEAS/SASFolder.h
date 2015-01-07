@@ -80,12 +80,11 @@ namespace SlimEAS {
   // This class represents body or body part
   // preferences included in a <BodyPreference> or
   // <BodyPartPreference> element.
-  class BodyPreferences {
-  public:
+  struct BodyPreferences {
     BodyType  Type            = NoType;
-    uint32_t  TruncationSize  = 0;
+    int32_t   TruncationSize  = 0;
     bool      AllOrNone       = false;
-    uint32_t  Preview         = -1;
+    int32_t   Preview         = -1;
   };
   
   // This class represents the sync options
@@ -110,6 +109,7 @@ namespace SlimEAS {
     const BodyPreferences &bodyPreference() {
       return _bodyPreference;
     }
+    
     
     bool hasBodyPreferences() {
       return _hasBodyPreference;
@@ -195,8 +195,11 @@ namespace SlimEAS {
     
   private:
     void checkDir(const std::string &directory);
-    const BodyPreferences generatePerefenceFromXml(const std::string &xml);
     std::string generateXmlForFolder();
+    
+  public:
+    static const BodyPreferences generatePreferenceFromXml(const std::string &xml);
+    static const std::string     generateXmlForPreference(const BodyPreferences &bodyPreference, const std::string &prefix, const std::string &elementName);
     
   public:
     #pragma mark - constructor
@@ -228,8 +231,11 @@ namespace SlimEAS {
     }
     
     const SASFolder *rootFolder() const;
+    const std::string &name() {return _name;}
     const std::string &id() {return _id;}
+    void setId(const std::string &val) {_id = val;}
     const std::string syncKey() {return _syncKey;}
+    void  setSyncKey(const std::string &syncKey) { _syncKey = syncKey;}
     const FolderType  &type() {return _type;}
     const bool &useConversationMode() {return _useConversationMode;}
     const bool &areChangesIgnored() {return _areChangesIgnored;}

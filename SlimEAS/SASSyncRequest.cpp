@@ -8,6 +8,7 @@
 
 #include "SASSyncRequest.h"
 #include "SASFolder.h"
+#include "SASSyncResponse.h"
 
 #include <iostream>
 #include <libxml/xmlreader.h>
@@ -58,34 +59,57 @@ void SASSyncRequest::generateXMLPayload()
   if (_folderList.size() == 0 && _isPartial == false) {
     throw std::invalid_argument("Sync request must specify collections or include the Partial element.");
   }
-  xmlTextWriterStartElement(writer, BAD_CAST "Collections");
   
-  for (auto folder: _folderList) {
-    xmlTextWriterStartElement(writer, BAD_CAST "Collection");
-    xmlTextWriterWriteElement(writer, BAD_CAST "SyncKey", BAD_CAST folder->syncKey().c_str());
-    xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", BAD_CAST folder->id().c_str());
-    
-    if (folder->areDeletesPermanent()) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "DeletesAsMoves", BAD_CAST "0");
+  if (_action == Synchronizing) {
+
+    xmlTextWriterStartElement(writer, BAD_CAST "Collections");
+
+    for (auto folder: _folderList) {
+      if (folder == nullptr)
+        continue;
+      
+      xmlTextWriterStartElement(writer, BAD_CAST "Collection");
+      xmlTextWriterWriteElement(writer, BAD_CAST "SyncKey", BAD_CAST folder->syncKey().c_str());
+      xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", BAD_CAST folder->id().c_str());
+      
+      if (folder->areDeletesPermanent()) {
+        xmlTextWriterWriteElement(writer, BAD_CAST "DeletesAsMoves", BAD_CAST "0");
+      } else {
+        xmlTextWriterStartElement(writer, BAD_CAST "DeletesAsMoves");
+        xmlTextWriterEndElement(writer);
+      }
+      
+      if (folder->areChangesIgnored()) {
+        xmlTextWriterWriteElement(writer, BAD_CAST "GetChanges", BAD_CAST "0");
+      } else {
+        xmlTextWriterStartElement(writer, BAD_CAST "GetChanges");
+        xmlTextWriterEndElement(writer);
+      }
+      
+      if (folder->windowSize() > 0) {
+        xmlTextWriterWriteElement(writer, BAD_CAST "WindowSize", BAD_CAST to_string(folder->windowSize()).c_str());
+      }
+      
+      if (folder->useConversationMode()) {
+        xmlTextWriterWriteElement(writer, BAD_CAST "ConversationMode", BAD_CAST "1");
+      }
+      
+      if (folder->hasOptions()) {
+        std::string options = folder->generateOptionsXml();
+        xmlTextWriterWriteRaw(writer, BAD_CAST options.c_str());
+      }
+
+      xmlTextWriterEndElement(writer);
     }
+  } else if (_action == Fetching) {
+    xmlTextWriterStartElement(writer, BAD_CAST "Commands");
     
-    if (folder->areChangesIgnored()) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "GetChanges", BAD_CAST "0");
-    }
+    xmlTextWriterStartElement(writer, BAD_CAST "Fetch");
     
-    if (folder->windowSize() > 0) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "WindowSize", BAD_CAST to_string(folder->windowSize()).c_str());
-    }
+    xmlTextWriterWriteElement(writer, BAD_CAST "ServerId", BAD_CAST "1:150");
     
-    if (folder->useConversationMode()) {
-      xmlTextWriterWriteElement(writer, BAD_CAST "ConversationMode", BAD_CAST "1");
-    }
+    xmlTextWriterEndElement(writer);
     
-    if (folder->hasOptions()) {
-      std::string options = folder->generateOptionsXml();
-      xmlTextWriterWriteRaw(writer, BAD_CAST options.c_str());
-    }
-  
     xmlTextWriterEndElement(writer);
   }
   
@@ -121,8 +145,5 @@ void SASSyncRequest::generateXMLPayload()
 
 SASHTTPResponse *SASSyncRequest::initialResponse()
 {
-  SASHTTPResponse *syncResponse = nullptr;
-  
-  
-  return syncResponse;
+  return new SASSyncResponse(_resContext);
 }

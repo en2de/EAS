@@ -14,7 +14,6 @@
 
 
 using namespace SlimEAS;
-static const int FOLDER_LIST_COUNT = 15;
 
 // TODO:
 SASFolderSyncResponse::SASFolderSyncResponse(SASHTTPRequest::SASHTTPResponseContext &ctx)

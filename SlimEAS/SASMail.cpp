@@ -40,15 +40,15 @@ void SASMail::decode(const string &xmlString) {
         curr_elm = xmlTextReaderConstLocalName(reader);
         curr_elm_prefix = xmlTextReaderConstPrefix(reader);
         if (strcmp((const char *)curr_elm, "Attachment") == 0) {
-          printf("OuterXml: %s \n", xmlTextReaderReadOuterXml(reader));
           string attXml = string((const char*)xmlTextReaderReadOuterXml(reader));
           att.decode(attXml);
           _attachments.push_back(att);
+          xmlTextReaderNext(reader);
         } else if (strcmp((const char *)curr_elm, "Body") == 0) {
-          printf("OuterXml: %s \n", xmlTextReaderReadOuterXml(reader));
           string attXml = string((const char*)xmlTextReaderReadOuterXml(reader));
           _hasBody = true;
           _body.decode(attXml);
+          xmlTextReaderNext(reader);
         }
         
         printf("current element %s \n", curr_ele_full);
@@ -57,6 +57,7 @@ void SASMail::decode(const string &xmlString) {
         
         if (curr_elm_prefix != nullptr &&
             strcmp((const char *)curr_elm_prefix, "email") != 0 &&
+            strcmp((const char *)curr_elm_prefix, "email2") != 0 &&
             strcmp((const char *)curr_elm_prefix, "airsyncbase")) {
           continue;
         }
@@ -99,6 +100,14 @@ v = _ == 0? false : true; \
           ToI32(_read);
         } else if(strcmp((const char *)curr_elm, "MessageClass") == 0) {
           _messageClass = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "ConversationId") == 0) {
+          _conversationId = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "ConversationIndex") == 0) {
+          ToI32(_conversationIndex);
+        } else if(strcmp((const char *)curr_elm, "ContentClass") == 0) {
+          _contentClass = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "NativeBodyType") == 0) {
+          ToI32(_nativeBodyType);
         } else {
           // other property
         }

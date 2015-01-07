@@ -17,6 +17,11 @@
 namespace SlimEAS {
   class SASFolder;
   
+  typedef enum {
+    Synchronizing  = 0,
+    Fetching
+  } Action;
+  
   class SASSyncRequest: public SASCommandRequest {
     
   public:
@@ -30,6 +35,8 @@ namespace SlimEAS {
     inline bool isPartial() const {return _isPartial;}
     inline std::list<SASFolder *> & folderList() {return _folderList;}
     
+    inline void addFolder(SASFolder *folder) { _folderList.push_back(folder); }
+    
   protected:
     virtual void generateXMLPayload();
     virtual SASHTTPResponse *initialResponse();
@@ -40,6 +47,7 @@ namespace SlimEAS {
     int32_t _windowSize = 0;
     bool _isPartial = false;
     std::list<SASFolder *> _folderList;
+    Action _action = Synchronizing;
 
   };
 }

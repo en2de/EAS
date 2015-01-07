@@ -19,18 +19,29 @@
 namespace SlimEAS {
 
   class SASMail : public SASBaseEntity {
+    
+  public:
+    // 2.2.2.17 NativeBodyType
+    typedef enum {
+      PlainText = 1,
+      HTML = 2,
+      RTF = 3
+    } NativeBodyType;
+    
   private:
-    std::string   _to;
-    std::string   _cc;
-    std::string   _from;
-    std::string   _displayTo;
-    std::string   _subject;
-    std::string   _threadTopic;
-    std::string   _messageClass;
-    int32_t       _importance;
-    int32_t       _read;
-    int32_t       _flag;
-    int64_t       _dateReceived;
+    std::string     _to;
+    std::string     _cc;
+    std::string     _from;
+    std::string     _displayTo;
+    std::string     _subject;
+    std::string     _threadTopic;
+    std::string     _messageClass;
+    std::string     _contentClass;
+    NativeBodyType  _nativeBodyType;
+    int32_t         _importance;
+    int32_t         _read;
+    int32_t         _flag;
+    int64_t         _dateReceived;
     
     // property under email2 namespace:
     std::string   _conversationId;
@@ -74,6 +85,12 @@ namespace SlimEAS {
     
     const int64_t &dateReceived() {return _dateReceived;}
     void setDateReceived(const int64_t &val) {_dateReceived = val;}
+    
+    const std::string &conversationId() {return _conversationId;}
+    void setConversationId(const std::string &val) { _conversationId = val;}
+    
+    const int32_t &conversationIndex() {return _conversationIndex;}
+    void setConversationId(int32_t &val) { _conversationIndex = val;}
     
     void addAttachment(const SASAttachment &attachment);
     

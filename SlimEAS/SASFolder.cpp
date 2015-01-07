@@ -60,7 +60,51 @@ SASFolder::SASFolder(const string &folderPath)
   loadFolderInfo();
 }
 
-const BodyPreferences SASFolder::generatePerefenceFromXml(const std::string &xml) {
+const string SASFolder::generateXmlForPreference(const SlimEAS::BodyPreferences &bodyPreference, const std::string &prefix, const string &elementName) {
+  xmlBufferPtr buf;
+  buf = xmlBufferCreate();
+  if (buf == NULL) {
+    throw std::invalid_argument("Error creating the xml buffer");
+  }
+  
+  xmlDocPtr doc;
+  
+  xmlTextWriterPtr writer;
+  writer = xmlNewTextWriterDoc(&doc, 0);
+  xmlTextWriterSetIndent(writer, 1);
+  if (writer == NULL) {
+    throw std::invalid_argument("Error creating the xml writer");
+  }
+  
+  xmlTextWriterStartDocument(writer, nullptr, nullptr, nullptr);
+  
+  xmlTextWriterStartElementNS(writer, BAD_CAST prefix.c_str(), STR2CharArray(elementName), nullptr);
+  
+  xmlTextWriterWriteElementNS(writer, BAD_CAST prefix.c_str(), BAD_CAST "Type", nullptr, INT2CharArray(bodyPreference.Type));
+  xmlTextWriterWriteElementNS(writer, BAD_CAST prefix.c_str(), BAD_CAST "TruncationSize", nullptr, INT2CharArray(bodyPreference.TruncationSize));
+  xmlTextWriterWriteElementNS(writer, BAD_CAST prefix.c_str(), BAD_CAST "AllOrNone", nullptr, INT2CharArray(bodyPreference.AllOrNone ? 1 : 0));
+  
+  xmlTextWriterEndElement(writer); // end element for elementName
+  
+  xmlTextWriterEndDocument(writer);
+  
+  xmlSaveCtxtPtr saveCtx = xmlSaveToBuffer(buf, "utf-8", XML_SAVE_NO_DECL | XML_SAVE_FORMAT);
+  xmlSaveDoc(saveCtx, doc);
+  xmlSaveFlush(saveCtx);
+  xmlSaveClose(saveCtx);
+  
+  string xml((char *)buf->content);
+  
+  xmlFreeTextWriter(writer);
+  xmlFreeDoc(doc);
+  xmlBufferFree(buf);
+  
+  printf("Preference payload:\n %s \n", xml.c_str());
+  
+  return xml;
+}
+
+const BodyPreferences SASFolder::generatePreferenceFromXml(const std::string &xml) {
   xmlTextReaderPtr reader;
   uint8_t *buf = (uint8_t *)xml.c_str();
   int buf_len = (int)strlen((const char *)buf);
@@ -470,13 +514,13 @@ void SASFolder::addSubFolderFromXml(const string &folderXml) {
         printf("current element %s \n", curr_ele_full);
         
         if (strcmp((const char *)curr_elm, "BodyPreferences") == 0) {
-          printf("OuterXml: %s \n", xmlTextReaderReadOuterXml(reader));
           xml = string((const char*)xmlTextReaderReadOuterXml(reader));
-          folder._options.bodyPreferences.push_back(generatePerefenceFromXml(xml));
+          folder._options.bodyPreferences.push_back(generatePreferenceFromXml(xml));
+          xmlTextReaderNext(reader);
         } else if (strcmp((const char *)curr_elm, "BodyPartPreferences") == 0) {
-          printf("OuterXml: %s \n", xmlTextReaderReadOuterXml(reader));
           xml = string((const char*)xmlTextReaderReadOuterXml(reader));
-          folder._options.setBodyPreferences(generatePerefenceFromXml(xml));
+          folder._options.setBodyPreferences(generatePreferenceFromXml(xml));
+          xmlTextReaderNext(reader);
         } else if (strcmp((const char *)curr_elm, "Folder") == 0) {
           int depth = xmlTextReaderDepth(reader);
           if (depth > 0) {
@@ -485,6 +529,7 @@ void SASFolder::addSubFolderFromXml(const string &folderXml) {
               subFolderXmls.push_back(xml);
             }
           }
+          xmlTextReaderNext(reader);
         }
         continue;
       } else if (n_type == XNT_Text && curr_elm != NULL) {
