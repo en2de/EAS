@@ -31,6 +31,7 @@ namespace SlimEAS {
   private:
     std::string     _to;
     std::string     _cc;
+    std::string     _bcc;
     std::string     _from;
     std::string     _displayTo;
     std::string     _subject;
@@ -97,6 +98,9 @@ namespace SlimEAS {
     virtual void decode(const std::string &xml);
     // instance to xml
     virtual const std::string encode();
+    
+    // get a MIME data
+    const std::string asMIMEData();
     
     SASMail();
     ~SASMail();

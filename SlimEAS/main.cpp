@@ -20,11 +20,14 @@
 #include "SASFolderSyncResponse.h"
 #include "SASSyncRequest.h"
 #include "SASSyncResponse.h"
+#include "SASSendMailRequest.h"
+#include "SASSendMailResponse.h"
 #include "SASItemOperationsRequest.h"
 #include "SASItemOperationsResponse.h"
 
 #include "SASMail.h"
 #include "SASFolder.h"
+#include "SASCollection.h"
 
 #include <unistd.h>
 
@@ -58,7 +61,6 @@ v.setDeviceType("SmartPhone"); \
 v.setProtocolVersion("14.0"); \
 v.setUseEncodeRequestLine(false); \
 } while(0)
-
 
 void mailTest() {
 
@@ -473,6 +475,7 @@ void IterateRootFolder(SASFolder *rootFolder)
 }
 
 void FolderSyncTest() {
+  
   SlimEAS::SASFolderSyncRequest *request = new SlimEAS::SASFolderSyncRequest(server, user, password, useSSL);
   request->setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D");
   request->setDeviceType("SmartPhone");
@@ -513,25 +516,96 @@ void FolderSyncTest() {
 }
 
 void syncTest() {
+  
   SASSyncRequest request;
   InitialRequest(request);
   
-  //request.setPolicyKey(1420561367);
   request.setPolicyKey(1307199584);
+  request.setAction(Synchronizing);
   
   list<SASFolder *> folderList = request.folderList();
   
   SASFolder *inbox = new SASFolder("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/");
-  inbox->setSyncKey("6");
+  
+  // initial the syncKey from FoderSync command.
+  inbox->setSyncKey("1287061996");
   inbox->setId("1");
+  
+  // FilterType.
+  FolderSyncOptions options;
+  options.filterType = ThreeDaysBack;
+  inbox->setFolderSyncOptions(options);
+  
+  // the WindowSize param decides how many emails you want to sync one time.
+  inbox->setWindowSize(5);
   
   request.folderList().push_back(inbox);
   
   SASSyncResponse *response = dynamic_cast<SASSyncResponse *>(request.getResponse());
-  printf("response: %s\n%s\n", response->headerString().c_str(), response->response().c_str());
+  
+  // 1. get the collections from the response.
+  vector<SASCollection> collectionList = response->collectionList();
+  for (auto &collection : collectionList) {
+    // 2. if moreAvailable() if true, then get the responsed syncKey to sync another window
+    if (collection.moreAvailable()) {
+      // 3. get the syncKey
+      string syncKey = collection.syncKey();
+      // 4. request for next window of email
+      
+    }
+  }
+  
+  printf("response: \nHeaders:\n %s\nContents:\n%s\n", response->headerString().c_str(), response->response().c_str());
+  
+  if (inbox) {
+    delete inbox;
+  }
+  inbox = nullptr;
+  
+  if (response) {
+    delete response;
+  }
+  response = nullptr;
+}
+
+void syncAddingTest() {
+  
+  SASSyncRequest request;
+  InitialRequest(request);
+  
+  request.setPolicyKey(1307199584);
+  request.setAction(Adding);
+  
+  list<SASFolder *> folderList = request.folderList();
+  
+  SASFolder *inbox = new SASFolder("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/");
+  
+  // initial the syncKey from FoderSync command.
+  inbox->setSyncKey("1287061996");
+  inbox->setId("1");
+  
+  // the WindowSize param decides how many emails you want to sync one time.
+  inbox->setWindowSize(5);
+  
+  request.folderList().push_back(inbox);
+  
+  SASSyncResponse *response = dynamic_cast<SASSyncResponse *>(request.getResponse());
+  
+  printf("response: \nHeaders:\n %s\nContents:\n%s\n", response->headerString().c_str(), response->response().c_str());
+  
+  if (inbox) {
+    delete inbox;
+  }
+  inbox = nullptr;
+  
+  if (response) {
+    delete response;
+  }
+  response = nullptr;
 }
 
 void itemOperationsTest() {
+  
   SlimEAS::SASItemOperationsRequest request;
   InitialRequest(request);
   
@@ -548,7 +622,8 @@ void itemOperationsTest() {
   request.setOptions(options);
   request.setStore("Inbox");
   request.setCollectionId("1");
-  request.setServerId("ZL0401es26AfgZTNOmGek4y9U2Sw65");
+  request.setServerId("ZL0401es26AfgZTNOmGek4y9U2Sw65"); // the serverId comes from response of Sync command
+  request.setFecthProfile(EmailItem);
   
   request.getResponse();
   
@@ -564,6 +639,27 @@ void itemOperationsTest() {
   printf("----------------------------------------------------\n");
   printf("response: \n\n%s\n", provRes->xmlResponse().c_str());
   printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+}
+
+void sendMailTest() {
+  SASSendMailRequest request;
+  InitialRequest(request);
+  
+  request.setPolicyKey(1307199584);
+  
+  SASMail mail;
+  mail.setFrom("136025803@qq.com");
+  mail.setTo("qintyo@163.com");
+  mail.setSubject("Simple Subject From Slim");
+  
+  SASBody body;
+  body.setMimeData("Hello world");
+  
+  mail.setBody(body);
+  
+  request.setMail(mail);
+  
+  SASSendMailResponse *provRes = dynamic_cast<SASSendMailResponse *>(request.getResponse());
 }
 
 int main(int argc, const char * argv[]) {
@@ -587,8 +683,11 @@ int main(int argc, const char * argv[]) {
 
 //  mailTest();
   
-
-  syncTest();
+//  syncTest();
+  
+//  syncAddingTest();
+  
+  sendMailTest();
   
   return 0;
 }

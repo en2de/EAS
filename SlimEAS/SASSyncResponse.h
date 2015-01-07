@@ -24,10 +24,11 @@ namespace SlimEAS {
     const std::string &response() {return _xmlResponse;}
     
   public:
-    std::vector<SASCollection> collections;
+    const std::vector<SASCollection> &collectionList() {return _collections;}
     
   private:
-    int32_t _status = 0;
+    int32_t                     _status = 0;
+    std::vector<SASCollection>  _collections;
   };
 }
 

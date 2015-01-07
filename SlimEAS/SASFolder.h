@@ -242,6 +242,7 @@ namespace SlimEAS {
     const bool &areDeletesPermanent() {return _areDeletesPermanent;}
     const bool &hasOptions() { return _hasOptions; }
     const int32_t &windowSize() {return _windowSize;}
+    void setWindowSize(const int32_t &windowSize) {_windowSize = windowSize;} // how many emails you want to sync.
     const int64_t &lastSyncTime() {return _lastSyncTime;}
     const std::string &saveLocation() {return _saveLocation;}
     const SASFolder &parentFolder() { return *_parentFolder;}
