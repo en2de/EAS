@@ -6,11 +6,13 @@
 //  Copyright (c) 2015 Slim. All rights reserved.
 //
 
-#ifndef __SlimEAS__SASSyncResponse__
-#define __SlimEAS__SASSyncResponse__
+#pragma once
 
 #include "SASCommandResponse.h"
+#include "SASCollection.h"
+
 #include <string>
+#include <vector>
 
 namespace SlimEAS {
   
@@ -21,9 +23,11 @@ namespace SlimEAS {
     
     const std::string &response() {return _xmlResponse;}
     
+  public:
+    std::vector<SASCollection> collections;
+    
   private:
     int32_t _status = 0;
   };
 }
 
-#endif /* defined(__SlimEAS__SASSyncResponse__) */

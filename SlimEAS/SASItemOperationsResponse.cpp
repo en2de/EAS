@@ -14,7 +14,7 @@
 using namespace SlimEAS;
 using namespace std;
 
-#define EMAILMIMEITEM
+//#define EMAILMIMEITEM
 
 SASItemOperationsResponse::SASItemOperationsResponse(SASHTTPRequest::SASHTTPResponseContext &ctx)
 : SASCommandResponse(ctx)

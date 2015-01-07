@@ -18,6 +18,7 @@
 #include "SASProvisionResponse.h"
 #include "SASFolderSyncRequest.h"
 #include "SASSyncRequest.h"
+#include "SASSyncResponse.h"
 #include "SASItemOperationsRequest.h"
 #include "SASItemOperationsResponse.h"
 
@@ -43,8 +44,8 @@ static const char *prefix = "settings";
 
 #define InitialRequest(v) do { \
 v.setServer("https://ex.qq.com"); \
-v.setUser("chenxu@nationsky.com"); \
-v.setPassword("123456abcA"); \
+v.setUser("136025803@qq.com"); \
+v.setPassword("focus@917729"); \
 v.setUseSSL(true); \
 v.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D"); \
 v.setDeviceType("SmartPhone"); \
@@ -422,6 +423,7 @@ void provisionTest() {
           
           printf("\nPolicy Acknowledgment Request:\n%s\n", policyAcknowledgment.XMLPayload().c_str());
           printf("\nResponse Status: %d\n", policyAckResponse->status());
+          printf("\nResponse:\n%s\n", policyAckResponse->xmlResponse().c_str());
           
           if (policyAckResponse->status() == SlimEAS::SASProvisionResponse::Provision_Success &&
               policyAckResponse->isPolicyLoad()) {
@@ -459,6 +461,25 @@ void FolderSyncTest() {
   // SlimEAS::SASSyncRequest *syncRequest = new SlimEAS::SASSyncRequest();
 }
 
+void syncTest() {
+  SASSyncRequest request;
+  InitialRequest(request);
+  
+  //request.setPolicyKey(1420561367);
+  request.setPolicyKey(1307199584);
+  
+  list<SASFolder *> folderList = request.folderList();
+  
+  SASFolder *inbox = new SASFolder("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/");
+  inbox->setSyncKey("6");
+  inbox->setId("1");
+  
+  request.folderList().push_back(inbox);
+  
+  SASSyncResponse *response = dynamic_cast<SASSyncResponse *>(request.getResponse());
+  printf("response: %s\n%s\n", response->headerString().c_str(), response->response().c_str());
+}
+
 void itemOperationsTest() {
   SlimEAS::SASItemOperationsRequest request;
   InitialRequest(request);
@@ -475,8 +496,8 @@ void itemOperationsTest() {
   request.setPolicyKey(1307199584);
   request.setOptions(options);
   request.setStore("Inbox");
-  request.setCollectionId("7");
-  request.setServerId("1");
+  request.setCollectionId("1");
+  request.setServerId("ZL0401es26AfgZTNOmGek4y9U2Sw65");
   
   request.getResponse();
   
@@ -517,5 +538,7 @@ int main(int argc, const char * argv[]) {
 
   mailTest();
 
+  syncTest();
+  
   return 0;
 }
