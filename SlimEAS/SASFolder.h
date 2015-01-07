@@ -232,7 +232,9 @@ namespace SlimEAS {
     
     const SASFolder *rootFolder() const;
     const std::string &id() {return _id;}
+    void setId(const std::string &val) {_id = val;}
     const std::string syncKey() {return _syncKey;}
+    void  setSyncKey(const std::string &syncKey) { _syncKey = syncKey;}
     const FolderType  &type() {return _type;}
     const bool &useConversationMode() {return _useConversationMode;}
     const bool &areChangesIgnored() {return _areChangesIgnored;}
