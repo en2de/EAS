@@ -22,12 +22,17 @@ namespace SlimEAS {
     std::string     _contentId;
     std::string     _contentLocation;
     bool            _isInline = false;
+    std::string     _contentType;
+    std::string     _data;
     
     // property under email2 namespace:
     
   public:
-    const std::string &getType() {return _displayName;}
-    void setType(const int32_t &val) { _displayName = val;}
+    const std::string &getContentType() {return _contentType;}
+    void setContentType(const std::string &val) { _contentType = val;}
+    
+    const std::string &data() {return _data;}
+    void setData(const std::string &val) {_data = val;}
     
     const std::string &fileReference() {return _fileReference;}
     void setFileReference(const std::string &val) {_fileReference = val;}

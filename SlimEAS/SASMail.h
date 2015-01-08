@@ -51,7 +51,7 @@ namespace SlimEAS {
     SASBody       _body;
     bool          _hasBody = false;
     
-    std::vector<SASAttachment> _attachments;
+    std::vector<SASAttachment*> _attachments;
     
   public:
     const std::string &to() {return _to;}
@@ -84,6 +84,10 @@ namespace SlimEAS {
     const int32_t &flag() {return _flag;}
     void setFlag(const int32_t &val) {_flag = val;}
     
+    const bool hasAttachment() { return _attachments.size() != 0;}
+    const std::vector<SASAttachment*> &attachments() {return _attachments;}
+    const size_t attachmentCount() {return _attachments.size();}
+    
     const int64_t &dateReceived() {return _dateReceived;}
     void setDateReceived(const int64_t &val) {_dateReceived = val;}
     
@@ -92,8 +96,6 @@ namespace SlimEAS {
     
     const int32_t &conversationIndex() {return _conversationIndex;}
     void setConversationId(int32_t &val) { _conversationIndex = val;}
-    
-    void addAttachment(const SASAttachment &attachment);
     
     virtual void decode(const std::string &xml);
     // instance to xml

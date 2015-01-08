@@ -20,6 +20,7 @@ namespace SlimEAS {
     std::string collectionId;
     std::string serverId;
     std::string className;
+    std::string fileReference;
   };
   
   class SASItemOperationsResponse : public SASCommandResponse {

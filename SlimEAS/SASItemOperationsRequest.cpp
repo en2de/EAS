@@ -52,6 +52,14 @@ void SASItemOperationsRequest::generateXMLPayload() {
   xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", BAD_CAST _collectionId.c_str());
   xmlTextWriterWriteElement(writer, BAD_CAST "ServerId", BAD_CAST _serverId.c_str());
   
+  if (_fetchProfile == FileItem) {
+    
+    if (_fileReference.empty()) {
+      printf("\nERROR!!! if you want to fetch file, please provide fileReference param!!!\n");
+    }
+    xmlTextWriterWriteElement(writer, BAD_CAST "FileReference", BAD_CAST _fileReference.c_str());
+  }
+  
   xmlTextWriterStartElement(writer, BAD_CAST "Options");
   
   if (_fetchProfile == EmailItem) {

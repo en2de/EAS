@@ -45,12 +45,12 @@ namespace SlimEAS {
 
 #pragma properties
   private:
-    std::string             _className;
-    std::string             _syncKey;
-    std::string             _collectionId;
-    int32_t                 _status;
-    bool                    _moreAvailable;
-    std::vector<SASCommand> _commandCollection;
+    std::string               _className;
+    std::string               _syncKey;
+    std::string               _collectionId;
+    int32_t                   _status;
+    bool                      _moreAvailable;
+    std::vector<SASCommand*>  _commandCollection;
     
 #pragma getter/setter
   public:
@@ -59,7 +59,7 @@ namespace SlimEAS {
     const std::string &collectionId() {return _collectionId;}
     const int32_t     &status() {return _status;}
     const bool        &moreAvailable() {return _moreAvailable;}
-    const std::vector<SASCommand> &commandCollection() {return _commandCollection;}
+    const std::vector<SASCommand*> &commandCollection() {return _commandCollection;}
   
   public:
 #pragma virtual methods from base class

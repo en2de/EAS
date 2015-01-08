@@ -32,6 +32,13 @@ SASSyncRequest::SASSyncRequest()
 
 SASSyncRequest::~SASSyncRequest()
 {
+  for (auto it : _folderList) {
+    if (it != nullptr) {
+      delete it;
+    }
+    it = nullptr;
+  }
+  
 }
 
 void SASSyncRequest::generateXMLPayload()
@@ -60,6 +67,10 @@ void SASSyncRequest::generateXMLPayload()
   xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "airsyncbase", nullptr, BAD_CAST "AirSyncBase");
   xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "email", nullptr, BAD_CAST "Email");
   
+  if (_action == AddContact) {
+    xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "contacts", nullptr, BAD_CAST "Contacts");
+  }
+  
   if (_folderList.size() == 0 && _isPartial == false) {
     throw std::invalid_argument("Sync request must specify collections or include the Partial element.");
   }
@@ -71,7 +82,7 @@ void SASSyncRequest::generateXMLPayload()
     if (folder == nullptr)
       continue;
     
-    if (_action == Synchronizing) {
+    if (_action == Synchronize) {
     
       xmlTextWriterStartElement(writer, BAD_CAST "Collection");
       xmlTextWriterWriteElement(writer, BAD_CAST "Class", BAD_CAST "Email"); // TODO: "Email" as default. should be a parameter.
@@ -107,7 +118,7 @@ void SASSyncRequest::generateXMLPayload()
 
       xmlTextWriterEndElement(writer);
     
-    } else if (_action == Fetching) {
+    } else if (_action == Fetch) {
       
       xmlTextWriterStartElement(writer, BAD_CAST "Commands");
       
@@ -119,7 +130,7 @@ void SASSyncRequest::generateXMLPayload()
       
       xmlTextWriterEndElement(writer);
       
-    } else if (_action == Adding) { // TODO: need test case for this action
+    } else if (_action == AddContact) { // TODO: need test case for this action, UNFINISHED
       
       xmlTextWriterStartElement(writer, BAD_CAST "Collection");
       
@@ -130,11 +141,16 @@ void SASSyncRequest::generateXMLPayload()
       
       xmlTextWriterStartElement(writer, BAD_CAST "Add");
       
-      // xmlTextWriterWriteElement(writer, BAD_CAST "ServerId", BAD_CAST folder->id().c_str());
-      
       xmlTextWriterWriteElement(writer, BAD_CAST "ClientId", BAD_CAST "633916348086136194"); // test ClientId
       
-      string applicationData = "";
+      string applicationData =
+      "<ApplicationData>\
+        <contacts:Email1Address>focus@slim.so</contacts:Email1Address>\
+        <contacts:FirstName>Focus</contacts:FirstName> \
+        <contacts:MiddleName>W</contacts:MiddleName> \
+        <contacts:LastName>Lan</contacts:LastName> \
+        <contacts:Title>Sr Marketing Manager</contacts:Title>\
+      </ApplicationData>";
       
       xmlTextWriterWriteRaw(writer, BAD_CAST applicationData.c_str());
       

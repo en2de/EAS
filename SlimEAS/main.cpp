@@ -24,6 +24,8 @@
 #include "SASSendMailResponse.h"
 #include "SASItemOperationsRequest.h"
 #include "SASItemOperationsResponse.h"
+#include "SASPingRequest.h"
+#include "SASPingResponse.h"
 
 #include "SASMail.h"
 #include "SASFolder.h"
@@ -521,10 +523,11 @@ void syncTest() {
   InitialRequest(request);
   
   request.setPolicyKey(1307199584);
-  request.setAction(Synchronizing);
+  request.setAction(Synchronize);
   
   list<SASFolder *> folderList = request.folderList();
   
+  // do not delete directly, request will take care of it.
   SASFolder *inbox = new SASFolder("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/");
   
   // initial the syncKey from FoderSync command.
@@ -557,31 +560,26 @@ void syncTest() {
   
   printf("response: \nHeaders:\n %s\nContents:\n%s\n", response->headerString().c_str(), response->response().c_str());
   
-  if (inbox) {
-    delete inbox;
-  }
-  inbox = nullptr;
-  
   if (response) {
     delete response;
   }
   response = nullptr;
 }
 
-void syncAddingTest() {
+void syncAddContactTest() {
   
   SASSyncRequest request;
   InitialRequest(request);
   
   request.setPolicyKey(1307199584);
-  request.setAction(Adding);
+  request.setAction(AddContact);
   
   list<SASFolder *> folderList = request.folderList();
   
   SASFolder *inbox = new SASFolder("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/");
   
   // initial the syncKey from FoderSync command.
-  inbox->setSyncKey("1287061996");
+  inbox->setSyncKey("6");
   inbox->setId("1");
   
   // the WindowSize param decides how many emails you want to sync one time.
@@ -592,11 +590,6 @@ void syncAddingTest() {
   SASSyncResponse *response = dynamic_cast<SASSyncResponse *>(request.getResponse());
   
   printf("response: \nHeaders:\n %s\nContents:\n%s\n", response->headerString().c_str(), response->response().c_str());
-  
-  if (inbox) {
-    delete inbox;
-  }
-  inbox = nullptr;
   
   if (response) {
     delete response;
@@ -623,9 +616,15 @@ void itemOperationsTest() {
   request.setStore("Inbox");
   request.setCollectionId("1");
   request.setServerId("ZL0401es26AfgZTNOmGek4y9U2Sw65"); // the serverId comes from response of Sync command
-  request.setFecthProfile(EmailItem);
   
-  request.getResponse();
+  /* If you want to fetch file, set profile to FileItem */
+  // request.setFecthProfile(FileItem);
+  
+  /* The FileReference param comes from Sync Command */
+  // request.setFileReference("ZL0401es26AfgZTNOmGek4y9U2Sw65%3A%249deb1323845dff5c2c29e434d84669b3");
+  
+  // If you want to fetch email, set profile to EmailItem
+  request.setFecthProfile(EmailItem);
   
   SASItemOperationsResponse *provRes = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
   
@@ -633,12 +632,7 @@ void itemOperationsTest() {
   
   SASBody body = mail.body();
   
-  printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-  printf("\nItemOperation: \n\nheaders: \n%s \n", request.XMLPayload().c_str());
-  printf("payload: \n\n%s\n", request.XMLPayload().c_str());
-  printf("----------------------------------------------------\n");
-  printf("response: \n\n%s\n", provRes->xmlResponse().c_str());
-  printf("++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+  vector<SASAttachment*> attchments = mail.attachments();
 }
 
 void sendMailTest() {
@@ -660,6 +654,30 @@ void sendMailTest() {
   request.setMail(mail);
   
   SASSendMailResponse *provRes = dynamic_cast<SASSendMailResponse *>(request.getResponse());
+  
+  delete provRes;
+  provRes = nullptr;
+}
+
+void pingTest() {
+  
+  SASPingRequest request;
+  InitialRequest(request);
+  
+  request.setPolicyKey(1307199584);
+  request.addFolder("1", SlimEAS::CLASS_EMAIL);
+  
+  SASPingResponse *response = dynamic_cast<SASPingResponse *>(request.getResponse());
+  
+  if(response->isChangedFound()) {
+    for (auto &it : response->changedFolderIds()) {
+      printf("\nFolder '%s' needs to sync up!!!\n", it.c_str());
+      // Now we can use the sync command to sync emails...
+    }
+  }
+  
+  delete response;
+  response = nullptr;
 }
 
 int main(int argc, const char * argv[]) {
@@ -685,9 +703,11 @@ int main(int argc, const char * argv[]) {
   
 //  syncTest();
   
-//  syncAddingTest();
+//  syncAddContactTest();
   
-  sendMailTest();
+//  sendMailTest();
+  
+  pingTest();
   
   return 0;
 }
