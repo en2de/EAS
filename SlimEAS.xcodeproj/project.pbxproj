@@ -15,6 +15,10 @@
 		054058DF1A5A8213006570A7 /* SASFolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058D51A5A8213006570A7 /* SASFolder.cpp */; };
 		054058E01A5A8213006570A7 /* SASMail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058D71A5A8213006570A7 /* SASMail.cpp */; };
 		054058E31A5AB391006570A7 /* SASSyncRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058E11A5AB391006570A7 /* SASSyncRequest.cpp */; };
+		05969ABD1A5E99A100E8AC8B /* SASSettingsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05969ABB1A5E99A000E8AC8B /* SASSettingsResponse.cpp */; };
+		05AE01531A5E75140045FD50 /* SASSettingsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05AE01511A5E75140045FD50 /* SASSettingsRequest.cpp */; };
+		05AE01561A5E7FAE0045FD50 /* SASOof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05AE01541A5E7FAE0045FD50 /* SASOof.cpp */; };
+		05AE01591A5E8B2D0045FD50 /* SASUserInformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05AE01571A5E8B2D0045FD50 /* SASUserInformation.cpp */; };
 		990EEA6F1A5C333A001021C8 /* SASSyncResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA6D1A5C333A001021C8 /* SASSyncResponse.cpp */; };
 		990EEA721A5CEC04001021C8 /* SASCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA701A5CEC04001021C8 /* SASCollection.cpp */; };
 		990EEA751A5D10D8001021C8 /* SASSendMailRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA731A5D10D8001021C8 /* SASSendMailRequest.cpp */; };
@@ -68,6 +72,14 @@
 		054058D81A5A8213006570A7 /* SASMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASMail.h; sourceTree = "<group>"; };
 		054058E11A5AB391006570A7 /* SASSyncRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSyncRequest.cpp; sourceTree = "<group>"; };
 		054058E21A5AB391006570A7 /* SASSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSyncRequest.h; sourceTree = "<group>"; };
+		05969ABB1A5E99A000E8AC8B /* SASSettingsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSettingsResponse.cpp; sourceTree = "<group>"; };
+		05969ABC1A5E99A100E8AC8B /* SASSettingsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSettingsResponse.h; sourceTree = "<group>"; };
+		05AE01511A5E75140045FD50 /* SASSettingsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSettingsRequest.cpp; sourceTree = "<group>"; };
+		05AE01521A5E75140045FD50 /* SASSettingsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSettingsRequest.h; sourceTree = "<group>"; };
+		05AE01541A5E7FAE0045FD50 /* SASOof.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOof.cpp; sourceTree = "<group>"; };
+		05AE01551A5E7FAE0045FD50 /* SASOof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOof.h; sourceTree = "<group>"; };
+		05AE01571A5E8B2D0045FD50 /* SASUserInformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASUserInformation.cpp; sourceTree = "<group>"; };
+		05AE01581A5E8B2D0045FD50 /* SASUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASUserInformation.h; sourceTree = "<group>"; };
 		53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
 		5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +157,10 @@
 		9941D9B11A5B87A9006856F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				05AE01571A5E8B2D0045FD50 /* SASUserInformation.cpp */,
+				05AE01581A5E8B2D0045FD50 /* SASUserInformation.h */,
+				05AE01541A5E7FAE0045FD50 /* SASOof.cpp */,
+				05AE01551A5E7FAE0045FD50 /* SASOof.h */,
 				BA0DA8571A434A8D005EA85D /* SASDevice.cpp */,
 				BA0DA8581A434A8D005EA85D /* SASDevice.h */,
 				054058CF1A5A8213006570A7 /* SASAttachment.cpp */,
@@ -177,6 +193,10 @@
 		BA0DA8501A433D5F005EA85D /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				05AE01511A5E75140045FD50 /* SASSettingsRequest.cpp */,
+				05AE01521A5E75140045FD50 /* SASSettingsRequest.h */,
+				05969ABB1A5E99A000E8AC8B /* SASSettingsResponse.cpp */,
+				05969ABC1A5E99A100E8AC8B /* SASSettingsResponse.h */,
 				BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */,
 				BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */,
 				BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */,
@@ -362,10 +382,14 @@
 				054058DD1A5A8213006570A7 /* SASBaseEntity.cpp in Sources */,
 				BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */,
 				9941D9B71A5BBB70006856F7 /* SASItemOperationsResponse.cpp in Sources */,
+				05AE01561A5E7FAE0045FD50 /* SASOof.cpp in Sources */,
+				05AE01531A5E75140045FD50 /* SASSettingsRequest.cpp in Sources */,
 				BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */,
+				05AE01591A5E8B2D0045FD50 /* SASUserInformation.cpp in Sources */,
 				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
 				054058DC1A5A8213006570A7 /* SASAttachment.cpp in Sources */,
 				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
+				05969ABD1A5E99A100E8AC8B /* SASSettingsResponse.cpp in Sources */,
 				054058DA1A5A8213006570A7 /* SASFolderSyncResponse.cpp in Sources */,
 				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
 				054058DF1A5A8213006570A7 /* SASFolder.cpp in Sources */,
