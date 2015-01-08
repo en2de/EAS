@@ -24,9 +24,21 @@ void SASMail::decode(const string &xmlString) {
   xmlTextReaderPtr reader;
   uint8_t *buf = (uint8_t *)xmlString.c_str();
   int buf_len = (int)strlen((const char *)buf);
-  _attachments.clear();
-  SASAttachment att;
+  SASAttachment *att = nullptr;
   SASBody body;
+  
+  for (auto it : _attachments) {
+    if (it != nullptr) {
+      delete it;
+    }
+    it = nullptr;
+  }
+  
+  _attachments.clear();
+  
+  // For File Fetch Response
+  string contentType = "";
+  string  data = "";
   
   reader = xmlReaderForMemory((const char *)buf, buf_len, nullptr, "utf-8", 0);
   if (reader != NULL) {
@@ -42,7 +54,8 @@ void SASMail::decode(const string &xmlString) {
         curr_elm_prefix = xmlTextReaderConstPrefix(reader);
         if (strcmp((const char *)curr_elm, "Attachment") == 0) {
           string attXml = string((const char*)xmlTextReaderReadOuterXml(reader));
-          att.decode(attXml);
+          att = new SASAttachment();
+          att->decode(attXml);
           _attachments.push_back(att);
           xmlTextReaderNext(reader);
         } else if (strcmp((const char *)curr_elm, "Body") == 0) {
@@ -109,6 +122,10 @@ v = _ == 0? false : true; \
           _contentClass = ToSTR(value);
         } else if(strcmp((const char *)curr_elm, "NativeBodyType") == 0) {
           ToI32(_nativeBodyType);
+        } else if(strcmp((const char *)curr_elm, "ContentType") == 0) {
+          contentType = ToSTR(value);
+        } else if(strcmp((const char *)curr_elm, "Data") == 0) {
+          data = ToSTR(value);
         } else {
           // other property
         }
@@ -118,6 +135,15 @@ v = _ == 0? false : true; \
         continue;
       }
     }
+    
+    // If it is an attachment:
+    if (!contentType.empty() || !data.empty()) {
+      att = new SASAttachment();
+      att->setContentType(contentType);
+      att->setData(data);
+      _attachments.push_back(att);
+    }
+    
     xmlFreeTextReader(reader);
   }
   
@@ -130,11 +156,14 @@ SASMail::SASMail()
 }
 
 SASMail::~SASMail() {
-
-}
-
-void SASMail::addAttachment(const SASAttachment &attachment) {
-  _attachments.push_back(attachment);
+  for (auto it : _attachments) {
+    if (it != nullptr) {
+      delete it;
+    }
+    it = nullptr;
+  }
+  
+  _attachments.clear();
 }
 
 const string SASMail::encode() {
@@ -203,7 +232,7 @@ const string SASMail::encode() {
     xmlTextWriterStartElementNS(writer, BAD_CAST _prefix, BAD_CAST "Attachments", nullptr);
     
     for (auto &it : _attachments) {
-      xmlTextWriterWriteRaw(writer, BAD_CAST it.encode().c_str());
+      xmlTextWriterWriteRaw(writer, BAD_CAST it->encode().c_str());
     }
     xmlTextWriterEndElement(writer);
   }

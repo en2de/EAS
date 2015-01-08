@@ -40,6 +40,12 @@ public: void p(t val)
 
 namespace SlimEAS {
   extern std::string toUpper(const std::string &name);
+  
+  static std::string CLASS_EMAIL = "Email";
+  static std::string CLASS_CALENDAR = "Calendar";
+  static std::string CLASS_CONTACTS = "Contacts";
+  static std::string CLASS_TASKS = "Tasks";
+  static std::string CLASS_NOTES = "Notes";
     
   //use for xml reader
   //definition http://www.gnu.org/software/dotgnu/pnetlib-doc/System/Xml/XmlNodeType.html

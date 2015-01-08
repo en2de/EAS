@@ -112,8 +112,8 @@ void SASCollection::decode(const std::string &xml) {
         depth = xmlTextReaderDepth(reader);
         if (strcmp((const char *)curr_elm, "Add") == 0) {
           string xml = string((const char*)xmlTextReaderReadOuterXml(reader));
-          SASCommand cmd;
-          cmd.decode(xml);
+          SASCommand *cmd = new SASCommand();
+          cmd->decode(xml);
           _commandCollection.push_back(cmd);
           xmlTextReaderNext(reader);
         } else if (strcmp((const char *)curr_elm, "MoreAvailable") == 0) {

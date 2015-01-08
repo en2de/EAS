@@ -18,9 +18,9 @@ namespace SlimEAS {
   class SASFolder;
   
   typedef enum {
-    Synchronizing  = 0,
-    Fetching = 1,
-    Adding = 2
+    Synchronize  = 0,
+    Fetch = 1,
+    AddContact = 2
   } Action;
   
   class SASSyncRequest: public SASCommandRequest {
@@ -47,7 +47,7 @@ namespace SlimEAS {
     int32_t _windowSize = 0;
     bool _isPartial = false;
     std::list<SASFolder *> _folderList;
-    Action _action = Synchronizing;
+    Action _action = Synchronize;
 
   };
 }

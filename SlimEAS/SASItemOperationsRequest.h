@@ -15,7 +15,8 @@ namespace SlimEAS {
   // enums for how to fetch email
   typedef enum {
     EmailItem = 0,
-    MimeEmailItem,
+    MimeEmailItem = 1,
+    FileItem = 2
   } FetchProfile;
   
   /**
@@ -44,6 +45,9 @@ namespace SlimEAS {
     void setOptions(const FolderSyncOptions &options) { _options = options;}
     const FolderSyncOptions &options() {return _options;}
     
+    void setFileReference(const std::string &fileReference) {_fileReference = fileReference;}
+    const std::string &fileReference() {return _fileReference;}
+    
   protected:
     virtual void generateXMLPayload();
     virtual SASHTTPResponse *initialResponse();
@@ -54,5 +58,6 @@ namespace SlimEAS {
     std::string       _serverId;
     FolderSyncOptions _options;
     FetchProfile      _fetchProfile;
+    std::string       _fileReference; // the file reference. such as Attachment.
   };
 }
