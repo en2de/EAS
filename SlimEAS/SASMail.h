@@ -33,6 +33,7 @@ namespace SlimEAS {
     std::string     _cc;
     std::string     _bcc;
     std::string     _from;
+    std::string     _displayFrom;
     std::string     _displayTo;
     std::string     _subject;
     std::string     _threadTopic;
@@ -65,6 +66,9 @@ namespace SlimEAS {
     
     const std::string &from() {return _from;}
     void setFrom(const std::string &val) { _from = val;}
+    
+    const std::string &displayFrom() {return _displayFrom;}
+    void setDisplayFrom(const std::string &val) {_displayFrom = val;}
     
     const std::string &displayTo() {return _displayTo;}
     void setDisplayTo(const std::string &val) { _displayTo = val;}

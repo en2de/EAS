@@ -260,17 +260,17 @@ const string SASMail::asMIMEData() {
   assert(_from.empty() == false);
   assert(_to.empty() == false);
   
-  mimeData.append("From: "    + _from     + "\n");
-  mimeData.append("To: "      + _to       + "\n");
-  mimeData.append("Cc: "      + _cc       + "\n");
-  mimeData.append("Bcc: "     + _bcc      + "\n");
-  mimeData.append("Subject:"  + _subject  + "\n");
+  mimeData.append("From: \""    + _displayFrom  + "\"\n");
+  mimeData.append("To: "        + _to           + "\n");
+  mimeData.append("Cc: "        + _cc           + "\n");
+  mimeData.append("Bcc: "       + _bcc          + "\n");
+  mimeData.append("Subject: "   + _subject      + "\n");
   
-  mimeData.append("MIME-Version: 1.0\n");
-  
-  mimeData.append("Content-Type: text/plain; charset=\"iso-8859-1\"\n");
-  mimeData.append("Content-Transfer-Encoding: 7bit\n");
-  mimeData.append("X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350\n");
+//  mimeData.append("MIME-Version: 1.0\n");
+//  
+//  mimeData.append("Content-Type: text/html; charset=\"iso-8859-1\"\n");
+//  mimeData.append("Content-Transfer-Encoding: 7bit\n");
+  //mimeData.append("X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350\n");
   
   mimeData.append(_body.mimeData());
   
