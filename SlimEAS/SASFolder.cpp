@@ -199,11 +199,13 @@ void SASFolder::remove() {
 
 void SASFolder::removeSubFolder(const SASFolder &removeFolder) {
   
-  for(auto it = _subFolders.begin(); it != _subFolders.end(); it++)
+  for(auto it = _subFolders.begin(); it != _subFolders.end();)
   {
     if(it->id() == removeFolder.id())
     {
       it = _subFolders.erase(it);
+    } else {
+      it++;
     }
   }
 
