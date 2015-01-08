@@ -522,13 +522,18 @@
 					"$(PODS_ROOT)/wbxml/src",
 					"\"$(PROJECT_DIR)/External/include\"",
 					/usr/include/libxml2,
+					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/External/lib\"",
+					/usr/local/lib,
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-l\"Pods-SlimEAS-expat\"",
 					"-l\"Pods-SlimEAS-libwbxml\"",
 					"-lcurl.4",
+					"-lmimetic",
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,13 +553,18 @@
 					"$(PODS_ROOT)/wbxml/src",
 					"\"$(PROJECT_DIR)/External/include\"",
 					/usr/include/libxml2,
+					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/External/lib\"";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/External/lib\"",
+					/usr/local/lib,
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-l\"Pods-SlimEAS-expat\"",
 					"-l\"Pods-SlimEAS-libwbxml\"",
 					"-lcurl.4",
+					"-lmimetic",
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

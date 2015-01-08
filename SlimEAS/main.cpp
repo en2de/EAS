@@ -44,9 +44,13 @@
 
 #include "SASDevice.h"
 
+#include <mimetic/mimetic.h>
+#include <mimetic/mimeentity.h>
+
 #define MY_ENCODING "ISO-8859-1"
 
 using namespace SlimEAS;
+using namespace mimetic;
 
 static const char *prefix = "settings";
 
@@ -652,15 +656,13 @@ void sendMailTest() {
   mail.setSubject("Simple Subject From Slim using SendMail Command");
   
   SASBody body;
-  body.setMimeData("Hello world");
+  body.setMimeData("Hello world! This mail is from Slim.");
   
   mail.setBody(body);
   
   request.setMail(mail);
   
   SASSendMailResponse *provRes = dynamic_cast<SASSendMailResponse *>(request.getResponse());
-  
-  printf("Response Headers:\n %s\n", provRes->headerString().c_str());
   
   delete provRes;
   provRes = nullptr;
@@ -737,6 +739,18 @@ void pingTest() {
   response = nullptr;
 }
 
+void mimeTest() {
+
+  MimeEntity me;
+  
+  me.header();
+  me.header().from("CEO <>");
+  me.header().to("you <you@domain.com>");
+  me.header().subject("my first mimetic msg");
+  me.body().assign("hello there!");
+  cout << me << endl;
+}
+
 int main(int argc, const char * argv[]) {
 //  xmlTest();
   
@@ -763,10 +777,13 @@ int main(int argc, const char * argv[]) {
 //  syncAddContactTest();
   
 //  sendMailTest();
-  
+//  
 //  smartReplyTest();
+//  
+//  smartForwardTest();
   
-  smartForwardTest();
+//  mimeTest();
+  
  
 //  pingTest();
   
