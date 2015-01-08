@@ -40,7 +40,7 @@ SASSyncResponse::SASSyncResponse(SASHTTPRequest::SASHTTPResponseContext &ctx)
           string xml = string((const char*)xmlTextReaderReadOuterXml(reader));
           SASCollection collection;
           collection.decode(xml);
-          collections.push_back(collection);
+          _collections.push_back(collection);
           xmlTextReaderNext(reader);
         }
         printf("current element %s \n", curr_ele_full);

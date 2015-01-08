@@ -56,19 +56,25 @@ void SASSyncRequest::generateXMLPayload()
   
   xmlTextWriterStartElementNS(writer, xmlns, BAD_CAST "Sync", namespaceURI);
   
+  xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "airsync", nullptr, BAD_CAST "AirSync");
+  xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "airsyncbase", nullptr, BAD_CAST "AirSyncBase");
+  xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "email", nullptr, BAD_CAST "Email");
+  
   if (_folderList.size() == 0 && _isPartial == false) {
     throw std::invalid_argument("Sync request must specify collections or include the Partial element.");
   }
-  
-  if (_action == Synchronizing) {
 
-    xmlTextWriterStartElement(writer, BAD_CAST "Collections");
+  xmlTextWriterStartElement(writer, BAD_CAST "Collections");
 
-    for (auto folder: _folderList) {
-      if (folder == nullptr)
-        continue;
-      
+  for (auto folder: _folderList) {
+    
+    if (folder == nullptr)
+      continue;
+    
+    if (_action == Synchronizing) {
+    
       xmlTextWriterStartElement(writer, BAD_CAST "Collection");
+      xmlTextWriterWriteElement(writer, BAD_CAST "Class", BAD_CAST "Email"); // TODO: "Email" as default. should be a parameter.
       xmlTextWriterWriteElement(writer, BAD_CAST "SyncKey", BAD_CAST folder->syncKey().c_str());
       xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", BAD_CAST folder->id().c_str());
       
@@ -100,17 +106,44 @@ void SASSyncRequest::generateXMLPayload()
       }
 
       xmlTextWriterEndElement(writer);
+    
+    } else if (_action == Fetching) {
+      
+      xmlTextWriterStartElement(writer, BAD_CAST "Commands");
+      
+      xmlTextWriterStartElement(writer, BAD_CAST "Fetch");
+      
+      xmlTextWriterWriteElement(writer, BAD_CAST "ServerId", BAD_CAST folder->id().c_str());
+      
+      xmlTextWriterEndElement(writer);
+      
+      xmlTextWriterEndElement(writer);
+      
+    } else if (_action == Adding) { // TODO: need test case for this action
+      
+      xmlTextWriterStartElement(writer, BAD_CAST "Collection");
+      
+      xmlTextWriterWriteElement(writer, BAD_CAST "SyncKey", BAD_CAST folder->syncKey().c_str());
+      xmlTextWriterWriteElement(writer, BAD_CAST "CollectionId", BAD_CAST folder->id().c_str());
+      
+      xmlTextWriterStartElement(writer, BAD_CAST "Commands");
+      
+      xmlTextWriterStartElement(writer, BAD_CAST "Add");
+      
+      // xmlTextWriterWriteElement(writer, BAD_CAST "ServerId", BAD_CAST folder->id().c_str());
+      
+      xmlTextWriterWriteElement(writer, BAD_CAST "ClientId", BAD_CAST "633916348086136194"); // test ClientId
+      
+      string applicationData = "";
+      
+      xmlTextWriterWriteRaw(writer, BAD_CAST applicationData.c_str());
+      
+      xmlTextWriterEndElement(writer); // end element for Collection
+      
+      xmlTextWriterEndElement(writer); // end element for Commands
+      
+      xmlTextWriterEndElement(writer); // end element for Add
     }
-  } else if (_action == Fetching) {
-    xmlTextWriterStartElement(writer, BAD_CAST "Commands");
-    
-    xmlTextWriterStartElement(writer, BAD_CAST "Fetch");
-    
-    xmlTextWriterWriteElement(writer, BAD_CAST "ServerId", BAD_CAST "1:150");
-    
-    xmlTextWriterEndElement(writer);
-    
-    xmlTextWriterEndElement(writer);
   }
   
   if (_wait > 0) {

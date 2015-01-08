@@ -19,7 +19,8 @@ namespace SlimEAS {
   
   typedef enum {
     Synchronizing  = 0,
-    Fetching
+    Fetching = 1,
+    Adding = 2
   } Action;
   
   class SASSyncRequest: public SASCommandRequest {
@@ -33,9 +34,8 @@ namespace SlimEAS {
     inline int32_t heartBeatInterval() const {return _heartBeatInterval;}
     inline int32_t windowSize() const {return _windowSize;}
     inline bool isPartial() const {return _isPartial;}
+    inline void setAction(const Action &action) {_action = action;}
     inline std::list<SASFolder *> & folderList() {return _folderList;}
-    
-    inline void addFolder(SASFolder *folder) { _folderList.push_back(folder); }
     
   protected:
     virtual void generateXMLPayload();
