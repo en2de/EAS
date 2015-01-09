@@ -53,7 +53,7 @@ namespace SlimEAS {
     int32_t       _conversationIndex;
     
     /* Use MimeEntity to encode/decode email data. */
-    mimetic::MimeEntity    _mimeEntity;
+    mimetic::MimeEntity    *_mimeEntity = nullptr;
     
     SASBody       _body;
     bool          _hasBody = false;
@@ -107,12 +107,16 @@ namespace SlimEAS {
     const int32_t &conversationIndex() {return _conversationIndex;}
     void setConversationId(int32_t &val) { _conversationIndex = val;}
     
+    const mimetic::MimeEntity *getMimeEntity() {return _mimeEntity;}
+    
+    void assignMIME(mimetic::MimeEntity *val) {_mimeEntity = val;}
+    
     virtual void decode(const std::string &xml);
     // instance to xml
     virtual const std::string encode();
     
-    // get a MIME data
-    const std::string asMIMEData();
+    // get a MIME String
+    const std::string asMIMEString();
     
     SASMail();
     ~SASMail();

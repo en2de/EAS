@@ -57,7 +57,7 @@ void SASSmartForwardRequest::generateXMLPayload() {
   xmlTextWriterWriteElement(writer, BAD_CAST "LongId", BAD_CAST "E61068AD-10AE-4819-993B-C50B2FB0714E");
   xmlTextWriterEndElement(writer); // end element for Source
   
-  string mimeData = _mail.asMIMEData();
+  string mimeData = _mail.asMIMEString();
   
   // 1. Take care of this Element, it must be "MIME", not "Mime" or others.
   // 2. Must be CDATA element.

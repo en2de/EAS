@@ -256,21 +256,14 @@ const string SASMail::encode() {
   return xml;
 }
 
-const string SASMail::asMIMEData() {
+const string SASMail::asMIMEString() {
   string mimeData = "";
   
   assert(_from.empty() == false);
   assert(_to.empty() == false);
-
-  MimeEntity entity;
-  entity.header().from(_displayFrom + " <" + _from + ">");
-  entity.header().to(_to);
-  entity.header().subject(_subject);
-  entity.body().assign(_body.mimeData());
-  cout << entity << endl;
   
   stringstream ss;
-  ss << entity;
+  ss << *_mimeEntity;
   mimeData = ss.str();
   
   return  mimeData;

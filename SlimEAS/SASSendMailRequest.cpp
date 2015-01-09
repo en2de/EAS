@@ -52,7 +52,7 @@ void SASSendMailRequest::generateXMLPayload() {
   xmlTextWriterStartElement(writer, BAD_CAST "SaveInSentItems");
   xmlTextWriterEndElement(writer);
   
-  string mimeData = _mail.asMIMEData();
+  string mimeData = _mail.asMIMEString();
   
   // 1. Take care of this Element, it must be "MIME", not "Mime" or others.
   // 2. Must be CDATA element.

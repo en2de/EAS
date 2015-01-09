@@ -39,6 +39,7 @@
 #include <future>
 
 #include <time.h>
+#include <stdio.h>
 
 #include <libxml/xmlwriter.h>
 
@@ -49,8 +50,11 @@
 
 #define MY_ENCODING "ISO-8859-1"
 
+#define  BUFFER_SIZE 4096
+
 using namespace SlimEAS;
 using namespace mimetic;
+using namespace std;
 
 static const char *prefix = "settings";
 
@@ -61,8 +65,8 @@ static const bool useSSL = true;
 
 #define InitialRequest(v) do { \
 v.setServer("https://ex.qq.com"); \
-v.setUser("chenxu@nationsky.com"); \
-v.setPassword("123456abcA"); \
+v.setUser("136025803@qq.com"); \
+v.setPassword("focus@917729"); \
 v.setUseSSL(true); \
 v.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D"); \
 v.setDeviceType("iPad"); \
@@ -546,7 +550,7 @@ void syncTest() {
   inbox->setFolderSyncOptions(options);
   
   // the WindowSize param decides how many emails you want to sync one time.
-  inbox->setWindowSize(5);
+  inbox->setWindowSize(10);
   
   request.folderList().push_back(inbox);
   
@@ -621,16 +625,16 @@ void itemOperationsTest() {
   request.setOptions(options);
   request.setStore("Inbox");
   request.setCollectionId("1");
-  request.setServerId("ZA2608JYUIi8tPT5SqXJB1Avnaaw4c"); // the serverId comes from response of Sync command
+  request.setServerId("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b"); // the serverId comes from response of Sync command
   
   /* If you want to fetch file, set profile to FileItem */
-  // request.setFecthProfile(FileItem);
+  request.setFecthProfile(FileItem);
   
   /* The FileReference param comes from Sync Command */
-  // request.setFileReference("ZL0401es26AfgZTNOmGek4y9U2Sw65%3A%249deb1323845dff5c2c29e434d84669b3");
+  request.setFileReference("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b%3A%243d669607e3b4355e9a1ab0edae871c09");
   
   // If you want to fetch email, set profile to EmailItem
-  request.setFecthProfile(EmailItem);
+  // request.setFecthProfile(EmailItem);
   
   SASItemOperationsResponse *response = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
   
@@ -638,33 +642,88 @@ void itemOperationsTest() {
   
   SASBody body = mail.body();
   
-  vector<SASAttachment*> attchments = mail.attachments();
-  
+  vector<SASAttachment*> attachments = mail.attachments();
+    
   printf("Response:\n%s\n", response->xmlResponse().c_str());
 }
 
-void sendMailTest() {
+void sendMailTest(const string &fileFullPath) {
   SASSendMailRequest request;
   InitialRequest(request);
   
   request.setPolicyKey(1307199584);
   
-  SASMail mail;
-  mail.setDisplayFrom("CEO");
-  mail.setFrom("chenxu@nationsky.com");
-  mail.setTo("13491729@qq.com");
-  mail.setSubject("Simple Subject From Slim using SendMail Command");
+  /********************* Entity Start **************************/
   
-  SASBody body;
-  body.setMimeData("Hello world! This mail is from Slim.");
+  string fqn = fileFullPath;
+  string fileName = mimetic::utils::extractFilename(fqn);
   
-  mail.setBody(body);
+  // 如果想写一封带附件的邮件体，则需要一个 MultipartMixed 对象，该对象会添加一个 BoundString
+  mimetic::MultipartMixed *mimeEntity = new mimetic::MultipartMixed;
   
-  request.setMail(mail);
+  mimeEntity->header().from("CEO <136025803@qq.com>");
+  mimeEntity->header().to("Focus <13491729@qq.com>");
+  mimeEntity->header().subject("my first mimetic msg with attachment");
+  
+  MimeVersion version("1.0");
+  mimeEntity->header().mimeVersion(version);
+  
+  mimetic::TextEntity *html = new mimetic::TextEntity("<html><body><b>FOO BAR</b></body></html>", "utf-8");
+  ContentType contentType("text/html");
+  html->header().contentType(contentType);
+  
+  // 添加一个 Attachment，指定为 Base64 编码
+  mimetic::Attachment *attachment = new mimetic::Attachment(fileName, Base64::Encoder());
+  
+  // 设置完头以后，加载具体内容，编码成 Base64
+  FILE                      *pfile = fopen(fqn.c_str(), "rb");
+  char                      buffer[BUFFER_SIZE];
+  mimetic::Base64::Encoder  b64;
+  
+  // 考虑到大文件的问题，需要分片段读取文件
+  while (!feof(pfile))
+  {
+    //读文件
+    uint64_t readbytes = fread(buffer, 1, BUFFER_SIZE - 1, pfile);
+    if (ferror(pfile) || readbytes == 0)
+    {
+      break;
+    }
+    
+    std::stringstream temp;
+    std::ostreambuf_iterator<char> out(temp);
+    
+    // 转为BASE64编码，目标存放至std::stringstream中
+    mimetic::encode(buffer,  buffer + readbytes, b64, out);
+    std::string str = temp.str();
+    
+    // 将转换后的内容放入块中
+    attachment->load(str.begin(), str.end(), mimetic::imNone);
+  }
+  
+  // 压栈。两部分：正文 + 附件
+  mimeEntity->body().parts().push_back(html);
+  mimeEntity->body().parts().push_back(attachment);
+  
+  /********************* Entity End **************************/
+  
+  request.mail().setDisplayFrom("CEO");
+  request.mail().setFrom("136025803@qq.com");
+  request.mail().setTo("13491729@qq.com");
+  request.mail().setSubject("Simple Subject From Slim using SendMail Command");
+  request.mail().assignMIME(mimeEntity);
   
   SASSendMailResponse *provRes = dynamic_cast<SASSendMailResponse *>(request.getResponse());
   
+  mimeEntity->body().clear();
+  
+  delete html;
+  delete attachment;
   delete provRes;
+  
+  pfile = nullptr;
+  html = nullptr;
+  attachment = nullptr;
   provRes = nullptr;
 }
 
@@ -748,10 +807,38 @@ void mimeTest() {
   me.header().to("you <you@domain.com>");
   me.header().subject("my first mimetic msg");
   me.body().assign("hello there!");
+  
   cout << me << endl;
 }
 
+void mimeAttachmentTest() {
+
+  string fqn = "/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/test.jpg";
+  int32_t ignoreMask = 0;
+
+  File in(fqn);
+  if(!in)
+  {
+    cerr << "ERR: unable to open file " << fqn << endl;
+    return;
+  }
+  
+  mimetic::MultipartEntity mulEntity;
+  
+  mimetic::ApplicationOctStream os;
+  os.load(in.begin(), in.end(), ignoreMask);
+  cout << os << endl;
+  
+  
+  ImageJpeg me(fqn);
+  me.load(in.begin(), in.end(), ignoreMask);
+  
+  cout << me << endl;
+  
+}
+
 int main(int argc, const char * argv[]) {
+  
 //  xmlTest();
   
 //  cppTest();
@@ -768,7 +855,7 @@ int main(int argc, const char * argv[]) {
   
 //  FolderSyncTest();
   
-//  itemOperationsTest();
+  itemOperationsTest();
 
 //  mailTest();
   
@@ -776,16 +863,18 @@ int main(int argc, const char * argv[]) {
   
 //  syncAddContactTest();
   
-//  sendMailTest();
-//  
 //  smartReplyTest();
-//  
+  
 //  smartForwardTest();
   
 //  mimeTest();
   
+//  mimeAttachmentTest();
  
 //  pingTest();
+  
+  // replace with your file path
+  sendMailTest("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/test.jpg");
   
   return 0;
 }

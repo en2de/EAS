@@ -25,6 +25,7 @@ namespace SlimEAS {
     
   public:
     void setMail(const SASMail &mail){ _mail = mail;}
+    SASMail &mail() { return _mail;}
     
   private:
     SASMail _mail;
