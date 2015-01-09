@@ -10,6 +10,7 @@
 #define __SlimEAS__SASSettingsRequest__
 
 #include <stdio.h>
+#include <libxml/xmlwriter.h>
 
 #include "SASCommandRequest.h"
 
@@ -29,11 +30,12 @@ namespace SlimEAS {
     SASSettingsRequest();
     ~SASSettingsRequest();
     
-    void requestDeviceInformation(SASSettingsOperation op, SASDevice *deviceInfo = nullptr);
+    void requestDeviceInformation(SASDevice *deviceInfo = nullptr);
     void requestRightsManagementInformation();
-    void requestOof(SASSettingsOperation op, SASOof *oof = nullptr);
+    void requestGetOof(int bodyType);
+    void requestSetOof(SASOof *oof);
     void requestSetNewPassword(std::string password);
-    void requestUserInformation(SASSettingsOperation op, SASUserInformation *userInfo);
+    void requestUserInformation(SASUserInformation *userInfo = nullptr);
     
 
   protected:
@@ -41,11 +43,13 @@ namespace SlimEAS {
     virtual SASHTTPResponse *initialResponse() override;
     
   private:
-    SASDevice *_device;
+    xmlBufferPtr _buf = NULL;
+    xmlTextWriterPtr _writer = NULL;
+    SASDevice *_device = nullptr;
     bool _isGetRightsManagementInformation;
-    SASOof *_oof;
+    SASOof *_oof = nullptr;
     std::string _devicePassword;
-    SASUserInformation *_userInformation;
+    SASUserInformation *_userInformation = nullptr;
     
   };
 }
