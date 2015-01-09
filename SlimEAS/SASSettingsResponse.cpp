@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 Slim. All rights reserved.
 //
 
+#include <iostream>
+
 #include "SASSettingsResponse.h"
 
 using namespace SlimEAS;
@@ -13,6 +15,7 @@ using namespace SlimEAS;
 SASSettingsResponse::SASSettingsResponse(SASHTTPRequest::SASHTTPResponseContext &ctx)
 :SASCommandResponse(ctx)
 {
+  std::cout << "Settings Response: " << _xmlResponse << std::endl;
 }
 
 SASSettingsResponse::~SASSettingsResponse()

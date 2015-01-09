@@ -43,8 +43,8 @@ void SASFolderSyncRequest::generateXMLPayload()
   }
   xmlTextWriterSetIndent(writer, 1);
   
-  xmlTextWriterStartDocument(writer, "1.0", "utf-8", nullptr);
-  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-/MICROSOFT/DTD ActiveSync/EN", BAD_CAST "http://www.microsoft.com/", nullptr);
+  xmlTextWriterStartDocument(writer, "1.0", "utf-8", NULL);
+  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-/MICROSOFT/DTD ActiveSync/EN", BAD_CAST "http://www.microsoft.com/", NULL);
   
   const xmlChar* xmlns = BAD_CAST "folderhierarchy";
   const xmlChar* namespaceURI = BAD_CAST "FolderHierarchy";
