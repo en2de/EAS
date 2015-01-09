@@ -660,14 +660,7 @@ void itemOperationsTest() {
     istreambuf_iterator<char> ibeg(is), iend;
     ostreambuf_iterator<char> out(os);
 
-    decode(ibeg, iend, b64, out);
-    
-    // delete cached file
-    if( remove(fileName.c_str()) != 0 )
-      perror("Error deleting file");
-    else
-      puts("Cached file successfully deleted");
-    
+    decode(ibeg, iend, b64, out);    
   }
   
   printf("Response:\n%s\n", response->xmlResponse().c_str());
