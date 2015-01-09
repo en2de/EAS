@@ -631,7 +631,7 @@ void itemOperationsTest() {
   request.setFecthProfile(FileItem);
   
   /* The FileReference param comes from Sync Command */
-  request.setFileReference("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b%3A%243d669607e3b4355e9a1ab0edae871c09");
+  request.setFileReference("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b%3A%243d669607e3b4355e9a1ab0edae871c09"); // IMG_3693副本.jpg
   
   // If you want to fetch email, set profile to EmailItem
   // request.setFecthProfile(EmailItem);
@@ -643,7 +643,33 @@ void itemOperationsTest() {
   SASBody body = mail.body();
   
   vector<SASAttachment*> attachments = mail.attachments();
+
+  // Base64 Decoder
+  mimetic::Base64::Decoder b64;
+  
+  for (auto &it : attachments) {
     
+    string fileName = "/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/" + it->fileReference();
+    
+    filebuf fout;
+    fout.open(fileName + ".jpg", ios::out);
+    
+    std::istringstream is(it->data());
+    
+    ostream os(&fout);
+    istreambuf_iterator<char> ibeg(is), iend;
+    ostreambuf_iterator<char> out(os);
+
+    decode(ibeg, iend, b64, out);
+    
+    // delete cached file
+    if( remove(fileName.c_str()) != 0 )
+      perror("Error deleting file");
+    else
+      puts("Cached file successfully deleted");
+    
+  }
+  
   printf("Response:\n%s\n", response->xmlResponse().c_str());
 }
 
