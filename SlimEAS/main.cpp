@@ -26,6 +26,8 @@
 #include "SASItemOperationsResponse.h"
 #include "SASPingRequest.h"
 #include "SASPingResponse.h"
+#include "SASSmartReplyRequest.h"
+#include "SASSmartForwardRequest.h"
 
 #include "SASMail.h"
 #include "SASFolder.h"
@@ -42,9 +44,13 @@
 
 #include "SASDevice.h"
 
+#include <mimetic/mimetic.h>
+#include <mimetic/mimeentity.h>
+
 #define MY_ENCODING "ISO-8859-1"
 
 using namespace SlimEAS;
+using namespace mimetic;
 
 static const char *prefix = "settings";
 
@@ -55,11 +61,11 @@ static const bool useSSL = true;
 
 #define InitialRequest(v) do { \
 v.setServer("https://ex.qq.com"); \
-v.setUser("136025803@qq.com"); \
-v.setPassword("focus@917729"); \
+v.setUser("chenxu@nationsky.com"); \
+v.setPassword("123456abcA"); \
 v.setUseSSL(true); \
 v.setDeviceId("6F24CAD599A5BF1A690246B8C68FAE8D"); \
-v.setDeviceType("SmartPhone"); \
+v.setDeviceType("iPad"); \
 v.setProtocolVersion("14.0"); \
 v.setUseEncodeRequestLine(false); \
 } while(0)
@@ -615,7 +621,7 @@ void itemOperationsTest() {
   request.setOptions(options);
   request.setStore("Inbox");
   request.setCollectionId("1");
-  request.setServerId("ZL0401es26AfgZTNOmGek4y9U2Sw65"); // the serverId comes from response of Sync command
+  request.setServerId("ZA2608JYUIi8tPT5SqXJB1Avnaaw4c"); // the serverId comes from response of Sync command
   
   /* If you want to fetch file, set profile to FileItem */
   // request.setFecthProfile(FileItem);
@@ -626,13 +632,15 @@ void itemOperationsTest() {
   // If you want to fetch email, set profile to EmailItem
   request.setFecthProfile(EmailItem);
   
-  SASItemOperationsResponse *provRes = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
+  SASItemOperationsResponse *response = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
   
-  SASMail mail = provRes->mail();
+  SASMail mail = response->mail();
   
   SASBody body = mail.body();
   
   vector<SASAttachment*> attchments = mail.attachments();
+  
+  printf("Response:\n%s\n", response->xmlResponse().c_str());
 }
 
 void sendMailTest() {
@@ -642,12 +650,13 @@ void sendMailTest() {
   request.setPolicyKey(1307199584);
   
   SASMail mail;
-  mail.setFrom("136025803@qq.com");
-  mail.setTo("qintyo@163.com");
-  mail.setSubject("Simple Subject From Slim");
+  mail.setDisplayFrom("CEO");
+  mail.setFrom("chenxu@nationsky.com");
+  mail.setTo("13491729@qq.com");
+  mail.setSubject("Simple Subject From Slim using SendMail Command");
   
   SASBody body;
-  body.setMimeData("Hello world");
+  body.setMimeData("Hello world! This mail is from Slim.");
   
   mail.setBody(body);
   
@@ -657,6 +666,56 @@ void sendMailTest() {
   
   delete provRes;
   provRes = nullptr;
+}
+
+void smartReplyTest() {
+  SASSmartReplyRequest request;
+  InitialRequest(request);
+  
+  request.setPolicyKey(1307199584);
+  
+  SASMail mail;
+  mail.setDisplayFrom("CEO");
+  mail.setFrom("chenxu@nationsky.com");
+  mail.setTo("13491729@qq.com");
+  mail.setSubject("Simple Subject From Slim using SmartReply Command");
+  
+  SASBody body;
+  body.setMimeData("This is the body of the smart reply message.");
+  
+  mail.setBody(body);
+  
+  request.setMail(mail);
+  
+  SASSendMailResponse *response = dynamic_cast<SASSendMailResponse *>(request.getResponse());
+  
+  delete response;
+  response = nullptr;
+}
+
+void smartForwardTest() {
+  SASSmartForwardRequest request;
+  InitialRequest(request);
+  
+  request.setPolicyKey(1307199584);
+  
+  SASMail mail;
+  mail.setDisplayFrom("CEO");
+  mail.setFrom("chenxu@nationsky.com");
+  mail.setTo("13491729@qq.com");
+  mail.setSubject("Simple Subject From Slim using SmartForward Command");
+  
+  SASBody body;
+  body.setMimeData("This is the body of the smart reply message.");
+  
+  mail.setBody(body);
+  
+  request.setMail(mail);
+  
+  SASSendMailResponse *response = dynamic_cast<SASSendMailResponse *>(request.getResponse());
+  
+  delete response;
+  response = nullptr;
 }
 
 void pingTest() {
@@ -678,6 +737,18 @@ void pingTest() {
   
   delete response;
   response = nullptr;
+}
+
+void mimeTest() {
+
+  MimeEntity me;
+  
+  me.header();
+  me.header().from("CEO <>");
+  me.header().to("you <you@domain.com>");
+  me.header().subject("my first mimetic msg");
+  me.body().assign("hello there!");
+  cout << me << endl;
 }
 
 int main(int argc, const char * argv[]) {
@@ -706,8 +777,15 @@ int main(int argc, const char * argv[]) {
 //  syncAddContactTest();
   
 //  sendMailTest();
+//  
+//  smartReplyTest();
+//  
+//  smartForwardTest();
   
-  pingTest();
+//  mimeTest();
+  
+ 
+//  pingTest();
   
   return 0;
 }

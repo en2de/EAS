@@ -16,6 +16,9 @@
 #include "SASBaseEntity.h"
 #include "SASAttachment.h"
 
+#include <mimetic/mimetic.h>
+#include <mimetic/mimeentity.h>
+
 namespace SlimEAS {
 
   class SASMail : public SASBaseEntity {
@@ -33,6 +36,7 @@ namespace SlimEAS {
     std::string     _cc;
     std::string     _bcc;
     std::string     _from;
+    std::string     _displayFrom;
     std::string     _displayTo;
     std::string     _subject;
     std::string     _threadTopic;
@@ -47,6 +51,9 @@ namespace SlimEAS {
     // property under email2 namespace:
     std::string   _conversationId;
     int32_t       _conversationIndex;
+    
+    /* Use MimeEntity to encode/decode email data. */
+    mimetic::MimeEntity    _mimeEntity;
     
     SASBody       _body;
     bool          _hasBody = false;
@@ -65,6 +72,9 @@ namespace SlimEAS {
     
     const std::string &from() {return _from;}
     void setFrom(const std::string &val) { _from = val;}
+    
+    const std::string &displayFrom() {return _displayFrom;}
+    void setDisplayFrom(const std::string &val) {_displayFrom = val;}
     
     const std::string &displayTo() {return _displayTo;}
     void setDisplayTo(const std::string &val) { _displayTo = val;}

@@ -10,11 +10,13 @@
 
 #include <cassert>
 #include <time.h>
+#include <sstream>
 #include <libxml/xmlwriter.h>
 #include <libxml/xmlsave.h>
 #include <libxml/xmlreader.h>
 
 using namespace std;
+using namespace mimetic;
 using namespace SlimEAS;
 
 static const char *_prefix = "email";
@@ -259,21 +261,17 @@ const string SASMail::asMIMEData() {
   
   assert(_from.empty() == false);
   assert(_to.empty() == false);
+
+  MimeEntity entity;
+  entity.header().from(_displayFrom + " <" + _from + ">");
+  entity.header().to(_to);
+  entity.header().subject(_subject);
+  entity.body().assign(_body.mimeData());
+  cout << entity << endl;
   
-  mimeData.append("From: "    + _from     + "\n");
-  mimeData.append("To: "      + _to       + "\n");
-  mimeData.append("Cc: "      + _cc       + "\n");
-  mimeData.append("Bcc: "     + _bcc      + "\n");
-  mimeData.append("Subject:"  + _subject  + "\n");
-  
-  mimeData.append("MIME-Version: 1.0\n");
-  
-  mimeData.append("Content-Type: text/plain; charset=\"iso-8859-1\"\n");
-  mimeData.append("Content-Transfer-Encoding: 7bit\n");
-  mimeData.append("X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350\n");
-  
-  mimeData.append(_body.mimeData());
-  
+  stringstream ss;
+  ss << entity;
+  mimeData = ss.str();
   
   return  mimeData;
 }
