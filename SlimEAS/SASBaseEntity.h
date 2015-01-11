@@ -21,6 +21,6 @@ namespace SlimEAS {
     
   public:
     SASBaseEntity();
-    virtual ~SASBaseEntity();
+    virtual ~SASBaseEntity() = 0;
   };
 }

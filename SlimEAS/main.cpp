@@ -678,7 +678,7 @@ void sendMailTest(const string &fileFullPath) {
   string fileName = mimetic::utils::extractFilename(fqn);
   
   // 如果想写一封带附件的邮件体，则需要一个 MultipartMixed 对象，该对象会添加一个 BoundString
-  mimetic::MultipartMixed *mimeEntity = new mimetic::MultipartMixed;
+  mimetic::MimeEntity *mimeEntity = new mimetic::MultipartMixed;
   
   mimeEntity->header().from("CEO <136025803@qq.com>");
   mimeEntity->header().to("Focus <13491729@qq.com>");
