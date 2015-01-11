@@ -11,19 +11,18 @@
 #include "SASFolderSyncRequest.h"
 #include "SASFolderSyncResponse.h"
 
-#include "libxml/xmlwriter.h"
-
 using namespace SlimEAS;
+using namespace std;
 
 SASFolderSyncRequest::SASFolderSyncRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL)
 : SASCommandRequest(server, user, password, useSSL)
 {
-  _command = "FolderSync";
+  _command = CMD_FOLDERSYNC;
 }
 
 SASFolderSyncRequest::SASFolderSyncRequest()
 {
-  _command = "FolderSync";
+  _command = CMD_FOLDERSYNC;
 }
 
 SASFolderSyncRequest::~SASFolderSyncRequest(){
@@ -31,30 +30,19 @@ SASFolderSyncRequest::~SASFolderSyncRequest(){
 
 void SASFolderSyncRequest::generateXMLPayload()
 {
-  xmlBufferPtr buf = xmlBufferCreate();
-  if (buf == nullptr) {
-    throw std::invalid_argument("Error creating the xml buffer");
-  }
+  string namespaceURI = "FolderHierarchy";
   
-  xmlTextWriterPtr writer;
-  writer = xmlNewTextWriterMemory(buf, 0);
-  if (writer == nullptr) {
-    throw std::invalid_argument("Error creating the xml writer");
-  }
-  xmlTextWriterSetIndent(writer, 1);
+  _serializer.start();
   
-  xmlTextWriterStartDocument(writer, "1.0", "utf-8", NULL);
-  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-/MICROSOFT/DTD ActiveSync/EN", BAD_CAST "http://www.microsoft.com/", NULL);
+  _serializer.startElement(_command);
+  _serializer.writeAttribute("xmlns", namespaceURI);
   
-  const xmlChar* xmlns = BAD_CAST "folderhierarchy";
-  const xmlChar* namespaceURI = BAD_CAST "FolderHierarchy";
-  xmlTextWriterStartElementNS(writer, xmlns, BAD_CAST "FolderSync", namespaceURI);
-  xmlTextWriterWriteElementNS(writer, xmlns, BAD_CAST "SyncKey", nullptr, BAD_CAST _syncKey.c_str());
-  xmlTextWriterEndElement(writer);
+  _serializer.writeElement("SyncKey", _syncKey);
+  _serializer.endElement();
   
-  xmlTextWriterEndDocument(writer);
+  _serializer.done();
   
-  _xmlPayload = std::string((char *)buf->content);
+  _xmlPayload = _serializer.outerXml();
   
   std::cout << _xmlPayload;
 

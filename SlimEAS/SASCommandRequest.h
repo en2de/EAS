@@ -14,6 +14,7 @@
 
 #include "SASDefine.h"
 #include "SASHTTPRequest.h"
+#include "SASSerializer.h"
 
 namespace SlimEAS {
   
@@ -36,6 +37,7 @@ namespace SlimEAS {
     std::string _deviceType;
     bool _useEncodeRequestLine;
     uint32_t _policyKey;
+    SASSerializer _serializer;
     
   public:
 #pragma mark - constructor

@@ -276,7 +276,7 @@ void cppTest() {
   std::cout << "load to wbxml, output length:" << outlen << "\n";
   
   std::cout << "Start xml - wbxml\n";
-  std::string result = wb.toXML(output, outlen);
+  std::string result = wb.toXml(output, outlen);
   std::cout << "load to xml , result: \n";
   std::cout << result << "\n";
   std::cout << "result file lenght:" << result.size() << "\n";
@@ -660,7 +660,7 @@ void itemOperationsTest() {
     istreambuf_iterator<char> ibeg(is), iend;
     ostreambuf_iterator<char> out(os);
 
-    decode(ibeg, iend, b64, out);    
+    decode(ibeg, iend, b64, out);
   }
   
   printf("Response:\n%s\n", response->xmlResponse().c_str());
@@ -730,7 +730,8 @@ void sendMailTest(const string &fileFullPath) {
   request.mail().setFrom("136025803@qq.com");
   request.mail().setTo("13491729@qq.com");
   request.mail().setSubject("Simple Subject From Slim using SendMail Command");
-  request.mail().assignMIME(mimeEntity);
+  request.mailInfo().clientId = "633916348086136194";
+  request.mail().assignEntity(mimeEntity);
   
   SASSendMailResponse *provRes = dynamic_cast<SASSendMailResponse *>(request.getResponse());
   
@@ -752,23 +753,29 @@ void smartReplyTest() {
   
   request.setPolicyKey(1307199584);
   
-  SASMail mail;
-  mail.setDisplayFrom("CEO");
-  mail.setFrom("chenxu@nationsky.com");
-  mail.setTo("13491729@qq.com");
-  mail.setSubject("Simple Subject From Slim using SmartReply Command");
+  request.mail().setDisplayFrom("CEO");
+  request.mail().setFrom("136025803@qq.com");
+  request.mail().setTo("13491729@qq.com");
+  request.mail().setSubject("Simple Subject From Slim using SendMail Command");
+  request.mailInfo().clientId = "E61068AD-10AE-4819-993B-C50B2FB0714E";
+  request.mailInfo().source.folderId = "1";
+  request.mailInfo().source.itemId = "1:5";
   
-  SASBody body;
-  body.setMimeData("This is the body of the smart reply message.");
+  MimeEntity *plainText = new MimeEntity;
   
-  mail.setBody(body);
+  plainText->header();
+  plainText->header().from("CEO <136025803@qq.com>");
+  plainText->header().to("you <13491729@qq.com>");
+  plainText->header().subject("Simple Subject From Slim using SmartReply Command");
+  plainText->body().assign("hello there!");
   
-  request.setMail(mail);
   
-  SASSendMailResponse *response = dynamic_cast<SASSendMailResponse *>(request.getResponse());
+  request.mail().assignEntity(plainText);
   
-  delete response;
-  response = nullptr;
+  request.getResponse();
+  
+  delete plainText;
+  plainText = nullptr;
 }
 
 void smartForwardTest() {
@@ -777,23 +784,25 @@ void smartForwardTest() {
   
   request.setPolicyKey(1307199584);
   
-  SASMail mail;
-  mail.setDisplayFrom("CEO");
-  mail.setFrom("chenxu@nationsky.com");
-  mail.setTo("13491729@qq.com");
-  mail.setSubject("Simple Subject From Slim using SmartForward Command");
+  request.mail().setDisplayFrom("CEO");
+  request.mail().setFrom("136025803@qq.com");
+  request.mail().setTo("13491729@qq.com");
+  request.mail().setSubject("Simple Subject From Slim using SmartForward Command");
+  request.mailInfo().clientId = "d7b99822-685a-4a40-8dfb-87a114926986";
+  request.mailInfo().source.longId = "E61068AD-10AE-4819-993B-C50B2FB0714E";
   
-  SASBody body;
-  body.setMimeData("This is the body of the smart reply message.");
+  MimeEntity *plainText = new MimeEntity;
   
-  mail.setBody(body);
+  plainText->header();
+  plainText->header().from("CEO <136025803@qq.com>");
+  plainText->header().to("you <13491729@qq.com>");
+  plainText->header().subject("Simple Subject From Slim using SmartForward Command");
+  plainText->body().assign("hello there!");
   
-  request.setMail(mail);
   
-  SASSendMailResponse *response = dynamic_cast<SASSendMailResponse *>(request.getResponse());
+  request.mail().assignEntity(plainText);
   
-  delete response;
-  response = nullptr;
+  request.getResponse();
 }
 
 void pingTest() {
@@ -803,6 +812,7 @@ void pingTest() {
   
   request.setPolicyKey(1307199584);
   request.addFolder("1", SlimEAS::CLASS_EMAIL);
+  request.setHeartbeatInterval(80);
   
   SASPingResponse *response = dynamic_cast<SASPingResponse *>(request.getResponse());
   
@@ -873,8 +883,8 @@ int main(int argc, const char * argv[]) {
 //  provisionTest();
   
 //  FolderSyncTest();
-  
-  itemOperationsTest();
+
+//  itemOperationsTest();
 
 //  mailTest();
   
@@ -882,7 +892,7 @@ int main(int argc, const char * argv[]) {
   
 //  syncAddContactTest();
   
-//  smartReplyTest();
+  smartReplyTest();
   
 //  smartForwardTest();
   
@@ -893,7 +903,7 @@ int main(int argc, const char * argv[]) {
 //  pingTest();
   
   // replace with your file path
-  sendMailTest("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/test.jpg");
+//  sendMailTest("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/test.jpg");
   
   return 0;
 }

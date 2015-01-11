@@ -21,7 +21,7 @@ static const int DATETIME_LENGTH = 24;
 SASSettingsRequest::SASSettingsRequest(const std::string &server, const std::string &user, const std::string &password, bool useSSL)
 : SASCommandRequest(server, user, password, useSSL)
 {
-  _command = "Settings";
+  _command = CMD_SETTINGS;
   
   _buf = xmlBufferCreate();
   _writer = xmlNewTextWriterMemory(_buf, 0);

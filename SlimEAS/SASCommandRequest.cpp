@@ -31,7 +31,8 @@ SASCommandRequest::SASCommandRequest()
   _deviceId(),
   _deviceType(),
   _useEncodeRequestLine(false),
-  _policyKey(0)
+  _policyKey(0),
+  _serializer()
 {
 }
 
@@ -44,7 +45,8 @@ SASCommandRequest::SASCommandRequest(const std::string &server, const std::strin
   _deviceId(),
   _deviceType(),
   _useEncodeRequestLine(false),
-  _policyKey(0)
+  _policyKey(0),
+  _serializer()
 {
 }
 
@@ -59,7 +61,7 @@ void SASCommandRequest::generateXMLPayload() {
   // For the base class, this is a no-op.
   // Classes that extend this class to implement
   // commands override this function to generate
-  // the XML payload based on the command's request schema
+  // the XML payload based on the command's request schema  
 }
 
 /**
@@ -132,7 +134,16 @@ SASHTTPResponse *SASCommandRequest::getResponse() {
   }
   SASRequestSetOptions(CURLOPT_HTTPHEADER, header);
   
+  // initialize the serializer
+  if(!_serializer.create()) {
+    
+    throw std::invalid_argument("Error creating the xml writer");
+  }
+  
   this->generateXMLPayload();
+  
+  // free the serializer
+  _serializer.free();
   
   if (!_xmlPayload.empty()) {
     //parse wbxml payload

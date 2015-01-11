@@ -262,9 +262,13 @@ const string SASMail::asMIMEString() {
   assert(_from.empty() == false);
   assert(_to.empty() == false);
   
-  stringstream ss;
-  ss << *_mimeEntity;
-  mimeData = ss.str();
+  if (_mimeEntity != nullptr) {
+  
+    stringstream ss;
+    ss << *_mimeEntity;
+    mimeData = ss.str();
+    
+  }
   
   return  mimeData;
 }

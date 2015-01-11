@@ -28,7 +28,7 @@ namespace SlimEAS {
     
   public:
     unsigned char *toWBXml(string &xmlString, unsigned int *wbxml_len);
-    string toXML(unsigned char *wbxml, unsigned int wbxml_len);
+    string toXml(unsigned char *wbxml, unsigned int wbxml_len);
     
     SASWBXml();
     ~SASWBXml();

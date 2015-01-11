@@ -8,25 +8,18 @@
 
 #pragma once
 
-#include "SASCommandRequest.h"
-#include "SASMail.h"
+#include "SASMailBaseRequest.h"
 
 namespace SlimEAS {
   
-  class SASSmartReplyRequest: public SASCommandRequest {
+  class SASSmartReplyRequest: public SASMailBaseRequest {
     
   public:
     SASSmartReplyRequest();
     ~SASSmartReplyRequest();
     
   protected:
-    virtual void generateXMLPayload();
-    virtual SASHTTPResponse *initialResponse();
+    virtual void generateMailInfo();
     
-  public:
-    void setMail(const SASMail &mail){ _mail = mail;}
-    
-  private:
-    SASMail _mail;
   };
 }

@@ -41,11 +41,23 @@ public: void p(t val)
 namespace SlimEAS {
   extern std::string toUpper(const std::string &name);
   
-  static std::string CLASS_EMAIL = "Email";
-  static std::string CLASS_CALENDAR = "Calendar";
-  static std::string CLASS_CONTACTS = "Contacts";
-  static std::string CLASS_TASKS = "Tasks";
-  static std::string CLASS_NOTES = "Notes";
+  // Class names to sync up
+  const static std::string CLASS_EMAIL = "Email";
+  const static std::string CLASS_CALENDAR = "Calendar";
+  const static std::string CLASS_CONTACTS = "Contacts";
+  const static std::string CLASS_TASKS = "Tasks";
+  const static std::string CLASS_NOTES = "Notes";
+  
+  // Commands
+  const static std::string CMD_PROVISION = "Provision";
+  const static std::string CMD_SYNC = "Sync";
+  const static std::string CMD_FOLDERSYNC = "FolderSync";
+  const static std::string CMD_ITEMOPERATIONS = "ItemOperations";
+  const static std::string CMD_SETTINGS = "Settings";
+  const static std::string CMD_PING = "Ping";
+  const static std::string CMD_SENDMAIL = "SendMail";
+  const static std::string CMD_SMARTREPLY = "SmartReply";
+  const static std::string CMD_SMARTFORWARD = "SmartForward";
     
   //use for xml reader
   //definition http://www.gnu.org/software/dotgnu/pnetlib-doc/System/Xml/XmlNodeType.html

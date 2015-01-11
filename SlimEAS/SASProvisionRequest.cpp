@@ -9,9 +9,6 @@
 #include "SASProvisionRequest.h"
 #include "SASProvisionResponse.h"
 
-#include <libxml/xmlwriter.h>
-#include <iostream>
-
 using namespace std;
 using namespace SlimEAS;
 
@@ -20,7 +17,7 @@ using namespace SlimEAS;
 SASProvisionRequest::SASProvisionRequest()
 : SASCommandRequest()
 {
-  _command = "Provision";
+  _command = CMD_PROVISION;
 }
 
 SASProvisionRequest::~SASProvisionRequest() {
@@ -33,56 +30,42 @@ SASHTTPResponse *SASProvisionRequest::initialResponse() {
 }
 
 void SASProvisionRequest::generateXMLPayload() {
-  xmlBufferPtr buf;
-  buf = xmlBufferCreate();
-  if (buf == NULL) {
-    throw std::invalid_argument("Error creating the xml buffer");
-  }
   
-  xmlTextWriterPtr writer;
-  writer = xmlNewTextWriterMemory(buf, 0);
-  xmlTextWriterSetIndent(writer, 1);
-  if (writer == NULL) {
-    throw std::invalid_argument("Error creating the xml writer");
-  }
+  _serializer.start();
   
-  xmlTextWriterStartDocument(writer, "1.0", "utf-8", NULL);
-  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-//MICROSOFT//DTD ActiveSync//EN", BAD_CAST "http://www.microsoft.com/", NULL);
-  xmlTextWriterStartElement(writer, BAD_CAST "Provision");
-  xmlTextWriterWriteAttribute(writer, BAD_CAST "xmlns", BAD_CAST "Provision:");
+  _serializer.startElement(_command);
+  _serializer.writeAttribute("xmlns", "Provision:");
   if (!_isAcknowledgement) {
-    xmlTextWriterWriteAttributeNS(writer, BAD_CAST "xmlns", BAD_CAST "settings", NULL, BAD_CAST "Settings:");
+    _serializer.writeAttributeNS("settings", "Settings:", "xmlns");
   }
   
   //remote wipe
   if (_isRemoteWipe) {
-    xmlTextWriterStartElement(writer, BAD_CAST "RemoteWipe");
-    xmlTextWriterWriteElement(writer, BAD_CAST "Status", BAD_CAST "1");
-    xmlTextWriterEndElement(writer);
+    _serializer.startElement("RemoteWipe");
+    _serializer.writeElement("Status", "1");
+    _serializer.endElement();
   }else {
     if (!_isAcknowledgement) {
-      xmlTextWriterWriteRaw(writer, BAD_CAST _provisionDevice.payload().c_str());
+      _serializer.writeRaw(_provisionDevice.payload());
     }
-    xmlTextWriterStartElement(writer, BAD_CAST "Policies");
-    xmlTextWriterStartElement(writer, BAD_CAST "Policy");
-    xmlTextWriterWriteElement(writer, BAD_CAST "PolicyType", BAD_CAST "MS-EAS-Provisioning-WBXML");
+    _serializer.startElement("Policies");
+    _serializer.startElement("Policy");
+    _serializer.writeElement("PolicyType", "MS-EAS-Provisioning-WBXML");
     if (_isAcknowledgement) {
-      xmlTextWriterWriteFormatElement(writer, BAD_CAST "PolicyKey", "%d", _policyKey);
-      xmlTextWriterWriteFormatElement(writer, BAD_CAST "Status", "%d", _status);
+      _serializer.writeFormatElement("PolicyKey", "%d", _policyKey);
+      _serializer.writeFormatElement("Status", "%d", _status);
     }
     
-    xmlTextWriterEndElement(writer);
-    xmlTextWriterEndElement(writer);
-    xmlTextWriterEndElement(writer);
+    _serializer.endElement();
+    _serializer.endElement();
+    _serializer.endElement();
   }
-  xmlTextWriterEndDocument(writer);
+  
+  _serializer.done();
 
-  _xmlPayload = string((char*)buf->content);
+  _xmlPayload = _serializer.outerXml();
   
-  std::cout << _xmlPayload;
-  
-  xmlFreeTextWriter(writer);
-  xmlBufferFree(buf);
+  printf("SASProvisionRequest payload: \n%s\n", _xmlPayload.c_str());
 }
 
 

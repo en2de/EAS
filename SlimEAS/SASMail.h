@@ -107,9 +107,9 @@ namespace SlimEAS {
     const int32_t &conversationIndex() {return _conversationIndex;}
     void setConversationId(int32_t &val) { _conversationIndex = val;}
     
-    const mimetic::MimeEntity *getMimeEntity() {return _mimeEntity;}
+    mimetic::MimeEntity *entity() {return _mimeEntity;}
     
-    void assignMIME(mimetic::MimeEntity *val) {_mimeEntity = val;}
+    void assignEntity(mimetic::MimeEntity *val) {_mimeEntity = val;}
     
     virtual void decode(const std::string &xml);
     // instance to xml

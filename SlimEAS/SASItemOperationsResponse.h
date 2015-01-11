@@ -38,7 +38,7 @@ namespace SlimEAS {
 #pragma getter/setter
   public:
     const std::string     &xmlResponse() {return _xmlResponse;}
-    const SASMail         &mail() {return _mail;}
+    SASMail               &mail() {return _mail;}
     const FetchResponse   &fetchResponse() {return _fetchResponse;}
   };
 }

@@ -17,7 +17,7 @@ using namespace std;
 SASPingRequest::SASPingRequest()
 : SASCommandRequest()
 {
-  _command = "Ping";
+  _command = CMD_PING;
 }
 
 SASPingRequest::~SASPingRequest() {
@@ -29,43 +29,28 @@ SASHTTPResponse *SASPingRequest::initialResponse() {
 
 void SASPingRequest::generateXMLPayload() {
   
-  xmlBufferPtr buf;
-  buf = xmlBufferCreate();
-  if (buf == NULL) {
-    throw std::invalid_argument("Error creating the xml buffer");
-  }
+  _serializer.start();
   
-  xmlTextWriterPtr writer;
-  writer = xmlNewTextWriterMemory(buf, 0);
-  xmlTextWriterSetIndent(writer, 1);
-  if (writer == NULL) {
-    throw std::invalid_argument("Error creating the xml writer");
-  }
+  _serializer.startElement(_command);
+  _serializer.writeAttribute("xmlns", "Ping");
   
-  xmlTextWriterStartDocument(writer, "1.0", "utf-8", NULL);
-  xmlTextWriterWriteDTD(writer, BAD_CAST "ActiveSync", BAD_CAST "-//MICROSOFT//DTD ActiveSync//EN", BAD_CAST "http://www.microsoft.com/", NULL);
-  xmlTextWriterStartElement(writer, BAD_CAST "Ping");
-  xmlTextWriterWriteAttribute(writer, BAD_CAST "xmlns", BAD_CAST "Ping");
-  
-  xmlTextWriterWriteElement(writer, BAD_CAST "HeartbeatInterval", BAD_CAST to_string(_heartbeatInterval).c_str());
-  xmlTextWriterStartElement(writer, BAD_CAST "Folders");
+  _serializer.writeFormatElement("HeartbeatInterval", "%d", _heartbeatInterval);
+  _serializer.startElement("Folders");
   
   for(auto &it : _simpleFolderList) {
-    xmlTextWriterStartElement(writer, BAD_CAST "Folder");
-    xmlTextWriterWriteElement(writer, BAD_CAST "Id", BAD_CAST it.folderId.c_str());
-    xmlTextWriterWriteElement(writer, BAD_CAST "Class", BAD_CAST it.className.c_str());
+    _serializer.startElement("Folder");
+    _serializer.writeElement("Id", it.folderId);
+    _serializer.writeElement("Class", it.className);
+    _serializer.endElement();
   }
   
-  xmlTextWriterEndElement(writer);
+  _serializer.endElement();
   
-  xmlTextWriterEndElement(writer);
+  _serializer.endElement();;
   
-  xmlTextWriterEndDocument(writer); // end element for Ping
+  _serializer.done(); // end element for Ping
   
-  _xmlPayload = string((char*)buf->content);
+  _xmlPayload = _serializer.outerXml();
   
   printf("sendmail payload: \n%s\n", _xmlPayload.c_str());
-  
-  xmlFreeTextWriter(writer);
-  xmlBufferFree(buf);
 }
