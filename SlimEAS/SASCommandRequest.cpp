@@ -143,7 +143,7 @@ SASHTTPResponse *SASCommandRequest::getResponse() {
   this->generateXMLPayload();
   
   // free the serializer
-  _serializer.free();
+  // _serializer.free();
   
   if (!_xmlPayload.empty()) {
     //parse wbxml payload

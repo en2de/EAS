@@ -21,15 +21,7 @@ SASSerializer::SASSerializer()
 
 SASSerializer::~SASSerializer() {
 
-  if (_writer != nullptr) {
-    xmlFreeTextWriter(_writer);
-  }
-  _writer = nullptr;
-  
-  if (_buf != nullptr) {
-    xmlBufferFree(_buf);
-  }
-  _buf = nullptr;
+  free();
   
 }
 
@@ -143,10 +135,14 @@ void SASSerializer::done() {
 
 void SASSerializer::free() {
 
-  xmlFreeTextWriter(_writer);
-  xmlBufferFree(_buf);
-  
+  if (_writer != nullptr) {
+    xmlFreeTextWriter(_writer);
+  }
   _writer = nullptr;
+  
+  if (_buf != nullptr) {
+    xmlBufferFree(_buf);
+  }
   _buf = nullptr;
   
 }
