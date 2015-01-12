@@ -7,324 +7,491 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		054058D91A5A8213006570A7 /* SASFolderSyncRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058C91A5A8213006570A7 /* SASFolderSyncRequest.cpp */; };
-		054058DA1A5A8213006570A7 /* SASFolderSyncResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058CB1A5A8213006570A7 /* SASFolderSyncResponse.cpp */; };
-		054058DC1A5A8213006570A7 /* SASAttachment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058CF1A5A8213006570A7 /* SASAttachment.cpp */; };
-		054058DD1A5A8213006570A7 /* SASBaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058D11A5A8213006570A7 /* SASBaseEntity.cpp */; };
-		054058DE1A5A8213006570A7 /* SASBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058D31A5A8213006570A7 /* SASBody.cpp */; };
-		054058DF1A5A8213006570A7 /* SASFolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058D51A5A8213006570A7 /* SASFolder.cpp */; };
-		054058E01A5A8213006570A7 /* SASMail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058D71A5A8213006570A7 /* SASMail.cpp */; };
-		054058E31A5AB391006570A7 /* SASSyncRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 054058E11A5AB391006570A7 /* SASSyncRequest.cpp */; };
-		05969ABD1A5E99A100E8AC8B /* SASSettingsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05969ABB1A5E99A000E8AC8B /* SASSettingsResponse.cpp */; };
-		05AE01531A5E75140045FD50 /* SASSettingsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05AE01511A5E75140045FD50 /* SASSettingsRequest.cpp */; };
-		05AE01561A5E7FAE0045FD50 /* SASOof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05AE01541A5E7FAE0045FD50 /* SASOof.cpp */; };
-		05AE01591A5E8B2D0045FD50 /* SASUserInformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05AE01571A5E8B2D0045FD50 /* SASUserInformation.cpp */; };
-		990EEA6F1A5C333A001021C8 /* SASSyncResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA6D1A5C333A001021C8 /* SASSyncResponse.cpp */; };
-		990EEA721A5CEC04001021C8 /* SASCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA701A5CEC04001021C8 /* SASCollection.cpp */; };
-		990EEA751A5D10D8001021C8 /* SASSendMailRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA731A5D10D8001021C8 /* SASSendMailRequest.cpp */; };
-		990EEA781A5D1A98001021C8 /* SASSendMailResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 990EEA761A5D1A98001021C8 /* SASSendMailResponse.cpp */; };
-		993FE90C1A5E70BD001C6378 /* SASPingRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 993FE90A1A5E70BD001C6378 /* SASPingRequest.cpp */; };
-		993FE90F1A5E7490001C6378 /* SASPingResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 993FE90D1A5E7490001C6378 /* SASPingResponse.cpp */; };
-		993FE9121A5E92ED001C6378 /* SASSmartReplyRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 993FE9101A5E92ED001C6378 /* SASSmartReplyRequest.cpp */; };
-		993FE9151A5EC237001C6378 /* SASSmartForwardRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 993FE9141A5EC237001C6378 /* SASSmartForwardRequest.cpp */; };
-		9941D9B41A5B8D9A006856F7 /* SASItemOperationsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9941D9B21A5B8D9A006856F7 /* SASItemOperationsRequest.cpp */; };
-		9941D9B71A5BBB70006856F7 /* SASItemOperationsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9941D9B51A5BBB70006856F7 /* SASItemOperationsResponse.cpp */; };
-		9986A3141A628575000A47EC /* SASSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9986A3121A628575000A47EC /* SASSerializer.cpp */; };
-		9986A3171A62D42F000A47EC /* SASMailBaseRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9986A3151A62D42F000A47EC /* SASMailBaseRequest.cpp */; };
-		BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */; };
-		BA0DA8531A433E2B005EA85D /* SASProvisionRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */; };
-		BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */; };
-		BA0DA8591A434A8D005EA85D /* SASDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA0DA8571A434A8D005EA85D /* SASDevice.cpp */; };
-		BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577E6D1A3DBBF600AFFA14 /* main.cpp */; };
-		BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */; };
-		BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */; };
-		BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */; };
-		BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */; };
-		BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */; };
-		BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */; };
-		BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */; };
-		BA577F821A42078E00AFFA14 /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F801A42078E00AFFA14 /* decode.c */; };
-		BA577F831A42078E00AFFA14 /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA577F811A42078E00AFFA14 /* encode.c */; };
-		BABA8CA11A52A2F100217190 /* SASPolicy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */; };
-		FF24AEA6AEB6577428129CCB /* libPods-SlimEAS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */; };
+		9C69356D870205D0EA311934 /* libPods-SlimEAS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 566C2869B437BEF86BAA1CA9 /* libPods-SlimEAS.a */; };
+		BA611E4B1A63C88F00736A5F /* SlimEAS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E4A1A63C88F00736A5F /* SlimEAS.h */; };
+		BA611E651A63C8E000736A5F /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA611E631A63C8E000736A5F /* decode.c */; };
+		BA611E661A63C8E000736A5F /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA611E641A63C8E000736A5F /* encode.c */; };
+		BA611E8A1A63C8EA00736A5F /* SASFolderSyncRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E681A63C8EA00736A5F /* SASFolderSyncRequest.cpp */; };
+		BA611E8B1A63C8EA00736A5F /* SASFolderSyncResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E6A1A63C8EA00736A5F /* SASFolderSyncResponse.cpp */; };
+		BA611E8C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E6C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp */; };
+		BA611E8D1A63C8EA00736A5F /* SASItemOperationsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E6E1A63C8EA00736A5F /* SASItemOperationsResponse.cpp */; };
+		BA611E8E1A63C8EA00736A5F /* SASMailBaseRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E701A63C8EA00736A5F /* SASMailBaseRequest.cpp */; };
+		BA611E8F1A63C8EA00736A5F /* SASPingRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E721A63C8EA00736A5F /* SASPingRequest.cpp */; };
+		BA611E901A63C8EA00736A5F /* SASPingResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E741A63C8EA00736A5F /* SASPingResponse.cpp */; };
+		BA611E911A63C8EA00736A5F /* SASProvisionRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E761A63C8EA00736A5F /* SASProvisionRequest.cpp */; };
+		BA611E921A63C8EA00736A5F /* SASProvisionResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E781A63C8EA00736A5F /* SASProvisionResponse.cpp */; };
+		BA611E931A63C8EA00736A5F /* SASSendMailRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E7A1A63C8EA00736A5F /* SASSendMailRequest.cpp */; };
+		BA611E941A63C8EA00736A5F /* SASSendMailResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E7C1A63C8EA00736A5F /* SASSendMailResponse.cpp */; };
+		BA611E951A63C8EA00736A5F /* SASSettingsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E7E1A63C8EA00736A5F /* SASSettingsRequest.cpp */; };
+		BA611E961A63C8EA00736A5F /* SASSettingsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E801A63C8EA00736A5F /* SASSettingsResponse.cpp */; };
+		BA611E971A63C8EA00736A5F /* SASSmartForwardRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E821A63C8EA00736A5F /* SASSmartForwardRequest.cpp */; };
+		BA611E981A63C8EA00736A5F /* SASSmartReplyRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E841A63C8EA00736A5F /* SASSmartReplyRequest.cpp */; };
+		BA611E991A63C8EA00736A5F /* SASSyncRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E861A63C8EA00736A5F /* SASSyncRequest.cpp */; };
+		BA611E9A1A63C8EA00736A5F /* SASSyncResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E881A63C8EA00736A5F /* SASSyncResponse.cpp */; };
+		BA611EAD1A63C8F700736A5F /* SASCommandRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E9C1A63C8F700736A5F /* SASCommandRequest.cpp */; };
+		BA611EAE1A63C8F700736A5F /* SASCommandResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E9E1A63C8F700736A5F /* SASCommandResponse.cpp */; };
+		BA611EAF1A63C8F700736A5F /* SASEncodedRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA11A63C8F700736A5F /* SASEncodedRequest.cpp */; };
+		BA611EB01A63C8F700736A5F /* SASHTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA31A63C8F700736A5F /* SASHTTPRequest.cpp */; };
+		BA611EB11A63C8F700736A5F /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA51A63C8F700736A5F /* SASHTTPResponse.cpp */; };
+		BA611EB21A63C8F700736A5F /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA71A63C8F700736A5F /* SASOptionsRequest.cpp */; };
+		BA611EB31A63C8F700736A5F /* SASSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA91A63C8F700736A5F /* SASSerializer.cpp */; };
+		BA611EB41A63C8F700736A5F /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EAB1A63C8F700736A5F /* SASWBXml.cpp */; };
+		BA611ECA1A63C90400736A5F /* SASAttachment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EB61A63C90400736A5F /* SASAttachment.cpp */; };
+		BA611ECB1A63C90400736A5F /* SASBaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EB81A63C90400736A5F /* SASBaseEntity.cpp */; };
+		BA611ECC1A63C90400736A5F /* SASBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EBA1A63C90400736A5F /* SASBody.cpp */; };
+		BA611ECD1A63C90400736A5F /* SASCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EBC1A63C90400736A5F /* SASCollection.cpp */; };
+		BA611ECE1A63C90400736A5F /* SASDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EBE1A63C90400736A5F /* SASDevice.cpp */; };
+		BA611ECF1A63C90400736A5F /* SASFolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EC01A63C90400736A5F /* SASFolder.cpp */; };
+		BA611ED01A63C90400736A5F /* SASMail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EC21A63C90400736A5F /* SASMail.cpp */; };
+		BA611ED11A63C90400736A5F /* SASOof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EC41A63C90400736A5F /* SASOof.cpp */; };
+		BA611ED21A63C90400736A5F /* SASPolicy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EC61A63C90400736A5F /* SASPolicy.cpp */; };
+		BA611ED31A63C90400736A5F /* SASUserInformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EC81A63C90400736A5F /* SASUserInformation.cpp */; };
+		BA611F3E1A63E26800736A5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA611F3D1A63E26800736A5F /* main.m */; };
+		BA611F411A63E26800736A5F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BA611F401A63E26800736A5F /* AppDelegate.mm */; };
+		BA611F441A63E26800736A5F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA611F431A63E26800736A5F /* ViewController.m */; };
+		BA611F471A63E26800736A5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA611F451A63E26800736A5F /* Main.storyboard */; };
+		BA611F491A63E26800736A5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA611F481A63E26800736A5F /* Images.xcassets */; };
+		BA611F4C1A63E26800736A5F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA611F4A1A63E26800736A5F /* LaunchScreen.xib */; };
+		BA611F5F1A6407BC00736A5F /* cppTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611F2A1A63DA2800736A5F /* cppTest.cpp */; };
+		BA611F631A640AF500736A5F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA611F2F1A63DFF200736A5F /* Security.framework */; };
+		BA611F671A64137B00736A5F /* SASAttachment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EB71A63C90400736A5F /* SASAttachment.h */; };
+		BA611F681A64137B00736A5F /* SASBaseEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EB91A63C90400736A5F /* SASBaseEntity.h */; };
+		BA611F691A64137B00736A5F /* SASBody.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EBB1A63C90400736A5F /* SASBody.h */; };
+		BA611F6A1A64137B00736A5F /* SASCollection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EBD1A63C90400736A5F /* SASCollection.h */; };
+		BA611F6B1A64137B00736A5F /* SASDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EBF1A63C90400736A5F /* SASDevice.h */; };
+		BA611F6C1A64137B00736A5F /* SASFolder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EC11A63C90400736A5F /* SASFolder.h */; };
+		BA611F6D1A64137B00736A5F /* SASMail.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EC31A63C90400736A5F /* SASMail.h */; };
+		BA611F6E1A64137B00736A5F /* SASOof.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EC51A63C90400736A5F /* SASOof.h */; };
+		BA611F6F1A64137B00736A5F /* SASPolicy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EC71A63C90400736A5F /* SASPolicy.h */; };
+		BA611F701A64137B00736A5F /* SASUserInformation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EC91A63C90400736A5F /* SASUserInformation.h */; };
+		BA611F711A64137B00736A5F /* SASCommandRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E9D1A63C8F700736A5F /* SASCommandRequest.h */; };
+		BA611F721A64137B00736A5F /* SASCommandResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E9F1A63C8F700736A5F /* SASCommandResponse.h */; };
+		BA611F731A64137B00736A5F /* SASDefine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA01A63C8F700736A5F /* SASDefine.h */; };
+		BA611F741A64137B00736A5F /* SASEncodedRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA21A63C8F700736A5F /* SASEncodedRequest.h */; };
+		BA611F751A64137B00736A5F /* SASHTTPRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA41A63C8F700736A5F /* SASHTTPRequest.h */; };
+		BA611F761A64137B00736A5F /* SASHTTPResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA61A63C8F700736A5F /* SASHTTPResponse.h */; };
+		BA611F771A64137B00736A5F /* SASOptionsRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA81A63C8F700736A5F /* SASOptionsRequest.h */; };
+		BA611F781A64137B00736A5F /* SASSerializer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EAA1A63C8F700736A5F /* SASSerializer.h */; };
+		BA611F791A64137B00736A5F /* SASWBXml.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EAC1A63C8F700736A5F /* SASWBXml.h */; };
+		BA611F7A1A64137B00736A5F /* SASFolderSyncRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E691A63C8EA00736A5F /* SASFolderSyncRequest.h */; };
+		BA611F7B1A64137B00736A5F /* SASFolderSyncResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E6B1A63C8EA00736A5F /* SASFolderSyncResponse.h */; };
+		BA611F7C1A64137B00736A5F /* SASItemOperationsRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E6D1A63C8EA00736A5F /* SASItemOperationsRequest.h */; };
+		BA611F7D1A64137B00736A5F /* SASItemOperationsResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E6F1A63C8EA00736A5F /* SASItemOperationsResponse.h */; };
+		BA611F7E1A64137B00736A5F /* SASMailBaseRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E711A63C8EA00736A5F /* SASMailBaseRequest.h */; };
+		BA611F7F1A64137B00736A5F /* SASPingRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E731A63C8EA00736A5F /* SASPingRequest.h */; };
+		BA611F801A64137B00736A5F /* SASPingResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E751A63C8EA00736A5F /* SASPingResponse.h */; };
+		BA611F811A64137B00736A5F /* SASProvisionRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E771A63C8EA00736A5F /* SASProvisionRequest.h */; };
+		BA611F821A64137B00736A5F /* SASProvisionResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E791A63C8EA00736A5F /* SASProvisionResponse.h */; };
+		BA611F831A64137B00736A5F /* SASSendMailRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E7B1A63C8EA00736A5F /* SASSendMailRequest.h */; };
+		BA611F841A64137B00736A5F /* SASSendMailResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E7D1A63C8EA00736A5F /* SASSendMailResponse.h */; };
+		BA611F851A64137B00736A5F /* SASSettingsRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E7F1A63C8EA00736A5F /* SASSettingsRequest.h */; };
+		BA611F861A64137B00736A5F /* SASSettingsResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E811A63C8EA00736A5F /* SASSettingsResponse.h */; };
+		BA611F871A64137B00736A5F /* SASSmartForwardRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E831A63C8EA00736A5F /* SASSmartForwardRequest.h */; };
+		BA611F881A64137B00736A5F /* SASSmartReplyRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E851A63C8EA00736A5F /* SASSmartReplyRequest.h */; };
+		BA611F891A64137B00736A5F /* SASSyncRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E871A63C8EA00736A5F /* SASSyncRequest.h */; };
+		BA611F8A1A64137B00736A5F /* SASSyncResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E891A63C8EA00736A5F /* SASSyncResponse.h */; };
+		BA611F8B1A64137B00736A5F /* b64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E621A63C8E000736A5F /* b64.h */; };
+		C561E4BCA00AF6E5051FAEE7 /* libPods-SlimEASDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E8924E9226A31CC5CA2A84 /* libPods-SlimEASDemo.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BA611F601A6408E800736A5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA611E3F1A63C88F00736A5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA611E461A63C88F00736A5F;
+			remoteInfo = SlimEAS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		BA577E681A3DBBF600AFFA14 /* CopyFiles */ = {
+		BA611E451A63C88F00736A5F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = usr/share/man/man1;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				BA611F671A64137B00736A5F /* SASAttachment.h in CopyFiles */,
+				BA611F681A64137B00736A5F /* SASBaseEntity.h in CopyFiles */,
+				BA611F691A64137B00736A5F /* SASBody.h in CopyFiles */,
+				BA611F6A1A64137B00736A5F /* SASCollection.h in CopyFiles */,
+				BA611F6B1A64137B00736A5F /* SASDevice.h in CopyFiles */,
+				BA611F6C1A64137B00736A5F /* SASFolder.h in CopyFiles */,
+				BA611F6D1A64137B00736A5F /* SASMail.h in CopyFiles */,
+				BA611F6E1A64137B00736A5F /* SASOof.h in CopyFiles */,
+				BA611F6F1A64137B00736A5F /* SASPolicy.h in CopyFiles */,
+				BA611F701A64137B00736A5F /* SASUserInformation.h in CopyFiles */,
+				BA611F711A64137B00736A5F /* SASCommandRequest.h in CopyFiles */,
+				BA611F721A64137B00736A5F /* SASCommandResponse.h in CopyFiles */,
+				BA611F731A64137B00736A5F /* SASDefine.h in CopyFiles */,
+				BA611F741A64137B00736A5F /* SASEncodedRequest.h in CopyFiles */,
+				BA611F751A64137B00736A5F /* SASHTTPRequest.h in CopyFiles */,
+				BA611F761A64137B00736A5F /* SASHTTPResponse.h in CopyFiles */,
+				BA611F771A64137B00736A5F /* SASOptionsRequest.h in CopyFiles */,
+				BA611F781A64137B00736A5F /* SASSerializer.h in CopyFiles */,
+				BA611F791A64137B00736A5F /* SASWBXml.h in CopyFiles */,
+				BA611F7A1A64137B00736A5F /* SASFolderSyncRequest.h in CopyFiles */,
+				BA611F7B1A64137B00736A5F /* SASFolderSyncResponse.h in CopyFiles */,
+				BA611F7C1A64137B00736A5F /* SASItemOperationsRequest.h in CopyFiles */,
+				BA611F7D1A64137B00736A5F /* SASItemOperationsResponse.h in CopyFiles */,
+				BA611F7E1A64137B00736A5F /* SASMailBaseRequest.h in CopyFiles */,
+				BA611F7F1A64137B00736A5F /* SASPingRequest.h in CopyFiles */,
+				BA611F801A64137B00736A5F /* SASPingResponse.h in CopyFiles */,
+				BA611F811A64137B00736A5F /* SASProvisionRequest.h in CopyFiles */,
+				BA611F821A64137B00736A5F /* SASProvisionResponse.h in CopyFiles */,
+				BA611F831A64137B00736A5F /* SASSendMailRequest.h in CopyFiles */,
+				BA611F841A64137B00736A5F /* SASSendMailResponse.h in CopyFiles */,
+				BA611F851A64137B00736A5F /* SASSettingsRequest.h in CopyFiles */,
+				BA611F861A64137B00736A5F /* SASSettingsResponse.h in CopyFiles */,
+				BA611F871A64137B00736A5F /* SASSmartForwardRequest.h in CopyFiles */,
+				BA611F881A64137B00736A5F /* SASSmartReplyRequest.h in CopyFiles */,
+				BA611F891A64137B00736A5F /* SASSyncRequest.h in CopyFiles */,
+				BA611F8A1A64137B00736A5F /* SASSyncResponse.h in CopyFiles */,
+				BA611F8B1A64137B00736A5F /* b64.h in CopyFiles */,
+				BA611E4B1A63C88F00736A5F /* SlimEAS.h in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		054058C91A5A8213006570A7 /* SASFolderSyncRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolderSyncRequest.cpp; sourceTree = "<group>"; };
-		054058CA1A5A8213006570A7 /* SASFolderSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolderSyncRequest.h; sourceTree = "<group>"; };
-		054058CB1A5A8213006570A7 /* SASFolderSyncResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolderSyncResponse.cpp; sourceTree = "<group>"; };
-		054058CC1A5A8213006570A7 /* SASFolderSyncResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolderSyncResponse.h; sourceTree = "<group>"; };
-		054058CF1A5A8213006570A7 /* SASAttachment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASAttachment.cpp; sourceTree = "<group>"; };
-		054058D01A5A8213006570A7 /* SASAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASAttachment.h; sourceTree = "<group>"; };
-		054058D11A5A8213006570A7 /* SASBaseEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASBaseEntity.cpp; sourceTree = "<group>"; };
-		054058D21A5A8213006570A7 /* SASBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASBaseEntity.h; sourceTree = "<group>"; };
-		054058D31A5A8213006570A7 /* SASBody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASBody.cpp; sourceTree = "<group>"; };
-		054058D41A5A8213006570A7 /* SASBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASBody.h; sourceTree = "<group>"; };
-		054058D51A5A8213006570A7 /* SASFolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolder.cpp; sourceTree = "<group>"; };
-		054058D61A5A8213006570A7 /* SASFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolder.h; sourceTree = "<group>"; };
-		054058D71A5A8213006570A7 /* SASMail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASMail.cpp; sourceTree = "<group>"; };
-		054058D81A5A8213006570A7 /* SASMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASMail.h; sourceTree = "<group>"; };
-		054058E11A5AB391006570A7 /* SASSyncRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSyncRequest.cpp; sourceTree = "<group>"; };
-		054058E21A5AB391006570A7 /* SASSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSyncRequest.h; sourceTree = "<group>"; };
-		05969ABB1A5E99A000E8AC8B /* SASSettingsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSettingsResponse.cpp; sourceTree = "<group>"; };
-		05969ABC1A5E99A100E8AC8B /* SASSettingsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSettingsResponse.h; sourceTree = "<group>"; };
-		05AE01511A5E75140045FD50 /* SASSettingsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSettingsRequest.cpp; sourceTree = "<group>"; };
-		05AE01521A5E75140045FD50 /* SASSettingsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSettingsRequest.h; sourceTree = "<group>"; };
-		05AE01541A5E7FAE0045FD50 /* SASOof.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOof.cpp; sourceTree = "<group>"; };
-		05AE01551A5E7FAE0045FD50 /* SASOof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOof.h; sourceTree = "<group>"; };
-		05AE01571A5E8B2D0045FD50 /* SASUserInformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASUserInformation.cpp; sourceTree = "<group>"; };
-		05AE01581A5E8B2D0045FD50 /* SASUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASUserInformation.h; sourceTree = "<group>"; };
-		53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
-		5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
-		990EEA6D1A5C333A001021C8 /* SASSyncResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSyncResponse.cpp; sourceTree = "<group>"; };
-		990EEA6E1A5C333A001021C8 /* SASSyncResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSyncResponse.h; sourceTree = "<group>"; };
-		990EEA701A5CEC04001021C8 /* SASCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCollection.cpp; sourceTree = "<group>"; };
-		990EEA711A5CEC04001021C8 /* SASCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCollection.h; sourceTree = "<group>"; };
-		990EEA731A5D10D8001021C8 /* SASSendMailRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSendMailRequest.cpp; sourceTree = "<group>"; };
-		990EEA741A5D10D8001021C8 /* SASSendMailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSendMailRequest.h; sourceTree = "<group>"; };
-		990EEA761A5D1A98001021C8 /* SASSendMailResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSendMailResponse.cpp; sourceTree = "<group>"; };
-		990EEA771A5D1A98001021C8 /* SASSendMailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSendMailResponse.h; sourceTree = "<group>"; };
-		993FE90A1A5E70BD001C6378 /* SASPingRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPingRequest.cpp; sourceTree = "<group>"; };
-		993FE90B1A5E70BD001C6378 /* SASPingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPingRequest.h; sourceTree = "<group>"; };
-		993FE90D1A5E7490001C6378 /* SASPingResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPingResponse.cpp; sourceTree = "<group>"; };
-		993FE90E1A5E7490001C6378 /* SASPingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPingResponse.h; sourceTree = "<group>"; };
-		993FE9101A5E92ED001C6378 /* SASSmartReplyRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSmartReplyRequest.cpp; sourceTree = "<group>"; };
-		993FE9111A5E92ED001C6378 /* SASSmartReplyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSmartReplyRequest.h; sourceTree = "<group>"; };
-		993FE9131A5EC1B4001C6378 /* SASSmartForwardRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSmartForwardRequest.h; sourceTree = "<group>"; };
-		993FE9141A5EC237001C6378 /* SASSmartForwardRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSmartForwardRequest.cpp; sourceTree = "<group>"; };
-		9941D9B21A5B8D9A006856F7 /* SASItemOperationsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsRequest.cpp; sourceTree = "<group>"; };
-		9941D9B31A5B8D9A006856F7 /* SASItemOperationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsRequest.h; sourceTree = "<group>"; };
-		9941D9B51A5BBB70006856F7 /* SASItemOperationsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsResponse.cpp; sourceTree = "<group>"; };
-		9941D9B61A5BBB70006856F7 /* SASItemOperationsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsResponse.h; sourceTree = "<group>"; };
-		9986A3121A628575000A47EC /* SASSerializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSerializer.cpp; sourceTree = "<group>"; };
-		9986A3131A628575000A47EC /* SASSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSerializer.h; sourceTree = "<group>"; };
-		9986A3151A62D42F000A47EC /* SASMailBaseRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASMailBaseRequest.cpp; sourceTree = "<group>"; };
-		9986A3161A62D42F000A47EC /* SASMailBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASMailBaseRequest.h; sourceTree = "<group>"; };
-		BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandResponse.cpp; sourceTree = "<group>"; };
-		BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandResponse.h; sourceTree = "<group>"; };
-		BA0DA84E1A4323EA005EA85D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionRequest.cpp; sourceTree = "<group>"; };
-		BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionRequest.h; sourceTree = "<group>"; };
-		BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionResponse.cpp; sourceTree = "<group>"; };
-		BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionResponse.h; sourceTree = "<group>"; };
-		BA0DA8571A434A8D005EA85D /* SASDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASDevice.cpp; sourceTree = "<group>"; };
-		BA0DA8581A434A8D005EA85D /* SASDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASDevice.h; sourceTree = "<group>"; };
-		BA577E6A1A3DBBF600AFFA14 /* SlimEAS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SlimEAS; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA577E6D1A3DBBF600AFFA14 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
-		BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = usr/lib/libcurl.4.dylib; sourceTree = SDKROOT; };
-		BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASWBXml.cpp; sourceTree = "<group>"; };
-		BA577EE01A3DE55800AFFA14 /* SASWBXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASWBXml.h; sourceTree = "<group>"; };
-		BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexpat.dylib; path = usr/lib/libexpat.dylib; sourceTree = SDKROOT; };
-		BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOptionsRequest.cpp; sourceTree = "<group>"; };
-		BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOptionsRequest.h; sourceTree = "<group>"; };
-		BA577F001A3ED70000AFFA14 /* SASDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SASDefine.h; sourceTree = "<group>"; };
-		BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPResponse.cpp; sourceTree = "<group>"; };
-		BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
-		BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandRequest.cpp; sourceTree = "<group>"; };
-		BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandRequest.h; sourceTree = "<group>"; };
-		BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPRequest.cpp; sourceTree = "<group>"; };
-		BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPRequest.h; sourceTree = "<group>"; };
-		BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASEncodedRequest.cpp; sourceTree = "<group>"; };
-		BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASEncodedRequest.h; sourceTree = "<group>"; };
-		BA577F7F1A42078E00AFFA14 /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b64.h; sourceTree = "<group>"; };
-		BA577F801A42078E00AFFA14 /* decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
-		BA577F811A42078E00AFFA14 /* encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode.c; sourceTree = "<group>"; };
-		BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPolicy.cpp; sourceTree = "<group>"; };
-		BABA8CA01A52A2F100217190 /* SASPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPolicy.h; sourceTree = "<group>"; };
+		566C2869B437BEF86BAA1CA9 /* libPods-SlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73BEBB824A1E799F2448B52F /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
+		79E8924E9226A31CC5CA2A84 /* libPods-SlimEASDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEASDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DE2C4AE08EEFE40E6F34BB /* Pods-SlimEASDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEASDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEASDemo/Pods-SlimEASDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9A7E90B85AAA5A5C5B3EA830 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
+		A886D671C98F62B81A8781AD /* Pods-SlimEASDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEASDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEASDemo/Pods-SlimEASDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BA611E471A63C88F00736A5F /* libSlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSlimEAS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA611E4A1A63C88F00736A5F /* SlimEAS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlimEAS.h; sourceTree = "<group>"; };
+		BA611E621A63C8E000736A5F /* b64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b64.h; sourceTree = "<group>"; };
+		BA611E631A63C8E000736A5F /* decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
+		BA611E641A63C8E000736A5F /* encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encode.c; sourceTree = "<group>"; };
+		BA611E681A63C8EA00736A5F /* SASFolderSyncRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolderSyncRequest.cpp; sourceTree = "<group>"; };
+		BA611E691A63C8EA00736A5F /* SASFolderSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolderSyncRequest.h; sourceTree = "<group>"; };
+		BA611E6A1A63C8EA00736A5F /* SASFolderSyncResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolderSyncResponse.cpp; sourceTree = "<group>"; };
+		BA611E6B1A63C8EA00736A5F /* SASFolderSyncResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolderSyncResponse.h; sourceTree = "<group>"; };
+		BA611E6C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsRequest.cpp; sourceTree = "<group>"; };
+		BA611E6D1A63C8EA00736A5F /* SASItemOperationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsRequest.h; sourceTree = "<group>"; };
+		BA611E6E1A63C8EA00736A5F /* SASItemOperationsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsResponse.cpp; sourceTree = "<group>"; };
+		BA611E6F1A63C8EA00736A5F /* SASItemOperationsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsResponse.h; sourceTree = "<group>"; };
+		BA611E701A63C8EA00736A5F /* SASMailBaseRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASMailBaseRequest.cpp; sourceTree = "<group>"; };
+		BA611E711A63C8EA00736A5F /* SASMailBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASMailBaseRequest.h; sourceTree = "<group>"; };
+		BA611E721A63C8EA00736A5F /* SASPingRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPingRequest.cpp; sourceTree = "<group>"; };
+		BA611E731A63C8EA00736A5F /* SASPingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPingRequest.h; sourceTree = "<group>"; };
+		BA611E741A63C8EA00736A5F /* SASPingResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPingResponse.cpp; sourceTree = "<group>"; };
+		BA611E751A63C8EA00736A5F /* SASPingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPingResponse.h; sourceTree = "<group>"; };
+		BA611E761A63C8EA00736A5F /* SASProvisionRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionRequest.cpp; sourceTree = "<group>"; };
+		BA611E771A63C8EA00736A5F /* SASProvisionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionRequest.h; sourceTree = "<group>"; };
+		BA611E781A63C8EA00736A5F /* SASProvisionResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASProvisionResponse.cpp; sourceTree = "<group>"; };
+		BA611E791A63C8EA00736A5F /* SASProvisionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASProvisionResponse.h; sourceTree = "<group>"; };
+		BA611E7A1A63C8EA00736A5F /* SASSendMailRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSendMailRequest.cpp; sourceTree = "<group>"; };
+		BA611E7B1A63C8EA00736A5F /* SASSendMailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSendMailRequest.h; sourceTree = "<group>"; };
+		BA611E7C1A63C8EA00736A5F /* SASSendMailResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSendMailResponse.cpp; sourceTree = "<group>"; };
+		BA611E7D1A63C8EA00736A5F /* SASSendMailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSendMailResponse.h; sourceTree = "<group>"; };
+		BA611E7E1A63C8EA00736A5F /* SASSettingsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSettingsRequest.cpp; sourceTree = "<group>"; };
+		BA611E7F1A63C8EA00736A5F /* SASSettingsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSettingsRequest.h; sourceTree = "<group>"; };
+		BA611E801A63C8EA00736A5F /* SASSettingsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSettingsResponse.cpp; sourceTree = "<group>"; };
+		BA611E811A63C8EA00736A5F /* SASSettingsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSettingsResponse.h; sourceTree = "<group>"; };
+		BA611E821A63C8EA00736A5F /* SASSmartForwardRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSmartForwardRequest.cpp; sourceTree = "<group>"; };
+		BA611E831A63C8EA00736A5F /* SASSmartForwardRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSmartForwardRequest.h; sourceTree = "<group>"; };
+		BA611E841A63C8EA00736A5F /* SASSmartReplyRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSmartReplyRequest.cpp; sourceTree = "<group>"; };
+		BA611E851A63C8EA00736A5F /* SASSmartReplyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSmartReplyRequest.h; sourceTree = "<group>"; };
+		BA611E861A63C8EA00736A5F /* SASSyncRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSyncRequest.cpp; sourceTree = "<group>"; };
+		BA611E871A63C8EA00736A5F /* SASSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSyncRequest.h; sourceTree = "<group>"; };
+		BA611E881A63C8EA00736A5F /* SASSyncResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSyncResponse.cpp; sourceTree = "<group>"; };
+		BA611E891A63C8EA00736A5F /* SASSyncResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSyncResponse.h; sourceTree = "<group>"; };
+		BA611E9C1A63C8F700736A5F /* SASCommandRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandRequest.cpp; sourceTree = "<group>"; };
+		BA611E9D1A63C8F700736A5F /* SASCommandRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandRequest.h; sourceTree = "<group>"; };
+		BA611E9E1A63C8F700736A5F /* SASCommandResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCommandResponse.cpp; sourceTree = "<group>"; };
+		BA611E9F1A63C8F700736A5F /* SASCommandResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCommandResponse.h; sourceTree = "<group>"; };
+		BA611EA01A63C8F700736A5F /* SASDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASDefine.h; sourceTree = "<group>"; };
+		BA611EA11A63C8F700736A5F /* SASEncodedRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASEncodedRequest.cpp; sourceTree = "<group>"; };
+		BA611EA21A63C8F700736A5F /* SASEncodedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASEncodedRequest.h; sourceTree = "<group>"; };
+		BA611EA31A63C8F700736A5F /* SASHTTPRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPRequest.cpp; sourceTree = "<group>"; };
+		BA611EA41A63C8F700736A5F /* SASHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPRequest.h; sourceTree = "<group>"; };
+		BA611EA51A63C8F700736A5F /* SASHTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASHTTPResponse.cpp; sourceTree = "<group>"; };
+		BA611EA61A63C8F700736A5F /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
+		BA611EA71A63C8F700736A5F /* SASOptionsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOptionsRequest.cpp; sourceTree = "<group>"; };
+		BA611EA81A63C8F700736A5F /* SASOptionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOptionsRequest.h; sourceTree = "<group>"; };
+		BA611EA91A63C8F700736A5F /* SASSerializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSerializer.cpp; sourceTree = "<group>"; };
+		BA611EAA1A63C8F700736A5F /* SASSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSerializer.h; sourceTree = "<group>"; };
+		BA611EAB1A63C8F700736A5F /* SASWBXml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASWBXml.cpp; sourceTree = "<group>"; };
+		BA611EAC1A63C8F700736A5F /* SASWBXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASWBXml.h; sourceTree = "<group>"; };
+		BA611EB61A63C90400736A5F /* SASAttachment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASAttachment.cpp; sourceTree = "<group>"; };
+		BA611EB71A63C90400736A5F /* SASAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASAttachment.h; sourceTree = "<group>"; };
+		BA611EB81A63C90400736A5F /* SASBaseEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASBaseEntity.cpp; sourceTree = "<group>"; };
+		BA611EB91A63C90400736A5F /* SASBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASBaseEntity.h; sourceTree = "<group>"; };
+		BA611EBA1A63C90400736A5F /* SASBody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASBody.cpp; sourceTree = "<group>"; };
+		BA611EBB1A63C90400736A5F /* SASBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASBody.h; sourceTree = "<group>"; };
+		BA611EBC1A63C90400736A5F /* SASCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASCollection.cpp; sourceTree = "<group>"; };
+		BA611EBD1A63C90400736A5F /* SASCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASCollection.h; sourceTree = "<group>"; };
+		BA611EBE1A63C90400736A5F /* SASDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASDevice.cpp; sourceTree = "<group>"; };
+		BA611EBF1A63C90400736A5F /* SASDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASDevice.h; sourceTree = "<group>"; };
+		BA611EC01A63C90400736A5F /* SASFolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolder.cpp; sourceTree = "<group>"; };
+		BA611EC11A63C90400736A5F /* SASFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolder.h; sourceTree = "<group>"; };
+		BA611EC21A63C90400736A5F /* SASMail.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASMail.cpp; sourceTree = "<group>"; };
+		BA611EC31A63C90400736A5F /* SASMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASMail.h; sourceTree = "<group>"; };
+		BA611EC41A63C90400736A5F /* SASOof.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOof.cpp; sourceTree = "<group>"; };
+		BA611EC51A63C90400736A5F /* SASOof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOof.h; sourceTree = "<group>"; };
+		BA611EC61A63C90400736A5F /* SASPolicy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPolicy.cpp; sourceTree = "<group>"; };
+		BA611EC71A63C90400736A5F /* SASPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASPolicy.h; sourceTree = "<group>"; };
+		BA611EC81A63C90400736A5F /* SASUserInformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASUserInformation.cpp; sourceTree = "<group>"; };
+		BA611EC91A63C90400736A5F /* SASUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASUserInformation.h; sourceTree = "<group>"; };
+		BA611ED41A63CB9200736A5F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		BA611F211A63D84B00736A5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA611F221A63D84B00736A5F /* SlimEAS_Tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SlimEAS_Tests.mm; sourceTree = "<group>"; };
+		BA611F2A1A63DA2800736A5F /* cppTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cppTest.cpp; path = "../SlimEAS Tests/cppTest.cpp"; sourceTree = "<group>"; };
+		BA611F2B1A63DA2800736A5F /* cppTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cppTest.h; path = "../SlimEAS Tests/cppTest.h"; sourceTree = "<group>"; };
+		BA611F2F1A63DFF200736A5F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BA611F311A63DFFD00736A5F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BA611F331A63E01E00736A5F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BA611F391A63E26800736A5F /* SlimEASDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlimEASDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA611F3C1A63E26800736A5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA611F3D1A63E26800736A5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA611F3F1A63E26800736A5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA611F401A63E26800736A5F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		BA611F421A63E26800736A5F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BA611F431A63E26800736A5F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BA611F461A63E26800736A5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA611F481A63E26800736A5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BA611F4B1A63E26800736A5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BA577E671A3DBBF600AFFA14 /* Frameworks */ = {
+		BA611E441A63C88F00736A5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA577EFC1A3EA9EC00AFFA14 /* libexpat.dylib in Frameworks */,
-				FF24AEA6AEB6577428129CCB /* libPods-SlimEAS.a in Frameworks */,
+				9C69356D870205D0EA311934 /* libPods-SlimEAS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA611F361A63E26800736A5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA611F631A640AF500736A5F /* Security.framework in Frameworks */,
+				C561E4BCA00AF6E5051FAEE7 /* libPods-SlimEASDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09185763F542F3456E78F18C /* Frameworks */ = {
+		2D07008CAD93A3B14890084E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BA0DA84E1A4323EA005EA85D /* libxml2.dylib */,
-				BA577EFB1A3EA9EC00AFFA14 /* libexpat.dylib */,
-				BA577ECB1A3DDF2700AFFA14 /* libcurl.4.dylib */,
-				BA577EC91A3DD99B00AFFA14 /* libcurl.dylib */,
-				5D354E9349270CD1CC4F7266 /* libPods-SlimEAS.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9941D9B11A5B87A9006856F7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				05AE01571A5E8B2D0045FD50 /* SASUserInformation.cpp */,
-				05AE01581A5E8B2D0045FD50 /* SASUserInformation.h */,
-				05AE01541A5E7FAE0045FD50 /* SASOof.cpp */,
-				05AE01551A5E7FAE0045FD50 /* SASOof.h */,
-				BA0DA8571A434A8D005EA85D /* SASDevice.cpp */,
-				BA0DA8581A434A8D005EA85D /* SASDevice.h */,
-				054058CF1A5A8213006570A7 /* SASAttachment.cpp */,
-				054058D01A5A8213006570A7 /* SASAttachment.h */,
-				054058D11A5A8213006570A7 /* SASBaseEntity.cpp */,
-				054058D21A5A8213006570A7 /* SASBaseEntity.h */,
-				054058D31A5A8213006570A7 /* SASBody.cpp */,
-				054058D41A5A8213006570A7 /* SASBody.h */,
-				054058D51A5A8213006570A7 /* SASFolder.cpp */,
-				054058D61A5A8213006570A7 /* SASFolder.h */,
-				054058D71A5A8213006570A7 /* SASMail.cpp */,
-				054058D81A5A8213006570A7 /* SASMail.h */,
-				BABA8C9F1A52A2F100217190 /* SASPolicy.cpp */,
-				BABA8CA01A52A2F100217190 /* SASPolicy.h */,
-				990EEA701A5CEC04001021C8 /* SASCollection.cpp */,
-				990EEA711A5CEC04001021C8 /* SASCollection.h */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		B9CD3FFBC2885B534A0337E9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */,
-				53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */,
+				73BEBB824A1E799F2448B52F /* Pods-SlimEAS.debug.xcconfig */,
+				9A7E90B85AAA5A5C5B3EA830 /* Pods-SlimEAS.release.xcconfig */,
+				A886D671C98F62B81A8781AD /* Pods-SlimEASDemo.debug.xcconfig */,
+				84DE2C4AE08EEFE40E6F34BB /* Pods-SlimEASDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		BA0DA8501A433D5F005EA85D /* Commands */ = {
+		B59329B0700621EDAFE49F7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				993FE9141A5EC237001C6378 /* SASSmartForwardRequest.cpp */,
-				993FE9131A5EC1B4001C6378 /* SASSmartForwardRequest.h */,
-				05AE01511A5E75140045FD50 /* SASSettingsRequest.cpp */,
-				05AE01521A5E75140045FD50 /* SASSettingsRequest.h */,
-				05969ABB1A5E99A000E8AC8B /* SASSettingsResponse.cpp */,
-				05969ABC1A5E99A100E8AC8B /* SASSettingsResponse.h */,
-				BA0DA8511A433E2B005EA85D /* SASProvisionRequest.cpp */,
-				BA0DA8521A433E2B005EA85D /* SASProvisionRequest.h */,
-				BA0DA8541A433E69005EA85D /* SASProvisionResponse.cpp */,
-				BA0DA8551A433E69005EA85D /* SASProvisionResponse.h */,
-				054058E11A5AB391006570A7 /* SASSyncRequest.cpp */,
-				054058E21A5AB391006570A7 /* SASSyncRequest.h */,
-				054058C91A5A8213006570A7 /* SASFolderSyncRequest.cpp */,
-				054058CA1A5A8213006570A7 /* SASFolderSyncRequest.h */,
-				054058CB1A5A8213006570A7 /* SASFolderSyncResponse.cpp */,
-				054058CC1A5A8213006570A7 /* SASFolderSyncResponse.h */,
-				9941D9B21A5B8D9A006856F7 /* SASItemOperationsRequest.cpp */,
-				9941D9B31A5B8D9A006856F7 /* SASItemOperationsRequest.h */,
-				9941D9B51A5BBB70006856F7 /* SASItemOperationsResponse.cpp */,
-				9941D9B61A5BBB70006856F7 /* SASItemOperationsResponse.h */,
-				990EEA6D1A5C333A001021C8 /* SASSyncResponse.cpp */,
-				990EEA6E1A5C333A001021C8 /* SASSyncResponse.h */,
-				990EEA731A5D10D8001021C8 /* SASSendMailRequest.cpp */,
-				990EEA741A5D10D8001021C8 /* SASSendMailRequest.h */,
-				990EEA761A5D1A98001021C8 /* SASSendMailResponse.cpp */,
-				990EEA771A5D1A98001021C8 /* SASSendMailResponse.h */,
-				993FE90A1A5E70BD001C6378 /* SASPingRequest.cpp */,
-				993FE90B1A5E70BD001C6378 /* SASPingRequest.h */,
-				993FE90D1A5E7490001C6378 /* SASPingResponse.cpp */,
-				993FE90E1A5E7490001C6378 /* SASPingResponse.h */,
-				993FE9101A5E92ED001C6378 /* SASSmartReplyRequest.cpp */,
-				993FE9111A5E92ED001C6378 /* SASSmartReplyRequest.h */,
-				9986A3151A62D42F000A47EC /* SASMailBaseRequest.cpp */,
-				9986A3161A62D42F000A47EC /* SASMailBaseRequest.h */,
+				BA611F331A63E01E00736A5F /* MobileCoreServices.framework */,
+				BA611F311A63DFFD00736A5F /* libz.dylib */,
+				BA611F2F1A63DFF200736A5F /* Security.framework */,
+				BA611ED41A63CB9200736A5F /* libxml2.dylib */,
+				566C2869B437BEF86BAA1CA9 /* libPods-SlimEAS.a */,
+				79E8924E9226A31CC5CA2A84 /* libPods-SlimEASDemo.a */,
 			);
-			name = Commands;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BA577E611A3DBBF600AFFA14 = {
+		BA611E3E1A63C88F00736A5F = {
 			isa = PBXGroup;
 			children = (
-				BA577E6C1A3DBBF600AFFA14 /* SlimEAS */,
-				BA577E6B1A3DBBF600AFFA14 /* Products */,
-				B9CD3FFBC2885B534A0337E9 /* Pods */,
-				09185763F542F3456E78F18C /* Frameworks */,
+				BA611E491A63C88F00736A5F /* SlimEAS */,
+				BA611F1F1A63D84B00736A5F /* SlimEAS Tests */,
+				BA611F3A1A63E26800736A5F /* SlimEASDemo */,
+				BA611E481A63C88F00736A5F /* Products */,
+				2D07008CAD93A3B14890084E /* Pods */,
+				B59329B0700621EDAFE49F7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		BA577E6B1A3DBBF600AFFA14 /* Products */ = {
+		BA611E481A63C88F00736A5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA577E6A1A3DBBF600AFFA14 /* SlimEAS */,
+				BA611E471A63C88F00736A5F /* libSlimEAS.a */,
+				BA611F391A63E26800736A5F /* SlimEASDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BA577E6C1A3DBBF600AFFA14 /* SlimEAS */ = {
+		BA611E491A63C88F00736A5F /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
-				BA577F671A41DC7000AFFA14 /* base64 */,
-				BA577EDE1A3DE53500AFFA14 /* src */,
-				BA577E6D1A3DBBF600AFFA14 /* main.cpp */,
+				BA611EB51A63C90400736A5F /* models */,
+				BA611E9B1A63C8F700736A5F /* core */,
+				BA611E671A63C8EA00736A5F /* commands */,
+				BA611E611A63C8E000736A5F /* base64 */,
+				BA611E4A1A63C88F00736A5F /* SlimEAS.h */,
 			);
 			path = SlimEAS;
 			sourceTree = "<group>";
 		};
-		BA577EDE1A3DE53500AFFA14 /* src */ = {
+		BA611E611A63C8E000736A5F /* base64 */ = {
 			isa = PBXGroup;
 			children = (
-				9941D9B11A5B87A9006856F7 /* Models */,
-				BA0DA8501A433D5F005EA85D /* Commands */,
-				BA577EDF1A3DE55800AFFA14 /* SASWBXml.cpp */,
-				BA577EE01A3DE55800AFFA14 /* SASWBXml.h */,
-				BA577F591A407ADD00AFFA14 /* SASHTTPResponse.cpp */,
-				BA577F5A1A407ADD00AFFA14 /* SASHTTPResponse.h */,
-				BA577F5F1A41312C00AFFA14 /* SASHTTPRequest.cpp */,
-				BA577F601A41312C00AFFA14 /* SASHTTPRequest.h */,
-				BA577EFD1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp */,
-				BA577EFE1A3ED3EF00AFFA14 /* SASOptionsRequest.h */,
-				BA0DA84B1A42F263005EA85D /* SASCommandResponse.cpp */,
-				BA0DA84C1A42F263005EA85D /* SASCommandResponse.h */,
-				BA577F5C1A412EB500AFFA14 /* SASCommandRequest.cpp */,
-				BA577F5D1A412EB500AFFA14 /* SASCommandRequest.h */,
-				BA577F681A41DDA700AFFA14 /* SASEncodedRequest.cpp */,
-				BA577F691A41DDA700AFFA14 /* SASEncodedRequest.h */,
-				BA577F001A3ED70000AFFA14 /* SASDefine.h */,
-				9986A3121A628575000A47EC /* SASSerializer.cpp */,
-				9986A3131A628575000A47EC /* SASSerializer.h */,
+				BA611E621A63C8E000736A5F /* b64.h */,
+				BA611E631A63C8E000736A5F /* decode.c */,
+				BA611E641A63C8E000736A5F /* encode.c */,
 			);
-			name = src;
+			path = base64;
 			sourceTree = "<group>";
 		};
-		BA577F671A41DC7000AFFA14 /* base64 */ = {
+		BA611E671A63C8EA00736A5F /* commands */ = {
 			isa = PBXGroup;
 			children = (
-				BA577F7F1A42078E00AFFA14 /* b64.h */,
-				BA577F801A42078E00AFFA14 /* decode.c */,
-				BA577F811A42078E00AFFA14 /* encode.c */,
+				BA611E681A63C8EA00736A5F /* SASFolderSyncRequest.cpp */,
+				BA611E691A63C8EA00736A5F /* SASFolderSyncRequest.h */,
+				BA611E6A1A63C8EA00736A5F /* SASFolderSyncResponse.cpp */,
+				BA611E6B1A63C8EA00736A5F /* SASFolderSyncResponse.h */,
+				BA611E6C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp */,
+				BA611E6D1A63C8EA00736A5F /* SASItemOperationsRequest.h */,
+				BA611E6E1A63C8EA00736A5F /* SASItemOperationsResponse.cpp */,
+				BA611E6F1A63C8EA00736A5F /* SASItemOperationsResponse.h */,
+				BA611E701A63C8EA00736A5F /* SASMailBaseRequest.cpp */,
+				BA611E711A63C8EA00736A5F /* SASMailBaseRequest.h */,
+				BA611E721A63C8EA00736A5F /* SASPingRequest.cpp */,
+				BA611E731A63C8EA00736A5F /* SASPingRequest.h */,
+				BA611E741A63C8EA00736A5F /* SASPingResponse.cpp */,
+				BA611E751A63C8EA00736A5F /* SASPingResponse.h */,
+				BA611E761A63C8EA00736A5F /* SASProvisionRequest.cpp */,
+				BA611E771A63C8EA00736A5F /* SASProvisionRequest.h */,
+				BA611E781A63C8EA00736A5F /* SASProvisionResponse.cpp */,
+				BA611E791A63C8EA00736A5F /* SASProvisionResponse.h */,
+				BA611E7A1A63C8EA00736A5F /* SASSendMailRequest.cpp */,
+				BA611E7B1A63C8EA00736A5F /* SASSendMailRequest.h */,
+				BA611E7C1A63C8EA00736A5F /* SASSendMailResponse.cpp */,
+				BA611E7D1A63C8EA00736A5F /* SASSendMailResponse.h */,
+				BA611E7E1A63C8EA00736A5F /* SASSettingsRequest.cpp */,
+				BA611E7F1A63C8EA00736A5F /* SASSettingsRequest.h */,
+				BA611E801A63C8EA00736A5F /* SASSettingsResponse.cpp */,
+				BA611E811A63C8EA00736A5F /* SASSettingsResponse.h */,
+				BA611E821A63C8EA00736A5F /* SASSmartForwardRequest.cpp */,
+				BA611E831A63C8EA00736A5F /* SASSmartForwardRequest.h */,
+				BA611E841A63C8EA00736A5F /* SASSmartReplyRequest.cpp */,
+				BA611E851A63C8EA00736A5F /* SASSmartReplyRequest.h */,
+				BA611E861A63C8EA00736A5F /* SASSyncRequest.cpp */,
+				BA611E871A63C8EA00736A5F /* SASSyncRequest.h */,
+				BA611E881A63C8EA00736A5F /* SASSyncResponse.cpp */,
+				BA611E891A63C8EA00736A5F /* SASSyncResponse.h */,
 			);
-			name = base64;
+			path = commands;
+			sourceTree = "<group>";
+		};
+		BA611E9B1A63C8F700736A5F /* core */ = {
+			isa = PBXGroup;
+			children = (
+				BA611E9C1A63C8F700736A5F /* SASCommandRequest.cpp */,
+				BA611E9D1A63C8F700736A5F /* SASCommandRequest.h */,
+				BA611E9E1A63C8F700736A5F /* SASCommandResponse.cpp */,
+				BA611E9F1A63C8F700736A5F /* SASCommandResponse.h */,
+				BA611EA01A63C8F700736A5F /* SASDefine.h */,
+				BA611EA11A63C8F700736A5F /* SASEncodedRequest.cpp */,
+				BA611EA21A63C8F700736A5F /* SASEncodedRequest.h */,
+				BA611EA31A63C8F700736A5F /* SASHTTPRequest.cpp */,
+				BA611EA41A63C8F700736A5F /* SASHTTPRequest.h */,
+				BA611EA51A63C8F700736A5F /* SASHTTPResponse.cpp */,
+				BA611EA61A63C8F700736A5F /* SASHTTPResponse.h */,
+				BA611EA71A63C8F700736A5F /* SASOptionsRequest.cpp */,
+				BA611EA81A63C8F700736A5F /* SASOptionsRequest.h */,
+				BA611EA91A63C8F700736A5F /* SASSerializer.cpp */,
+				BA611EAA1A63C8F700736A5F /* SASSerializer.h */,
+				BA611EAB1A63C8F700736A5F /* SASWBXml.cpp */,
+				BA611EAC1A63C8F700736A5F /* SASWBXml.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		BA611EB51A63C90400736A5F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				BA611EB61A63C90400736A5F /* SASAttachment.cpp */,
+				BA611EB71A63C90400736A5F /* SASAttachment.h */,
+				BA611EB81A63C90400736A5F /* SASBaseEntity.cpp */,
+				BA611EB91A63C90400736A5F /* SASBaseEntity.h */,
+				BA611EBA1A63C90400736A5F /* SASBody.cpp */,
+				BA611EBB1A63C90400736A5F /* SASBody.h */,
+				BA611EBC1A63C90400736A5F /* SASCollection.cpp */,
+				BA611EBD1A63C90400736A5F /* SASCollection.h */,
+				BA611EBE1A63C90400736A5F /* SASDevice.cpp */,
+				BA611EBF1A63C90400736A5F /* SASDevice.h */,
+				BA611EC01A63C90400736A5F /* SASFolder.cpp */,
+				BA611EC11A63C90400736A5F /* SASFolder.h */,
+				BA611EC21A63C90400736A5F /* SASMail.cpp */,
+				BA611EC31A63C90400736A5F /* SASMail.h */,
+				BA611EC41A63C90400736A5F /* SASOof.cpp */,
+				BA611EC51A63C90400736A5F /* SASOof.h */,
+				BA611EC61A63C90400736A5F /* SASPolicy.cpp */,
+				BA611EC71A63C90400736A5F /* SASPolicy.h */,
+				BA611EC81A63C90400736A5F /* SASUserInformation.cpp */,
+				BA611EC91A63C90400736A5F /* SASUserInformation.h */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		BA611F1F1A63D84B00736A5F /* SlimEAS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BA611F221A63D84B00736A5F /* SlimEAS_Tests.mm */,
+				BA611F201A63D84B00736A5F /* Supporting Files */,
+			);
+			path = "SlimEAS Tests";
+			sourceTree = "<group>";
+		};
+		BA611F201A63D84B00736A5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA611F211A63D84B00736A5F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA611F3A1A63E26800736A5F /* SlimEASDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BA611F2A1A63DA2800736A5F /* cppTest.cpp */,
+				BA611F2B1A63DA2800736A5F /* cppTest.h */,
+				BA611F3F1A63E26800736A5F /* AppDelegate.h */,
+				BA611F401A63E26800736A5F /* AppDelegate.mm */,
+				BA611F421A63E26800736A5F /* ViewController.h */,
+				BA611F431A63E26800736A5F /* ViewController.m */,
+				BA611F451A63E26800736A5F /* Main.storyboard */,
+				BA611F481A63E26800736A5F /* Images.xcassets */,
+				BA611F4A1A63E26800736A5F /* LaunchScreen.xib */,
+				BA611F3B1A63E26800736A5F /* Supporting Files */,
+			);
+			path = SlimEASDemo;
+			sourceTree = "<group>";
+		};
+		BA611F3B1A63E26800736A5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA611F3C1A63E26800736A5F /* Info.plist */,
+				BA611F3D1A63E26800736A5F /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA577E691A3DBBF600AFFA14 /* SlimEAS */ = {
+		BA611E461A63C88F00736A5F /* SlimEAS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA577E711A3DBBF600AFFA14 /* Build configuration list for PBXNativeTarget "SlimEAS" */;
+			buildConfigurationList = BA611E5B1A63C88F00736A5F /* Build configuration list for PBXNativeTarget "SlimEAS" */;
 			buildPhases = (
-				5633F2B1A42C7D16F4BFFC17 /* Check Pods Manifest.lock */,
-				BA577E661A3DBBF600AFFA14 /* Sources */,
-				BA577E671A3DBBF600AFFA14 /* Frameworks */,
-				BA577E681A3DBBF600AFFA14 /* CopyFiles */,
-				59AD1C5E7B205FBF2DAC6980 /* Copy Pods Resources */,
+				22A31916E49B1EC6F151273C /* Check Pods Manifest.lock */,
+				BA611E431A63C88F00736A5F /* Sources */,
+				BA611E441A63C88F00736A5F /* Frameworks */,
+				BA611E451A63C88F00736A5F /* CopyFiles */,
+				1424ABA5DB0EADC33E3D9D32 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,57 +499,80 @@
 			);
 			name = SlimEAS;
 			productName = SlimEAS;
-			productReference = BA577E6A1A3DBBF600AFFA14 /* SlimEAS */;
-			productType = "com.apple.product-type.tool";
+			productReference = BA611E471A63C88F00736A5F /* libSlimEAS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BA611F381A63E26800736A5F /* SlimEASDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA611F591A63E26800736A5F /* Build configuration list for PBXNativeTarget "SlimEASDemo" */;
+			buildPhases = (
+				5E8DDC482E4FD1A175CED7C0 /* Check Pods Manifest.lock */,
+				BA611F351A63E26800736A5F /* Sources */,
+				BA611F361A63E26800736A5F /* Frameworks */,
+				BA611F371A63E26800736A5F /* Resources */,
+				18F5B1724E1AE81F19B2FFAC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA611F611A6408E800736A5F /* PBXTargetDependency */,
+			);
+			name = SlimEASDemo;
+			productName = SlimEASDemo;
+			productReference = BA611F391A63E26800736A5F /* SlimEASDemo.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BA577E621A3DBBF600AFFA14 /* Project object */ = {
+		BA611E3F1A63C88F00736A5F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Slim;
 				TargetAttributes = {
-					BA577E691A3DBBF600AFFA14 = {
+					BA611E461A63C88F00736A5F = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					BA611F381A63E26800736A5F = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
-			buildConfigurationList = BA577E651A3DBBF600AFFA14 /* Build configuration list for PBXProject "SlimEAS" */;
+			buildConfigurationList = BA611E421A63C88F00736A5F /* Build configuration list for PBXProject "SlimEAS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = BA577E611A3DBBF600AFFA14;
-			productRefGroup = BA577E6B1A3DBBF600AFFA14 /* Products */;
+			mainGroup = BA611E3E1A63C88F00736A5F;
+			productRefGroup = BA611E481A63C88F00736A5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA577E691A3DBBF600AFFA14 /* SlimEAS */,
+				BA611E461A63C88F00736A5F /* SlimEAS */,
+				BA611F381A63E26800736A5F /* SlimEASDemo */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5633F2B1A42C7D16F4BFFC17 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
+/* Begin PBXResourcesBuildPhase section */
+		BA611F371A63E26800736A5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
+				BA611F471A63E26800736A5F /* Main.storyboard in Resources */,
+				BA611F4C1A63E26800736A5F /* LaunchScreen.xib in Resources */,
+				BA611F491A63E26800736A5F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
-		59AD1C5E7B205FBF2DAC6980 /* Copy Pods Resources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1424ABA5DB0EADC33E3D9D32 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -397,58 +587,140 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		18F5B1724E1AE81F19B2FFAC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlimEASDemo/Pods-SlimEASDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22A31916E49B1EC6F151273C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8DDC482E4FD1A175CED7C0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BA577E661A3DBBF600AFFA14 /* Sources */ = {
+		BA611E431A63C88F00736A5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA0DA8561A433E69005EA85D /* SASProvisionResponse.cpp in Sources */,
-				BABA8CA11A52A2F100217190 /* SASPolicy.cpp in Sources */,
-				BA577F5B1A407ADD00AFFA14 /* SASHTTPResponse.cpp in Sources */,
-				BA577F5E1A412EB500AFFA14 /* SASCommandRequest.cpp in Sources */,
-				BA577EE11A3DE55800AFFA14 /* SASWBXml.cpp in Sources */,
-				054058DD1A5A8213006570A7 /* SASBaseEntity.cpp in Sources */,
-				993FE90F1A5E7490001C6378 /* SASPingResponse.cpp in Sources */,
-				BA577F6A1A41DDA700AFFA14 /* SASEncodedRequest.cpp in Sources */,
-				9941D9B71A5BBB70006856F7 /* SASItemOperationsResponse.cpp in Sources */,
-				05AE01561A5E7FAE0045FD50 /* SASOof.cpp in Sources */,
-				05AE01531A5E75140045FD50 /* SASSettingsRequest.cpp in Sources */,
-				BA0DA84D1A42F263005EA85D /* SASCommandResponse.cpp in Sources */,
-				05AE01591A5E8B2D0045FD50 /* SASUserInformation.cpp in Sources */,
-				BA577F831A42078E00AFFA14 /* encode.c in Sources */,
-				054058DC1A5A8213006570A7 /* SASAttachment.cpp in Sources */,
-				BA577E6E1A3DBBF600AFFA14 /* main.cpp in Sources */,
-				05969ABD1A5E99A100E8AC8B /* SASSettingsResponse.cpp in Sources */,
-				054058DA1A5A8213006570A7 /* SASFolderSyncResponse.cpp in Sources */,
-				BA577F821A42078E00AFFA14 /* decode.c in Sources */,
-				993FE9121A5E92ED001C6378 /* SASSmartReplyRequest.cpp in Sources */,
-				9986A3171A62D42F000A47EC /* SASMailBaseRequest.cpp in Sources */,
-				993FE90C1A5E70BD001C6378 /* SASPingRequest.cpp in Sources */,
-				9986A3141A628575000A47EC /* SASSerializer.cpp in Sources */,
-				054058DF1A5A8213006570A7 /* SASFolder.cpp in Sources */,
-				054058E31A5AB391006570A7 /* SASSyncRequest.cpp in Sources */,
-				BA0DA8591A434A8D005EA85D /* SASDevice.cpp in Sources */,
-				BA0DA8531A433E2B005EA85D /* SASProvisionRequest.cpp in Sources */,
-				054058D91A5A8213006570A7 /* SASFolderSyncRequest.cpp in Sources */,
-				054058E01A5A8213006570A7 /* SASMail.cpp in Sources */,
-				993FE9151A5EC237001C6378 /* SASSmartForwardRequest.cpp in Sources */,
-				054058DE1A5A8213006570A7 /* SASBody.cpp in Sources */,
-				BA577F611A41312C00AFFA14 /* SASHTTPRequest.cpp in Sources */,
-				990EEA6F1A5C333A001021C8 /* SASSyncResponse.cpp in Sources */,
-				990EEA781A5D1A98001021C8 /* SASSendMailResponse.cpp in Sources */,
-				990EEA721A5CEC04001021C8 /* SASCollection.cpp in Sources */,
-				9941D9B41A5B8D9A006856F7 /* SASItemOperationsRequest.cpp in Sources */,
-				990EEA751A5D10D8001021C8 /* SASSendMailRequest.cpp in Sources */,
-				BA577EFF1A3ED3EF00AFFA14 /* SASOptionsRequest.cpp in Sources */,
+				BA611EAF1A63C8F700736A5F /* SASEncodedRequest.cpp in Sources */,
+				BA611E9A1A63C8EA00736A5F /* SASSyncResponse.cpp in Sources */,
+				BA611ED01A63C90400736A5F /* SASMail.cpp in Sources */,
+				BA611EAD1A63C8F700736A5F /* SASCommandRequest.cpp in Sources */,
+				BA611E8C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp in Sources */,
+				BA611E8F1A63C8EA00736A5F /* SASPingRequest.cpp in Sources */,
+				BA611EAE1A63C8F700736A5F /* SASCommandResponse.cpp in Sources */,
+				BA611E951A63C8EA00736A5F /* SASSettingsRequest.cpp in Sources */,
+				BA611ECC1A63C90400736A5F /* SASBody.cpp in Sources */,
+				BA611E8E1A63C8EA00736A5F /* SASMailBaseRequest.cpp in Sources */,
+				BA611E991A63C8EA00736A5F /* SASSyncRequest.cpp in Sources */,
+				BA611E8D1A63C8EA00736A5F /* SASItemOperationsResponse.cpp in Sources */,
+				BA611EB11A63C8F700736A5F /* SASHTTPResponse.cpp in Sources */,
+				BA611EB31A63C8F700736A5F /* SASSerializer.cpp in Sources */,
+				BA611E931A63C8EA00736A5F /* SASSendMailRequest.cpp in Sources */,
+				BA611E8A1A63C8EA00736A5F /* SASFolderSyncRequest.cpp in Sources */,
+				BA611E971A63C8EA00736A5F /* SASSmartForwardRequest.cpp in Sources */,
+				BA611E8B1A63C8EA00736A5F /* SASFolderSyncResponse.cpp in Sources */,
+				BA611ED11A63C90400736A5F /* SASOof.cpp in Sources */,
+				BA611EB01A63C8F700736A5F /* SASHTTPRequest.cpp in Sources */,
+				BA611E901A63C8EA00736A5F /* SASPingResponse.cpp in Sources */,
+				BA611ED21A63C90400736A5F /* SASPolicy.cpp in Sources */,
+				BA611ECB1A63C90400736A5F /* SASBaseEntity.cpp in Sources */,
+				BA611ECD1A63C90400736A5F /* SASCollection.cpp in Sources */,
+				BA611ECE1A63C90400736A5F /* SASDevice.cpp in Sources */,
+				BA611ED31A63C90400736A5F /* SASUserInformation.cpp in Sources */,
+				BA611E981A63C8EA00736A5F /* SASSmartReplyRequest.cpp in Sources */,
+				BA611ECF1A63C90400736A5F /* SASFolder.cpp in Sources */,
+				BA611EB41A63C8F700736A5F /* SASWBXml.cpp in Sources */,
+				BA611E961A63C8EA00736A5F /* SASSettingsResponse.cpp in Sources */,
+				BA611E911A63C8EA00736A5F /* SASProvisionRequest.cpp in Sources */,
+				BA611ECA1A63C90400736A5F /* SASAttachment.cpp in Sources */,
+				BA611E921A63C8EA00736A5F /* SASProvisionResponse.cpp in Sources */,
+				BA611EB21A63C8F700736A5F /* SASOptionsRequest.cpp in Sources */,
+				BA611E651A63C8E000736A5F /* decode.c in Sources */,
+				BA611E661A63C8E000736A5F /* encode.c in Sources */,
+				BA611E941A63C8EA00736A5F /* SASSendMailResponse.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA611F351A63E26800736A5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA611F441A63E26800736A5F /* ViewController.m in Sources */,
+				BA611F411A63E26800736A5F /* AppDelegate.mm in Sources */,
+				BA611F3E1A63E26800736A5F /* main.m in Sources */,
+				BA611F5F1A6407BC00736A5F /* cppTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BA611F611A6408E800736A5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA611E461A63C88F00736A5F /* SlimEAS */;
+			targetProxy = BA611F601A6408E800736A5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA611F451A63E26800736A5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA611F461A63E26800736A5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BA611F4A1A63E26800736A5F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA611F4B1A63E26800736A5F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		BA577E6F1A3DBBF600AFFA14 /* Debug */ = {
+		BA611E591A63C88F00736A5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -481,14 +753,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		BA577E701A3DBBF600AFFA14 /* Release */ = {
+		BA611E5A1A63C88F00736A5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -506,7 +778,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -516,96 +787,176 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		BA577E721A3DBBF600AFFA14 /* Debug */ = {
+		BA611E5C1A63C88F00736A5F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E344EA0B7514C84511E335 /* Pods-SlimEAS.debug.xcconfig */;
+			baseConfigurationReference = 73BEBB824A1E799F2448B52F /* Pods-SlimEAS.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/expat\"",
 					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/codec\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/os\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/parser\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/rfc822\"",
 					"$(PODS_ROOT)/expat",
 					"$(PODS_ROOT)/wbxml/src",
-					"\"$(PROJECT_DIR)/External/include\"",
-					/usr/include/libxml2,
-					/usr/local/include,
+					"\"$(PROJECT_DIR)/external/include\"",
+					"${SDKROOT}/usr/include/libxml2",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(PROJECT_DIR)/External/lib\"",
-					/usr/local/lib,
+					"\"$(PROJECT_DIR)/External/bin\"",
+					"$(PROJECT_DIR)/external/lib",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-l\"Pods-SlimEAS-expat\"",
-					"-l\"Pods-SlimEAS-libwbxml\"",
-					"-lcurl.4",
-					"-lmimetic",
-					"-lxml2",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		BA577E731A3DBBF600AFFA14 /* Release */ = {
+		BA611E5D1A63C88F00736A5F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53A340F5F0F2D48160ABDFA5 /* Pods-SlimEAS.release.xcconfig */;
+			baseConfigurationReference = 9A7E90B85AAA5A5C5B3EA830 /* Pods-SlimEAS.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/expat\"",
 					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/codec\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/os\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/parser\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/rfc822\"",
 					"$(PODS_ROOT)/expat",
 					"$(PODS_ROOT)/wbxml/src",
-					"\"$(PROJECT_DIR)/External/include\"",
-					/usr/include/libxml2,
-					/usr/local/include,
+					"\"$(PROJECT_DIR)/external/include\"",
+					"${SDKROOT}/usr/include/libxml2",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(PROJECT_DIR)/External/lib\"",
-					/usr/local/lib,
+					"\"$(PROJECT_DIR)/External/bin\"",
+					"$(PROJECT_DIR)/external/lib",
 				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BA611F5A1A63E26800736A5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A886D671C98F62B81A8781AD /* Pods-SlimEASDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/expat\"",
+					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/codec\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/os\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/parser\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/rfc822\"",
+					"\"${PODS_ROOT}/Headers/Public/pop\"",
+					"$(PROJECT_DIR)/external/include",
+					"${SDKROOT}/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = SlimEASDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/external/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-l\"Pods-SlimEAS-expat\"",
-					"-l\"Pods-SlimEAS-libwbxml\"",
-					"-lcurl.4",
-					"-lmimetic",
+					"-l\"Pods-SlimEASDemo-pop\"",
 					"-lxml2",
+					"-lstdc++",
+					"-lz",
+					"-lcurl",
+					"-lSlimEAS",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA611F5B1A63E26800736A5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84DE2C4AE08EEFE40E6F34BB /* Pods-SlimEASDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/expat\"",
+					"\"${PODS_ROOT}/Headers/Public/libwbxml\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/codec\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/os\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/parser\"",
+					"\"${PODS_ROOT}/Headers/Public/mimetic/rfc822\"",
+					"\"${PODS_ROOT}/Headers/Public/pop\"",
+					"$(PROJECT_DIR)/external/include",
+					"${SDKROOT}/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = SlimEASDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/external/lib";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-SlimEASDemo-pop\"",
+					"-lxml2",
+					"-lstdc++",
+					"-lz",
+					"-lcurl",
+					"-lSlimEAS",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA577E651A3DBBF600AFFA14 /* Build configuration list for PBXProject "SlimEAS" */ = {
+		BA611E421A63C88F00736A5F /* Build configuration list for PBXProject "SlimEAS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA577E6F1A3DBBF600AFFA14 /* Debug */,
-				BA577E701A3DBBF600AFFA14 /* Release */,
+				BA611E591A63C88F00736A5F /* Debug */,
+				BA611E5A1A63C88F00736A5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA577E711A3DBBF600AFFA14 /* Build configuration list for PBXNativeTarget "SlimEAS" */ = {
+		BA611E5B1A63C88F00736A5F /* Build configuration list for PBXNativeTarget "SlimEAS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA577E721A3DBBF600AFFA14 /* Debug */,
-				BA577E731A3DBBF600AFFA14 /* Release */,
+				BA611E5C1A63C88F00736A5F /* Debug */,
+				BA611E5D1A63C88F00736A5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA611F591A63E26800736A5F /* Build configuration list for PBXNativeTarget "SlimEASDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA611F5A1A63E26800736A5F /* Debug */,
+				BA611F5B1A63E26800736A5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BA577E621A3DBBF600AFFA14 /* Project object */;
+	rootObject = BA611E3F1A63C88F00736A5F /* Project object */;
 }

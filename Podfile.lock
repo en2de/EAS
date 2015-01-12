@@ -2,13 +2,19 @@ PODS:
   - expat (2.1)
   - libwbxml (0.11.2):
     - expat
+  - mimetic (0.9.7)
+  - pop (1.0.7)
 
 DEPENDENCIES:
   - expat (~> 2.1)
   - libwbxml (~> 0.11.2)
+  - mimetic (~> 0.9.7)
+  - pop (~> 1.0.7)
 
 SPEC CHECKSUMS:
   expat: fcbaeb4f976c7d84f5bb576714cca4547949931b
   libwbxml: b92cc5dadec4bcda23e70280cf4b044a5b7696c0
+  mimetic: f30e81e695b18e89d6ee962a8d40eacb29a304d9
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
 
 COCOAPODS: 0.35.0
