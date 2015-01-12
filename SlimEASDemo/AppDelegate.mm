@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "SlimEAS.h"
-#import "cppTest.h"
+#import "SlimEASTest.h"
 
 @interface AppDelegate ()
 

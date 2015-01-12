@@ -52,7 +52,6 @@
 		BA611F471A63E26800736A5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA611F451A63E26800736A5F /* Main.storyboard */; };
 		BA611F491A63E26800736A5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA611F481A63E26800736A5F /* Images.xcassets */; };
 		BA611F4C1A63E26800736A5F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA611F4A1A63E26800736A5F /* LaunchScreen.xib */; };
-		BA611F5F1A6407BC00736A5F /* cppTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611F2A1A63DA2800736A5F /* cppTest.cpp */; };
 		BA611F631A640AF500736A5F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA611F2F1A63DFF200736A5F /* Security.framework */; };
 		BA611F671A64137B00736A5F /* SASAttachment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EB71A63C90400736A5F /* SASAttachment.h */; };
 		BA611F681A64137B00736A5F /* SASBaseEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EB91A63C90400736A5F /* SASBaseEntity.h */; };
@@ -91,6 +90,7 @@
 		BA611F891A64137B00736A5F /* SASSyncRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E871A63C8EA00736A5F /* SASSyncRequest.h */; };
 		BA611F8A1A64137B00736A5F /* SASSyncResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E891A63C8EA00736A5F /* SASSyncResponse.h */; };
 		BA611F8B1A64137B00736A5F /* b64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E621A63C8E000736A5F /* b64.h */; };
+		BA611F8E1A641DAD00736A5F /* SlimEASTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611F8C1A641DAD00736A5F /* SlimEASTest.cpp */; };
 		C561E4BCA00AF6E5051FAEE7 /* libPods-SlimEASDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E8924E9226A31CC5CA2A84 /* libPods-SlimEASDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -238,10 +238,6 @@
 		BA611EC81A63C90400736A5F /* SASUserInformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASUserInformation.cpp; sourceTree = "<group>"; };
 		BA611EC91A63C90400736A5F /* SASUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASUserInformation.h; sourceTree = "<group>"; };
 		BA611ED41A63CB9200736A5F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		BA611F211A63D84B00736A5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA611F221A63D84B00736A5F /* SlimEAS_Tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SlimEAS_Tests.mm; sourceTree = "<group>"; };
-		BA611F2A1A63DA2800736A5F /* cppTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cppTest.cpp; path = "../SlimEAS Tests/cppTest.cpp"; sourceTree = "<group>"; };
-		BA611F2B1A63DA2800736A5F /* cppTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cppTest.h; path = "../SlimEAS Tests/cppTest.h"; sourceTree = "<group>"; };
 		BA611F2F1A63DFF200736A5F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BA611F311A63DFFD00736A5F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BA611F331A63E01E00736A5F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -255,6 +251,8 @@
 		BA611F461A63E26800736A5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA611F481A63E26800736A5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA611F4B1A63E26800736A5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BA611F8C1A641DAD00736A5F /* SlimEASTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlimEASTest.cpp; sourceTree = "<group>"; };
+		BA611F8D1A641DAD00736A5F /* SlimEASTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlimEASTest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				BA611E491A63C88F00736A5F /* SlimEAS */,
-				BA611F1F1A63D84B00736A5F /* SlimEAS Tests */,
 				BA611F3A1A63E26800736A5F /* SlimEASDemo */,
 				BA611E481A63C88F00736A5F /* Products */,
 				2D07008CAD93A3B14890084E /* Pods */,
@@ -437,28 +434,11 @@
 			path = models;
 			sourceTree = "<group>";
 		};
-		BA611F1F1A63D84B00736A5F /* SlimEAS Tests */ = {
-			isa = PBXGroup;
-			children = (
-				BA611F221A63D84B00736A5F /* SlimEAS_Tests.mm */,
-				BA611F201A63D84B00736A5F /* Supporting Files */,
-			);
-			path = "SlimEAS Tests";
-			sourceTree = "<group>";
-		};
-		BA611F201A63D84B00736A5F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BA611F211A63D84B00736A5F /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		BA611F3A1A63E26800736A5F /* SlimEASDemo */ = {
 			isa = PBXGroup;
 			children = (
-				BA611F2A1A63DA2800736A5F /* cppTest.cpp */,
-				BA611F2B1A63DA2800736A5F /* cppTest.h */,
+				BA611F8C1A641DAD00736A5F /* SlimEASTest.cpp */,
+				BA611F8D1A641DAD00736A5F /* SlimEASTest.h */,
 				BA611F3F1A63E26800736A5F /* AppDelegate.h */,
 				BA611F401A63E26800736A5F /* AppDelegate.mm */,
 				BA611F421A63E26800736A5F /* ViewController.h */,
@@ -685,8 +665,8 @@
 			files = (
 				BA611F441A63E26800736A5F /* ViewController.m in Sources */,
 				BA611F411A63E26800736A5F /* AppDelegate.mm in Sources */,
+				BA611F8E1A641DAD00736A5F /* SlimEASTest.cpp in Sources */,
 				BA611F3E1A63E26800736A5F /* main.m in Sources */,
-				BA611F5F1A6407BC00736A5F /* cppTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
