@@ -7,9 +7,6 @@
 //
 
 #include "SASSendMailRequest.h"
-#include "SASWBXml.h"
-
-#include <libxml/xmlwriter.h>
 
 using namespace SlimEAS;
 using namespace std;

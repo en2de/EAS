@@ -36,7 +36,7 @@ namespace SlimEAS {
     
   public:
     SASMailBaseRequest();
-    ~SASMailBaseRequest();
+    ~SASMailBaseRequest() = 0;
     
   public:
     SASMail &mail() { return _mail;}

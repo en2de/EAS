@@ -1,5 +1,5 @@
 //
-//  SASMailOperRequest.cpp
+//  SASMailBaseRequest.cpp
 //  SlimEAS
 //
 //  Created by Focus Lan on 1/11/15.
