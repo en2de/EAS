@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <string>
-#include <curl/curl.h>
+#include "curl.h"
 
 #include "SASDefine.h"
 #include "SASHTTPRequest.h"

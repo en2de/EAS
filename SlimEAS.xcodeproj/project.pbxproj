@@ -253,6 +253,15 @@
 		BA611F4B1A63E26800736A5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BA611F8C1A641DAD00736A5F /* SlimEASTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlimEASTest.cpp; sourceTree = "<group>"; };
 		BA611F8D1A641DAD00736A5F /* SlimEASTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlimEASTest.h; sourceTree = "<group>"; };
+		BA6120081A66386000736A5F /* curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curl.h; sourceTree = "<group>"; };
+		BA6120091A66386000736A5F /* curlbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlbuild.h; sourceTree = "<group>"; };
+		BA61200A1A66386000736A5F /* curlrules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlrules.h; sourceTree = "<group>"; };
+		BA61200B1A66386000736A5F /* curlver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = curlver.h; sourceTree = "<group>"; };
+		BA61200C1A66386000736A5F /* easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easy.h; sourceTree = "<group>"; };
+		BA61200D1A66386000736A5F /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mprintf.h; sourceTree = "<group>"; };
+		BA61200E1A66386000736A5F /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
+		BA61200F1A66386000736A5F /* stdcheaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcheaders.h; sourceTree = "<group>"; };
+		BA6120101A66386000736A5F /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +332,7 @@
 		BA611E491A63C88F00736A5F /* SlimEAS */ = {
 			isa = PBXGroup;
 			children = (
+				BA6120071A66386000736A5F /* curl */,
 				BA611EB51A63C90400736A5F /* models */,
 				BA611E9B1A63C8F700736A5F /* core */,
 				BA611E671A63C8EA00736A5F /* commands */,
@@ -458,6 +468,22 @@
 				BA611F3D1A63E26800736A5F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA6120071A66386000736A5F /* curl */ = {
+			isa = PBXGroup;
+			children = (
+				BA6120081A66386000736A5F /* curl.h */,
+				BA6120091A66386000736A5F /* curlbuild.h */,
+				BA61200A1A66386000736A5F /* curlrules.h */,
+				BA61200B1A66386000736A5F /* curlver.h */,
+				BA61200C1A66386000736A5F /* easy.h */,
+				BA61200D1A66386000736A5F /* mprintf.h */,
+				BA61200E1A66386000736A5F /* multi.h */,
+				BA61200F1A66386000736A5F /* stdcheaders.h */,
+				BA6120101A66386000736A5F /* typecheck-gcc.h */,
+			);
+			path = curl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,7 +815,6 @@
 					"\"${PODS_ROOT}/Headers/Public/mimetic/rfc822\"",
 					"$(PODS_ROOT)/expat",
 					"$(PODS_ROOT)/wbxml/src",
-					"\"$(PROJECT_DIR)/external/include\"",
 					"${SDKROOT}/usr/include/libxml2",
 				);
 				LIBRARY_SEARCH_PATHS = (
@@ -817,7 +842,6 @@
 					"\"${PODS_ROOT}/Headers/Public/mimetic/rfc822\"",
 					"$(PODS_ROOT)/expat",
 					"$(PODS_ROOT)/wbxml/src",
-					"\"$(PROJECT_DIR)/external/include\"",
 					"${SDKROOT}/usr/include/libxml2",
 				);
 				LIBRARY_SEARCH_PATHS = (

@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "PRIVATE"
+  s.license      = "BSD"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -48,7 +48,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "envy.chen" => "envx.chen@gmail.com" }
+  s.author             = { "envy.chen" => "envy@slim.so" }
   # Or just: s.author    = "envy.chen"
   # s.authors            = { "envy.chen" => "envx.chen@gmail.com" }
   # s.social_media_url   = "http://twitter.com/envy.chen"
@@ -85,9 +85,13 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "SlimEAS", "SlimEAS/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
+
+  # s.private_header_files = "external/include/**/*.h"
+
+  s.vendored_library = "external/lib/libcurl.a"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -99,9 +103,9 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+   #s.resources = "external/**/*.*"
 
-  s.preserve_paths = "external"
+  #s.preserve_paths = "external"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -114,7 +118,7 @@ Pod::Spec.new do |s|
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
-  s.libraries = "stdc++", "xml2", "z", "curl"
+  s.libraries = "stdc++", "xml2", "z"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -126,6 +130,8 @@ Pod::Spec.new do |s|
   # s.requires_arc = true
 
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "expat", "~> 2.1"
+  s.dependency 'libwbxml', '~> 0.11.2'
+  s.dependency 'mimetic', '~> 0.9.7'
 
 end
