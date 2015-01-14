@@ -8,14 +8,8 @@
 
 #pragma once
 
-#include <stdio.h>
-#include <map>
 #include <string>
 #include <libxml/xmlwriter.h>
-
-#include "SASDefine.h"
-
-#include "SASHTTPRequest.h"
 
 namespace SlimEAS {
   class SASSerializer {
@@ -42,6 +36,7 @@ namespace SlimEAS {
     void writeElementNS(const std::string &name, const std::string &value, const std::string &prefix, const std::string &space = "");
     void writeEmptyElement(const std::string &name);
     void writeFormatElement(const std::string &name, const char *format, ...);
+    void writeFormatElementNS(const std::string &name, const std::string &prefix, const std::string &space = "", const char *format = "", ...);
     void writeCDATA(const std::string &value);
     void writeRaw(const std::string &value);
     
@@ -58,4 +53,3 @@ namespace SlimEAS {
     const int32_t &intent() {return _intent;}
   };
 }
-

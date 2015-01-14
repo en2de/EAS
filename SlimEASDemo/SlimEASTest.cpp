@@ -24,8 +24,10 @@
 #include "SASSyncResponse.h"
 #include "SASSendMailRequest.h"
 #include "SASSendMailResponse.h"
-#include "SASItemOperationsRequest.h"
 #include "SASItemOperationsResponse.h"
+#include "SASFetchAttachmentRequest.h"
+#include "SASFetchEmailRequest.h"
+#include "SASFetchMIMEEmailRequest.h"
 #include "SASPingRequest.h"
 #include "SASPingResponse.h"
 #include "SASSmartReplyRequest.h"
@@ -611,9 +613,59 @@ void syncAddContactTest() {
   response = nullptr;
 }
 
-void itemOperationsTest() {
+void fetchAttachmentTest() {
   
-  SlimEAS::SASItemOperationsRequest request;
+  SlimEAS::SASFetchAttachmentRequest request;
+  InitialRequest(request);
+  
+  FolderSyncOptions options;
+  
+  BodyPreferences pre;
+  pre.Type = PlainText;
+  pre.TruncationSize = 5120;
+  pre.AllOrNone = false;
+  
+  options.setBodyPreferences(pre);
+  
+  request.setPolicyKey(1307199584);
+  request.setStore("Inbox");
+  
+  /* The FileReference param comes from Sync Command */
+  request.setFileReference("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b%3A%243d669607e3b4355e9a1ab0edae871c09"); // IMG_3693副本.jpg
+  
+  SASItemOperationsResponse *response = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
+  
+  SASMail mail = response->mail();
+  
+  SASBody body = mail.body();
+  
+  vector<SASAttachment*> attachments = mail.attachments();
+  
+  // Base64 Decoder
+  mimetic::Base64::Decoder b64;
+  
+  for (auto &it : attachments) {
+    
+    string fileName = "/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/" + it->fileReference();
+    
+    filebuf fout;
+    fout.open(fileName + ".jpg", ios::out);
+    
+    std::istringstream is(it->data());
+    
+    ostream os(&fout);
+    istreambuf_iterator<char> ibeg(is), iend;
+    ostreambuf_iterator<char> out(os);
+    
+    decode(ibeg, iend, b64, out);
+  }
+  
+  printf("Response:\n%s\n", response->xmlResponse().c_str());
+}
+
+void fetchEmailTest() {
+  
+  SlimEAS::SASFetchEmailRequest request;
   InitialRequest(request);
   
   FolderSyncOptions options;
@@ -631,14 +683,55 @@ void itemOperationsTest() {
   request.setCollectionId("1");
   request.setServerId("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b"); // the serverId comes from response of Sync command
   
-  /* If you want to fetch file, set profile to FileItem */
-  request.setFecthProfile(FileItem);
+  SASItemOperationsResponse *response = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
   
-  /* The FileReference param comes from Sync Command */
-  request.setFileReference("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b%3A%243d669607e3b4355e9a1ab0edae871c09"); // IMG_3693副本.jpg
+  SASMail mail = response->mail();
   
-  // If you want to fetch email, set profile to EmailItem
-  // request.setFecthProfile(EmailItem);
+  SASBody body = mail.body();
+  
+  vector<SASAttachment*> attachments = mail.attachments();
+  
+  // Base64 Decoder
+  mimetic::Base64::Decoder b64;
+  
+  for (auto &it : attachments) {
+    
+    string fileName = "/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/" + it->fileReference();
+    
+    filebuf fout;
+    fout.open(fileName + ".jpg", ios::out);
+    
+    std::istringstream is(it->data());
+    
+    ostream os(&fout);
+    istreambuf_iterator<char> ibeg(is), iend;
+    ostreambuf_iterator<char> out(os);
+    
+    decode(ibeg, iend, b64, out);
+  }
+  
+  printf("Response:\n%s\n", response->xmlResponse().c_str());
+}
+
+void fetchMimeEmailTest() {
+  
+  SlimEAS::SASFetchMIMEEmailRequest request;
+  InitialRequest(request);
+  
+  FolderSyncOptions options;
+  
+  BodyPreferences pre;
+  pre.Type = PlainText;
+  pre.TruncationSize = 5120;
+  pre.AllOrNone = false;
+  
+  options.setBodyPreferences(pre);
+  
+  request.setPolicyKey(1307199584);
+  request.setOptions(options);
+  request.setStore("Inbox");
+  request.setCollectionId("1");
+  request.setServerId("ZL2721N8C~0vJPRnuxlOLGY2uxvQ0b"); // the serverId comes from response of Sync command
   
   SASItemOperationsResponse *response = dynamic_cast<SASItemOperationsResponse *>(request.getResponse());
   
@@ -871,5 +964,13 @@ void mimeAttachmentTest() {
 }
 
 void goTest() {
+  
   smartReplyTest();
+  smartForwardTest();
+  sendMailTest("/Users/focuslan/Documents/workspace/Slim/Slim-EAS/testdata/test.jpg");
+  
+  fetchAttachmentTest();
+  fetchEmailTest();
+  fetchMimeEmailTest();
+
 }

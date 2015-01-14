@@ -22,6 +22,7 @@ SASItemOperationsRequest::SASItemOperationsRequest()
 }
 
 SASItemOperationsRequest::~SASItemOperationsRequest() {
+
 }
 
 void SASItemOperationsRequest::generateXMLPayload() {
@@ -33,38 +34,7 @@ void SASItemOperationsRequest::generateXMLPayload() {
   _serializer.writeAttributeNS("airsync", "AirSync", "xmlns");
   _serializer.writeAttributeNS("airsyncbase", "AirSyncBase", "xmlns");
   
-  _serializer.startElement("Fetch");
-  
-  _serializer.writeElement("Store", _store);
-  _serializer.writeElement("CollectionId", _collectionId);
-  _serializer.writeElement("ServerId", _serverId);
-  
-  if (_fetchProfile == FileItem) {
-    
-    if (_fileReference.empty()) {
-      printf("\nERROR!!! if you want to fetch file, please provide fileReference param!!!\n");
-    }
-    _serializer.writeElement("FileReference",  _fileReference);
-  }
-  
-  _serializer.startElement("Options");
-  
-  if (_fetchProfile == EmailItem) {
-    if (_options.hasBodyPreferences()) {
-      _serializer.writeRaw(SASFolder::generateXmlForPreference(_options.bodyPreference(), "airsyncbase", "BodyPreference"));
-    } else {
-      printf("\n!!!no body preference provided!!!\n");
-    }
-  } else if (_fetchProfile == MimeEmailItem) {
-    _serializer.writeElementNS("MIMESupport", "1", "airsync");
-    _serializer.writeElementNS("BodyPreference", "1", "airsyncbase");
-    _serializer.writeElementNS("Type", "1", "4");
-    _serializer.endElement(); // end element for BodyPreference
-  }
-  
-  _serializer.endElement();
-  
-  _serializer.endElement(); // end element for Fetch
+  generateXMLSubPayload();
   
   _serializer.endElement(); // end element for ItemOperations
   _serializer.done(); // end element for doc

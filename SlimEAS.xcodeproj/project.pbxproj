@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99E2E3681A6580EB005E504E /* SASFetchAttachmentRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E3621A6580EB005E504E /* SASFetchAttachmentRequest.cpp */; };
+		99E2E3691A6580EB005E504E /* SASFetchEmailRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E3641A6580EB005E504E /* SASFetchEmailRequest.cpp */; };
+		99E2E36A1A6580EB005E504E /* SASFetchMIMEEmailRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E3661A6580EB005E504E /* SASFetchMIMEEmailRequest.cpp */; };
+		99E2E3701A65814D005E504E /* SASItemOperationsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E36C1A65814D005E504E /* SASItemOperationsRequest.cpp */; };
+		99E2E3711A65814D005E504E /* SASItemOperationsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E36E1A65814D005E504E /* SASItemOperationsResponse.cpp */; };
+		99E2E3741A65819D005E504E /* SASSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E3721A65819D005E504E /* SASSerializer.cpp */; };
 		9C69356D870205D0EA311934 /* libPods-SlimEAS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 566C2869B437BEF86BAA1CA9 /* libPods-SlimEAS.a */; };
 		BA611E4B1A63C88F00736A5F /* SlimEAS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E4A1A63C88F00736A5F /* SlimEAS.h */; };
 		BA611E651A63C8E000736A5F /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA611E631A63C8E000736A5F /* decode.c */; };
 		BA611E661A63C8E000736A5F /* encode.c in Sources */ = {isa = PBXBuildFile; fileRef = BA611E641A63C8E000736A5F /* encode.c */; };
 		BA611E8A1A63C8EA00736A5F /* SASFolderSyncRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E681A63C8EA00736A5F /* SASFolderSyncRequest.cpp */; };
 		BA611E8B1A63C8EA00736A5F /* SASFolderSyncResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E6A1A63C8EA00736A5F /* SASFolderSyncResponse.cpp */; };
-		BA611E8C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E6C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp */; };
-		BA611E8D1A63C8EA00736A5F /* SASItemOperationsResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E6E1A63C8EA00736A5F /* SASItemOperationsResponse.cpp */; };
 		BA611E8E1A63C8EA00736A5F /* SASMailBaseRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E701A63C8EA00736A5F /* SASMailBaseRequest.cpp */; };
 		BA611E8F1A63C8EA00736A5F /* SASPingRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E721A63C8EA00736A5F /* SASPingRequest.cpp */; };
 		BA611E901A63C8EA00736A5F /* SASPingResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611E741A63C8EA00736A5F /* SASPingResponse.cpp */; };
@@ -34,7 +38,6 @@
 		BA611EB01A63C8F700736A5F /* SASHTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA31A63C8F700736A5F /* SASHTTPRequest.cpp */; };
 		BA611EB11A63C8F700736A5F /* SASHTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA51A63C8F700736A5F /* SASHTTPResponse.cpp */; };
 		BA611EB21A63C8F700736A5F /* SASOptionsRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA71A63C8F700736A5F /* SASOptionsRequest.cpp */; };
-		BA611EB31A63C8F700736A5F /* SASSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EA91A63C8F700736A5F /* SASSerializer.cpp */; };
 		BA611EB41A63C8F700736A5F /* SASWBXml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EAB1A63C8F700736A5F /* SASWBXml.cpp */; };
 		BA611ECA1A63C90400736A5F /* SASAttachment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EB61A63C90400736A5F /* SASAttachment.cpp */; };
 		BA611ECB1A63C90400736A5F /* SASBaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA611EB81A63C90400736A5F /* SASBaseEntity.cpp */; };
@@ -70,12 +73,9 @@
 		BA611F751A64137B00736A5F /* SASHTTPRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA41A63C8F700736A5F /* SASHTTPRequest.h */; };
 		BA611F761A64137B00736A5F /* SASHTTPResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA61A63C8F700736A5F /* SASHTTPResponse.h */; };
 		BA611F771A64137B00736A5F /* SASOptionsRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EA81A63C8F700736A5F /* SASOptionsRequest.h */; };
-		BA611F781A64137B00736A5F /* SASSerializer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EAA1A63C8F700736A5F /* SASSerializer.h */; };
 		BA611F791A64137B00736A5F /* SASWBXml.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611EAC1A63C8F700736A5F /* SASWBXml.h */; };
 		BA611F7A1A64137B00736A5F /* SASFolderSyncRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E691A63C8EA00736A5F /* SASFolderSyncRequest.h */; };
 		BA611F7B1A64137B00736A5F /* SASFolderSyncResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E6B1A63C8EA00736A5F /* SASFolderSyncResponse.h */; };
-		BA611F7C1A64137B00736A5F /* SASItemOperationsRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E6D1A63C8EA00736A5F /* SASItemOperationsRequest.h */; };
-		BA611F7D1A64137B00736A5F /* SASItemOperationsResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E6F1A63C8EA00736A5F /* SASItemOperationsResponse.h */; };
 		BA611F7E1A64137B00736A5F /* SASMailBaseRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E711A63C8EA00736A5F /* SASMailBaseRequest.h */; };
 		BA611F7F1A64137B00736A5F /* SASPingRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E731A63C8EA00736A5F /* SASPingRequest.h */; };
 		BA611F801A64137B00736A5F /* SASPingResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA611E751A63C8EA00736A5F /* SASPingResponse.h */; };
@@ -128,12 +128,9 @@
 				BA611F751A64137B00736A5F /* SASHTTPRequest.h in CopyFiles */,
 				BA611F761A64137B00736A5F /* SASHTTPResponse.h in CopyFiles */,
 				BA611F771A64137B00736A5F /* SASOptionsRequest.h in CopyFiles */,
-				BA611F781A64137B00736A5F /* SASSerializer.h in CopyFiles */,
 				BA611F791A64137B00736A5F /* SASWBXml.h in CopyFiles */,
 				BA611F7A1A64137B00736A5F /* SASFolderSyncRequest.h in CopyFiles */,
 				BA611F7B1A64137B00736A5F /* SASFolderSyncResponse.h in CopyFiles */,
-				BA611F7C1A64137B00736A5F /* SASItemOperationsRequest.h in CopyFiles */,
-				BA611F7D1A64137B00736A5F /* SASItemOperationsResponse.h in CopyFiles */,
 				BA611F7E1A64137B00736A5F /* SASMailBaseRequest.h in CopyFiles */,
 				BA611F7F1A64137B00736A5F /* SASPingRequest.h in CopyFiles */,
 				BA611F801A64137B00736A5F /* SASPingResponse.h in CopyFiles */,
@@ -159,6 +156,18 @@
 		73BEBB824A1E799F2448B52F /* Pods-SlimEAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.debug.xcconfig"; sourceTree = "<group>"; };
 		79E8924E9226A31CC5CA2A84 /* libPods-SlimEASDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlimEASDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DE2C4AE08EEFE40E6F34BB /* Pods-SlimEASDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEASDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEASDemo/Pods-SlimEASDemo.release.xcconfig"; sourceTree = "<group>"; };
+		99E2E3621A6580EB005E504E /* SASFetchAttachmentRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFetchAttachmentRequest.cpp; sourceTree = "<group>"; };
+		99E2E3631A6580EB005E504E /* SASFetchAttachmentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFetchAttachmentRequest.h; sourceTree = "<group>"; };
+		99E2E3641A6580EB005E504E /* SASFetchEmailRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFetchEmailRequest.cpp; sourceTree = "<group>"; };
+		99E2E3651A6580EB005E504E /* SASFetchEmailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFetchEmailRequest.h; sourceTree = "<group>"; };
+		99E2E3661A6580EB005E504E /* SASFetchMIMEEmailRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFetchMIMEEmailRequest.cpp; sourceTree = "<group>"; };
+		99E2E3671A6580EB005E504E /* SASFetchMIMEEmailRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFetchMIMEEmailRequest.h; sourceTree = "<group>"; };
+		99E2E36C1A65814D005E504E /* SASItemOperationsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsRequest.cpp; sourceTree = "<group>"; };
+		99E2E36D1A65814D005E504E /* SASItemOperationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsRequest.h; sourceTree = "<group>"; };
+		99E2E36E1A65814D005E504E /* SASItemOperationsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsResponse.cpp; sourceTree = "<group>"; };
+		99E2E36F1A65814D005E504E /* SASItemOperationsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsResponse.h; sourceTree = "<group>"; };
+		99E2E3721A65819D005E504E /* SASSerializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSerializer.cpp; sourceTree = "<group>"; };
+		99E2E3731A65819D005E504E /* SASSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSerializer.h; sourceTree = "<group>"; };
 		9A7E90B85AAA5A5C5B3EA830 /* Pods-SlimEAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEAS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEAS/Pods-SlimEAS.release.xcconfig"; sourceTree = "<group>"; };
 		A886D671C98F62B81A8781AD /* Pods-SlimEASDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlimEASDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlimEASDemo/Pods-SlimEASDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BA611E471A63C88F00736A5F /* libSlimEAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSlimEAS.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,10 +179,6 @@
 		BA611E691A63C8EA00736A5F /* SASFolderSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolderSyncRequest.h; sourceTree = "<group>"; };
 		BA611E6A1A63C8EA00736A5F /* SASFolderSyncResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASFolderSyncResponse.cpp; sourceTree = "<group>"; };
 		BA611E6B1A63C8EA00736A5F /* SASFolderSyncResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASFolderSyncResponse.h; sourceTree = "<group>"; };
-		BA611E6C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsRequest.cpp; sourceTree = "<group>"; };
-		BA611E6D1A63C8EA00736A5F /* SASItemOperationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsRequest.h; sourceTree = "<group>"; };
-		BA611E6E1A63C8EA00736A5F /* SASItemOperationsResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASItemOperationsResponse.cpp; sourceTree = "<group>"; };
-		BA611E6F1A63C8EA00736A5F /* SASItemOperationsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASItemOperationsResponse.h; sourceTree = "<group>"; };
 		BA611E701A63C8EA00736A5F /* SASMailBaseRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASMailBaseRequest.cpp; sourceTree = "<group>"; };
 		BA611E711A63C8EA00736A5F /* SASMailBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASMailBaseRequest.h; sourceTree = "<group>"; };
 		BA611E721A63C8EA00736A5F /* SASPingRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASPingRequest.cpp; sourceTree = "<group>"; };
@@ -213,8 +218,6 @@
 		BA611EA61A63C8F700736A5F /* SASHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASHTTPResponse.h; sourceTree = "<group>"; };
 		BA611EA71A63C8F700736A5F /* SASOptionsRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASOptionsRequest.cpp; sourceTree = "<group>"; };
 		BA611EA81A63C8F700736A5F /* SASOptionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASOptionsRequest.h; sourceTree = "<group>"; };
-		BA611EA91A63C8F700736A5F /* SASSerializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASSerializer.cpp; sourceTree = "<group>"; };
-		BA611EAA1A63C8F700736A5F /* SASSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASSerializer.h; sourceTree = "<group>"; };
 		BA611EAB1A63C8F700736A5F /* SASWBXml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASWBXml.cpp; sourceTree = "<group>"; };
 		BA611EAC1A63C8F700736A5F /* SASWBXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASWBXml.h; sourceTree = "<group>"; };
 		BA611EB61A63C90400736A5F /* SASAttachment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SASAttachment.cpp; sourceTree = "<group>"; };
@@ -296,6 +299,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		99E2E36B1A6580FF005E504E /* itemOperations */ = {
+			isa = PBXGroup;
+			children = (
+				99E2E36C1A65814D005E504E /* SASItemOperationsRequest.cpp */,
+				99E2E36D1A65814D005E504E /* SASItemOperationsRequest.h */,
+				99E2E36E1A65814D005E504E /* SASItemOperationsResponse.cpp */,
+				99E2E36F1A65814D005E504E /* SASItemOperationsResponse.h */,
+				99E2E3621A6580EB005E504E /* SASFetchAttachmentRequest.cpp */,
+				99E2E3631A6580EB005E504E /* SASFetchAttachmentRequest.h */,
+				99E2E3641A6580EB005E504E /* SASFetchEmailRequest.cpp */,
+				99E2E3651A6580EB005E504E /* SASFetchEmailRequest.h */,
+				99E2E3661A6580EB005E504E /* SASFetchMIMEEmailRequest.cpp */,
+				99E2E3671A6580EB005E504E /* SASFetchMIMEEmailRequest.h */,
+			);
+			name = itemOperations;
+			sourceTree = "<group>";
+		};
 		B59329B0700621EDAFE49F7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,14 +375,11 @@
 		BA611E671A63C8EA00736A5F /* commands */ = {
 			isa = PBXGroup;
 			children = (
+				99E2E36B1A6580FF005E504E /* itemOperations */,
 				BA611E681A63C8EA00736A5F /* SASFolderSyncRequest.cpp */,
 				BA611E691A63C8EA00736A5F /* SASFolderSyncRequest.h */,
 				BA611E6A1A63C8EA00736A5F /* SASFolderSyncResponse.cpp */,
 				BA611E6B1A63C8EA00736A5F /* SASFolderSyncResponse.h */,
-				BA611E6C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp */,
-				BA611E6D1A63C8EA00736A5F /* SASItemOperationsRequest.h */,
-				BA611E6E1A63C8EA00736A5F /* SASItemOperationsResponse.cpp */,
-				BA611E6F1A63C8EA00736A5F /* SASItemOperationsResponse.h */,
 				BA611E701A63C8EA00736A5F /* SASMailBaseRequest.cpp */,
 				BA611E711A63C8EA00736A5F /* SASMailBaseRequest.h */,
 				BA611E721A63C8EA00736A5F /* SASPingRequest.cpp */,
@@ -396,6 +413,8 @@
 		BA611E9B1A63C8F700736A5F /* core */ = {
 			isa = PBXGroup;
 			children = (
+				99E2E3721A65819D005E504E /* SASSerializer.cpp */,
+				99E2E3731A65819D005E504E /* SASSerializer.h */,
 				BA611E9C1A63C8F700736A5F /* SASCommandRequest.cpp */,
 				BA611E9D1A63C8F700736A5F /* SASCommandRequest.h */,
 				BA611E9E1A63C8F700736A5F /* SASCommandResponse.cpp */,
@@ -409,8 +428,6 @@
 				BA611EA61A63C8F700736A5F /* SASHTTPResponse.h */,
 				BA611EA71A63C8F700736A5F /* SASOptionsRequest.cpp */,
 				BA611EA81A63C8F700736A5F /* SASOptionsRequest.h */,
-				BA611EA91A63C8F700736A5F /* SASSerializer.cpp */,
-				BA611EAA1A63C8F700736A5F /* SASSerializer.h */,
 				BA611EAB1A63C8F700736A5F /* SASWBXml.cpp */,
 				BA611EAC1A63C8F700736A5F /* SASWBXml.h */,
 			);
@@ -648,17 +665,16 @@
 				BA611EAF1A63C8F700736A5F /* SASEncodedRequest.cpp in Sources */,
 				BA611E9A1A63C8EA00736A5F /* SASSyncResponse.cpp in Sources */,
 				BA611ED01A63C90400736A5F /* SASMail.cpp in Sources */,
+				99E2E3741A65819D005E504E /* SASSerializer.cpp in Sources */,
 				BA611EAD1A63C8F700736A5F /* SASCommandRequest.cpp in Sources */,
-				BA611E8C1A63C8EA00736A5F /* SASItemOperationsRequest.cpp in Sources */,
+				99E2E3691A6580EB005E504E /* SASFetchEmailRequest.cpp in Sources */,
 				BA611E8F1A63C8EA00736A5F /* SASPingRequest.cpp in Sources */,
 				BA611EAE1A63C8F700736A5F /* SASCommandResponse.cpp in Sources */,
 				BA611E951A63C8EA00736A5F /* SASSettingsRequest.cpp in Sources */,
 				BA611ECC1A63C90400736A5F /* SASBody.cpp in Sources */,
 				BA611E8E1A63C8EA00736A5F /* SASMailBaseRequest.cpp in Sources */,
 				BA611E991A63C8EA00736A5F /* SASSyncRequest.cpp in Sources */,
-				BA611E8D1A63C8EA00736A5F /* SASItemOperationsResponse.cpp in Sources */,
 				BA611EB11A63C8F700736A5F /* SASHTTPResponse.cpp in Sources */,
-				BA611EB31A63C8F700736A5F /* SASSerializer.cpp in Sources */,
 				BA611E931A63C8EA00736A5F /* SASSendMailRequest.cpp in Sources */,
 				BA611E8A1A63C8EA00736A5F /* SASFolderSyncRequest.cpp in Sources */,
 				BA611E971A63C8EA00736A5F /* SASSmartForwardRequest.cpp in Sources */,
@@ -672,16 +688,20 @@
 				BA611ECE1A63C90400736A5F /* SASDevice.cpp in Sources */,
 				BA611ED31A63C90400736A5F /* SASUserInformation.cpp in Sources */,
 				BA611E981A63C8EA00736A5F /* SASSmartReplyRequest.cpp in Sources */,
+				99E2E3681A6580EB005E504E /* SASFetchAttachmentRequest.cpp in Sources */,
 				BA611ECF1A63C90400736A5F /* SASFolder.cpp in Sources */,
 				BA611EB41A63C8F700736A5F /* SASWBXml.cpp in Sources */,
 				BA611E961A63C8EA00736A5F /* SASSettingsResponse.cpp in Sources */,
 				BA611E911A63C8EA00736A5F /* SASProvisionRequest.cpp in Sources */,
+				99E2E3711A65814D005E504E /* SASItemOperationsResponse.cpp in Sources */,
 				BA611ECA1A63C90400736A5F /* SASAttachment.cpp in Sources */,
 				BA611E921A63C8EA00736A5F /* SASProvisionResponse.cpp in Sources */,
 				BA611EB21A63C8F700736A5F /* SASOptionsRequest.cpp in Sources */,
 				BA611E651A63C8E000736A5F /* decode.c in Sources */,
 				BA611E661A63C8E000736A5F /* encode.c in Sources */,
 				BA611E941A63C8EA00736A5F /* SASSendMailResponse.cpp in Sources */,
+				99E2E36A1A6580EB005E504E /* SASFetchMIMEEmailRequest.cpp in Sources */,
+				99E2E3701A65814D005E504E /* SASItemOperationsRequest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -73,7 +73,11 @@ void SASSerializer::writeElement(const std::string &name, const std::string &val
 
 void SASSerializer::writeElementNS(const std::string &name, const std::string &value, const std::string &prefix, const std::string &space) {
   
-  xmlTextWriterWriteElementNS(_writer, BAD_CAST prefix.c_str(), BAD_CAST name.c_str(), BAD_CAST space.c_str(), BAD_CAST value.c_str());
+  if (space.empty()) {
+    xmlTextWriterWriteElementNS(_writer, BAD_CAST prefix.c_str(), BAD_CAST name.c_str(), nullptr, BAD_CAST value.c_str());
+  } else {
+    xmlTextWriterWriteElementNS(_writer, BAD_CAST prefix.c_str(), BAD_CAST name.c_str(), BAD_CAST space.c_str(), BAD_CAST value.c_str());
+  }
   
 }
 
@@ -89,6 +93,19 @@ void SASSerializer::writeFormatElement(const std::string &name, const char *form
   va_list arglist;
   va_start(arglist, format);
   xmlTextWriterWriteVFormatElement(_writer, BAD_CAST name.c_str(), format, arglist);
+  
+}
+
+void SASSerializer::writeFormatElementNS(const std::string &name, const std::string &prefix, const std::string &space, const char *format, ...) {
+
+  va_list arglist;
+  va_start(arglist, format);
+  
+  if (space.empty()) {
+   xmlTextWriterWriteVFormatElementNS(_writer, BAD_CAST prefix.c_str(), BAD_CAST name.c_str(), nullptr, format, arglist);
+  } else {
+    xmlTextWriterWriteVFormatElementNS(_writer, BAD_CAST prefix.c_str(), BAD_CAST name.c_str(), BAD_CAST space.c_str(), format, arglist);
+  }
   
 }
 
