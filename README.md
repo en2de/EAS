@@ -1,7 +1,7 @@
-Slim-EAS
+SlimEAS
 ========
 
-EAS Client build for Slim
+EAS Client
 
 General design according to :
 
